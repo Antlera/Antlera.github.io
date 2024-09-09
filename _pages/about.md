@@ -21,4 +21,4 @@ I am a PhD student in computer science at [$$Ds^2 Lab$$](https://ds2-lab.github.
 
 Before joining UVA, I earned my bachelor's degree from Sichuan University, where I had the privilege of being guided by Prof. [Mingjie Tang](https://merlintang.github.io/) and Prof. [Hui Lu](https://huilucs.github.io/) from UTA, focusing on optimizing large-scale recommendation model training systems. I was also fortunate to be advised by Prof. [Jianguo Wang](https://www.cs.purdue.edu/homes/csjgwang/) from Purdue University, with a focus on utilizing machine learning techniques to optimize graph algorithms' performance. 
 
-I am open to other opportunities and new research, so please feel free to reach me at my email erc8gx@virginia.edu
+I am open to other opportunities and new research, so please feel free to reach me at my email *erc8gx _AT_ virginia.edu*
