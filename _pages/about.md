@@ -2,24 +2,23 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: Computer Science Research Lover at <a href='https://ds2-lab.github.io/'>DS2 Lab</a>, University of Virginia.
 
 profile:
-  align: right
-  image: prof_pic.jpg
+  align: left
+  image: profile.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a PhD student in computer science at [$$Ds^2 Lab$$](https://ds2-lab.github.io/) of the University of Virginia under Prof. [Yue Cheng](https://tddg.github.io/).
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+**Generally, I aim to develop high-performance, scalable systems for emerging ML applications.** Currently I am working on building better (computing and storage) systems for (distributed) ML applications. For example, rethinking the potential of multi-tier parallel processing within heterogeneous computing environments like CPU-GPU collaborative computing. 
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Before joining UVA, I earned my bachelor's degree from Sichuan University, where I had the privilege of being guided by Prof. [Mingjie Tang](https://merlintang.github.io/) and Prof. [Hui Lu](https://huilucs.github.io/) from UTA, focusing on optimizing large-scale recommendation model training systems. I was also fortunate to be advised by Prof. [Jianguo Wang](https://www.cs.purdue.edu/homes/csjgwang/) from Purdue University, with a focus on utilizing machine learning techniques to optimize graph algorithms' performance. 
+
+I am open to other opportunities and new research, so please feel free to reach me at my email erc8gx@virginia.edu
