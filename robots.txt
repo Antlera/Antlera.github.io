@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://Antlera.github.io/sitemap.xml
+Sitemap: https://antlera.github.io/sitemap.xml
