@@ -313,8 +313,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Tingfeng]
-  first_name: [Lan]
+  last_name: [Lan]
+  first_name: [Tingfeng]
 
   style: apa
   locale: en
