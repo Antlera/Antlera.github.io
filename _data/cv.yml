@@ -2,18 +2,14 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
-    - name: Languages
-      value: English, German
+      value: Tingfeng Lan
 
 - title: Education
   type: time_table
   contents:
     - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+      institution: University of Virginia, Charlottesville, United States
+      year: 2024 - now
       description:
         - Description 1.
         - Description 2.
