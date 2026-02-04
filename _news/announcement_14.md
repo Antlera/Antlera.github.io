@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2025-12-09 07:59:00-0400
+date: 2026-01-27 07:59:00-0400
 inline: true
 related_posts: false
 ---
 
-&nbsp;💡💡 Honored to serve on the Artifact Evaluation Program Committee for [NSDI'26](https://www.usenix.org/conference/nsdi26)!
+&nbsp;🎉🎉 Our work ["MorphServe"](https://arxiv.org/abs/2506.02006) and ["λScale"](https://arxiv.org/abs/2502.09922) are accepted by [MLSys'26](https://mlsys.org/Conferences/2026)!

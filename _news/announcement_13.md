@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2025-09-18 07:59:00-0400
+date: 2025-12-09 07:59:00-0400
 inline: true
 related_posts: false
 ---
 
-&nbsp;💡💡 Thrilled to receive a grant from [Modal for Academics](https://modal.com/academics) — big thanks to [Modal](https://modal.com/)!
+&nbsp;💡💡 Honored to serve on the Artifact Evaluation Program Committee for [NSDI'26](https://www.usenix.org/conference/nsdi26)!
