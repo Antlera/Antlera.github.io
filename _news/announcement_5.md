@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-&nbsp;🎉🎉 Our work ["DLRover-RM: Resource Optimization for Deep Recommendation Models Training in the Cloud"](https://www.vldb.org/pvldb/vol17/p4130-tang.pdf) is accepted by [VLDB'24](https://vldb.org/2024/?call-for-industrial-track)!.
+&nbsp;🎉🎉 Our work ["DLRover-RM: Resource Optimization for Deep Recommendation Models Training in the Cloud"](https://www.vldb.org/pvldb/vol17/p4130-tang.pdf) is accepted by [VLDB'24](https://vldb.org/2024/?call-for-industrial-track)!

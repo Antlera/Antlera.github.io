@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-&nbsp;🎉🎉 Our work ["ZipLLM: Efficient LLM Storage via Model-Aware Synergistic Data Deduplication and Compression"](https://arxiv.org/abs/2505.06252) is accepted by [NSDI'26](https://www.usenix.org/conference/nsdi26)!.
+&nbsp;🎉🎉 Our work ["ZipLLM: Efficient LLM Storage via Model-Aware Synergistic Data Deduplication and Compression"](https://arxiv.org/abs/2505.06252) is accepted by [NSDI'26](https://www.usenix.org/conference/nsdi26)!
