@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-&nbsp;🎉🎉 Honored to receive the EuroSys Distinguished AEC Award!
+&nbsp;🎉🎉 Honored to receive the **EuroSys Distinguished AEC Award**!
