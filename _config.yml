@@ -3,12 +3,12 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: Tingfeng Lan
-middle_name:
-last_name:
-email: erc8gx@virginia.edu # your email address
+first_name: Tingfeng
+middle_name: (Felix)
+last_name: Lan
+email: mailto:erc8gx@virginia.edu # your email address
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Personal space of Tingfeng Lan.
+  Personal space of Tingfeng (Felix) Lan.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
