@@ -15,10 +15,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a PhD student in computer science at [$$Ds^2 Lab$$](https://ds2-lab.github.io/) of the University of Virginia under Prof. [Yue Cheng](https://tddg.github.io/).
+I am a PhD student in computer science at [$$Ds^2 Lab$$](https://ds2-lab.github.io/) of the University of Virginia under Prof. [Yue Cheng](https://tddg.github.io/). I also fortunately worked closely with [Juncheng Yang](https://junchengyang.com/) from Harvard.
 
-**Generally, I aim to develop high-performance, scalable systems for emerging ML applications.** Currently I am working on building better (computing and storage) systems for (distributed) ML applications. For example, rethinking the potential of multi-tier parallel processing within heterogeneous computing environments like CPU-GPU collaborative computing. 
-
-I also fortunately worked closely with [Juncheng Yang](https://junchengyang.com/).
+**Generally, I aim to build high-performance, scalable systems for emerging AI applications.** My recent work develops brand-new system abstractions and representations to support more efficient training and storage systems, with a particular focus on addressing I/O bottlenecks.
 
 I am open to other opportunities and new research, so please feel free to reach me at my email *erc8gx _AT_ virginia.edu*
