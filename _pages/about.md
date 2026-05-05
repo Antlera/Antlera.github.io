@@ -19,4 +19,6 @@ I am a PhD student in computer science at [$$Ds^2 Lab$$](https://ds2-lab.github.
 
 **Generally, I aim to develop high-performance, scalable systems for emerging ML applications.** Currently I am working on building better (computing and storage) systems for (distributed) ML applications. For example, rethinking the potential of multi-tier parallel processing within heterogeneous computing environments like CPU-GPU collaborative computing. 
 
+I also fortunately worked closely with [Juncheng Yang](https://junchengyang.com/).
+
 I am open to other opportunities and new research, so please feel free to reach me at my email *erc8gx _AT_ virginia.edu*
