@@ -5,9 +5,8 @@
     <i class="ti ti-users"></i>
   </div>
   <div class="interest-stats-body">
-    <div class="interest-stats-kicker">Hello, traveler</div>
     <div class="interest-stats-label interest-stats-sentence" data-interest-label>
-      you are the <span class="interest-stats-value" data-interest-value>&mdash;</span> traveler to pass through this corner of the web
+      Hello, traveler, you are the <span class="interest-stats-value" data-interest-value>&mdash;</span> traveler to pass through this corner of the web
     </div>
     <div class="interest-stats-map" aria-label="Visitor source map">
       <div class="interest-stats-map-canvas" data-interest-map></div>
@@ -174,7 +173,7 @@
         if (!Number.isFinite(users)) throw new Error("Stats value unavailable");
 
         animateValue(users);
-        labelEl.setAttribute("aria-label", "you are the " + formatter.format(users) + " traveler to pass through this corner of the web");
+        labelEl.setAttribute("aria-label", "Hello, traveler, you are the " + formatter.format(users) + " traveler to pass through this corner of the web");
         renderMap(stats.topCountries, users);
         setMeta(stats.updatedAt);
         widget.dataset.loaded = "true";
