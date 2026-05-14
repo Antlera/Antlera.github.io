@@ -13,6 +13,7 @@ profile:
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
+interest_stats: true # shows Google Analytics homepage interest stats
 ---
 
 I am a PhD student in computer science at [$$Ds^2 Lab$$](https://ds2-lab.github.io/) of the University of Virginia under Prof. [Yue Cheng](https://tddg.github.io/). I also fortunately worked closely with [Juncheng Yang](https://junchengyang.com/) from Harvard.

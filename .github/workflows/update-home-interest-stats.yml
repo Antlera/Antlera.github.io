@@ -1,0 +1,35 @@
+name: Update homepage interest stats
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Update stats from Google Analytics
+        env:
+          GA_SERVICE_ACCOUNT_JSON: ${{ secrets.GA_SERVICE_ACCOUNT_JSON }}
+          GA_STATS_START_DATE: ${{ vars.GA_STATS_START_DATE || '2020-01-01' }}
+        run: node scripts/update-home-interest-stats.mjs
+
+      - name: Commit stats
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update homepage interest stats"
+          file_pattern: assets/json/home_interest_stats.json

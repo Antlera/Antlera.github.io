@@ -1,0 +1,204 @@
+{% assign stats_url = '/assets/json/home_interest_stats.json' | relative_url %}
+
+<section class="interest-stats" data-interest-stats data-stats-url="{{ stats_url }}">
+  <div class="interest-stats-icon" aria-hidden="true">
+    <i class="ti ti-users"></i>
+  </div>
+  <div class="interest-stats-body">
+    <div class="interest-stats-kicker">Hello, visitor from the world</div>
+    <div class="interest-stats-value" data-interest-value>&mdash;</div>
+    <div class="interest-stats-label" data-interest-label>you are joining a small trail of travelers here</div>
+    <div class="interest-stats-map" aria-label="Visitor source map">
+      <div class="interest-stats-map-canvas" data-interest-map></div>
+      <div class="interest-stats-regions" data-interest-regions></div>
+    </div>
+    <div class="interest-stats-meta" data-interest-meta>Updated from Google Analytics</div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const widget = document.querySelector("[data-interest-stats]");
+    if (!widget) return;
+
+    const valueEl = widget.querySelector("[data-interest-value]");
+    const labelEl = widget.querySelector("[data-interest-label]");
+    const mapEl = widget.querySelector("[data-interest-map]");
+    const regionsEl = widget.querySelector("[data-interest-regions]");
+    const metaEl = widget.querySelector("[data-interest-meta]");
+    const statsUrl = widget.dataset.statsUrl;
+    const formatter = new Intl.NumberFormat(undefined, { maximumFractionDigits: 0 });
+    const svgNs = "http://www.w3.org/2000/svg";
+    const regionBounds = {
+      Australia: [[-44, 112], [-10, 154]],
+      Brazil: [[-34, -74], [6, -34]],
+      Canada: [[42, -141], [83, -52]],
+      China: [[18, 73], [54, 135]],
+      France: [[41, -5], [51, 9]],
+      Germany: [[47, 5], [55, 16]],
+      "Hong Kong": [[22.15, 113.8], [22.6, 114.5]],
+      India: [[6, 68], [36, 98]],
+      Italy: [[36, 6], [47, 19]],
+      Japan: [[30, 129], [46, 146]],
+      Netherlands: [[50.7, 3.3], [53.7, 7.3]],
+      Singapore: [[1.15, 103.6], [1.48, 104.1]],
+      "South Korea": [[33, 124], [39, 132]],
+      Switzerland: [[45.8, 5.9], [47.9, 10.6]],
+      Taiwan: [[21.8, 119.3], [25.4, 122.2]],
+      "United Kingdom": [[49.8, -8.7], [60.9, 1.8]],
+      "United States": [[24, -125], [49, -66]],
+    };
+
+    function project(lat, lon) {
+      return [(lon + 180) / 360 * 100, (90 - lat) / 180 * 50];
+    }
+
+    function setMeta(updatedAt) {
+      if (!updatedAt) return;
+
+      const date = new Date(updatedAt);
+      if (Number.isNaN(date.getTime())) return;
+
+      metaEl.textContent = "Updated " + date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+    }
+
+    function ordinal(number) {
+      const mod100 = number % 100;
+      if (mod100 >= 11 && mod100 <= 13) return formatter.format(number) + "th";
+
+      switch (number % 10) {
+        case 1:
+          return formatter.format(number) + "st";
+        case 2:
+          return formatter.format(number) + "nd";
+        case 3:
+          return formatter.format(number) + "rd";
+        default:
+          return formatter.format(number) + "th";
+      }
+    }
+
+    function animateValue(targetValue) {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduceMotion) {
+        valueEl.textContent = formatter.format(targetValue);
+        return;
+      }
+
+      const duration = 900;
+      const startTime = performance.now();
+      valueEl.dataset.animating = "true";
+
+      function tick(now) {
+        const progress = Math.min(1, (now - startTime) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        valueEl.textContent = formatter.format(Math.round(targetValue * eased));
+
+        if (progress < 1) {
+          window.requestAnimationFrame(tick);
+        } else {
+          valueEl.textContent = formatter.format(targetValue);
+          delete valueEl.dataset.animating;
+        }
+      }
+
+      window.requestAnimationFrame(tick);
+    }
+
+    function renderMap(countries, totalUsers) {
+      const topCountries = Array.isArray(countries) ? countries.filter((country) => country.country && country.country !== "(not set)") : [];
+      const maxUsers = Math.max.apply(
+        null,
+        topCountries.map(function (country) {
+          return Number(country.totalUsers || 0);
+        }),
+      );
+
+      mapEl.innerHTML = "";
+      regionsEl.innerHTML = "";
+
+      const svg = document.createElementNS(svgNs, "svg");
+      svg.setAttribute("viewBox", "0 0 100 50");
+      svg.setAttribute("role", "img");
+      svg.setAttribute("aria-label", "World map of homepage visitor sources");
+      svg.classList.add("interest-stats-map-svg");
+
+      [
+        "M7 15h17v10H12v5H5v-9h2z",
+        "M25 29h10v14h-8v-5h-4v-5h2z",
+        "M42 13h15v7h-7v5H38v-8h4z",
+        "M54 19h27v17H66v-6h-7v-5h-5z",
+        "M78 16h9v7h-7z",
+        "M76 35h14v8H78z",
+      ].forEach(function (pathData) {
+        const path = document.createElementNS(svgNs, "path");
+        path.setAttribute("d", pathData);
+        path.setAttribute("class", "interest-stats-map-land");
+        svg.appendChild(path);
+      });
+
+      topCountries.slice(0, 5).forEach(function (country) {
+        const bounds = regionBounds[country.country];
+        const users = Number(country.totalUsers || 0);
+        const share = totalUsers > 0 ? users / totalUsers : 0;
+        const intensity = maxUsers > 0 ? users / maxUsers : 0;
+
+        if (bounds) {
+          const nw = project(bounds[1][0], bounds[0][1]);
+          const se = project(bounds[0][0], bounds[1][1]);
+          const block = document.createElementNS(svgNs, "rect");
+          block.setAttribute("x", nw[0]);
+          block.setAttribute("y", nw[1]);
+          block.setAttribute("width", Math.max(1.4, se[0] - nw[0]));
+          block.setAttribute("height", Math.max(1.2, se[1] - nw[1]));
+          block.setAttribute("rx", "0.8");
+          block.setAttribute("class", "interest-stats-map-block");
+          block.style.opacity = 0.25 + intensity * 0.65;
+
+          const title = document.createElementNS(svgNs, "title");
+          title.textContent = country.country + ": " + formatter.format(users) + " visitors";
+          block.appendChild(title);
+          svg.appendChild(block);
+        }
+
+        const row = document.createElement("div");
+        row.className = "interest-stats-region";
+        const name = document.createElement("span");
+        const count = document.createElement("strong");
+        const line = document.createElement("em");
+
+        name.textContent = country.country;
+        count.textContent = formatter.format(users);
+        line.style.width = Math.max(6, share * 100) + "%";
+        row.append(name, count, line);
+        regionsEl.appendChild(row);
+      });
+
+      mapEl.appendChild(svg);
+    }
+
+    fetch(statsUrl, { cache: "no-store" })
+      .then(function (response) {
+        if (!response.ok) throw new Error("Stats file unavailable");
+        return response.json();
+      })
+      .then(function (stats) {
+        if (stats.totalUsers === null || stats.totalUsers === undefined) throw new Error("Stats value unavailable");
+
+        const users = Number(stats.totalUsers);
+        if (!Number.isFinite(users)) throw new Error("Stats value unavailable");
+
+        animateValue(users);
+        labelEl.textContent = "you are the " + ordinal(users) + " traveler to pass through";
+        renderMap(stats.topCountries, users);
+        setMeta(stats.updatedAt);
+        widget.dataset.loaded = "true";
+      })
+      .catch(function () {
+        valueEl.textContent = "GA";
+        labelEl.textContent = "this trail is still being counted";
+        regionsEl.textContent = "Source data pending";
+        metaEl.textContent = "Collecting public summary";
+      });
+  })();
+</script>

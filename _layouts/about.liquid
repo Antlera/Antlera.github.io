@@ -75,5 +75,9 @@ layout: default
     {% if site.newsletter.enabled and site.footer_fixed %}
       {% include scripts/newsletter.liquid center=true %}
     {% endif %}
+
+    {% if page.interest_stats %}
+      {% include interest_stats.liquid %}
+    {% endif %}
   </article>
 </div>

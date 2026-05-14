@@ -1,0 +1,49 @@
+{
+  "totalUsers": 1543,
+  "screenPageViews": 3938,
+  "topCountries": [
+    {
+      "country": "China",
+      "totalUsers": 606,
+      "screenPageViews": 712
+    },
+    {
+      "country": "Singapore",
+      "totalUsers": 544,
+      "screenPageViews": 359
+    },
+    {
+      "country": "United States",
+      "totalUsers": 377,
+      "screenPageViews": 731
+    },
+    {
+      "country": "Hong Kong",
+      "totalUsers": 46,
+      "screenPageViews": 68
+    },
+    {
+      "country": "Japan",
+      "totalUsers": 24,
+      "screenPageViews": 61
+    },
+    {
+      "country": "Taiwan",
+      "totalUsers": 13,
+      "screenPageViews": 78
+    },
+    {
+      "country": "Germany",
+      "totalUsers": 12,
+      "screenPageViews": 67
+    },
+    {
+      "country": "India",
+      "totalUsers": 11,
+      "screenPageViews": 128
+    }
+  ],
+  "updatedAt": "2026-05-14T19:41:35.435Z",
+  "source": "google_analytics",
+  "startDate": "2020-01-01"
+}
