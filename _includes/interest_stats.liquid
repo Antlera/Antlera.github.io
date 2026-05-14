@@ -12,7 +12,6 @@
       <div class="interest-stats-map-canvas" data-interest-map></div>
       <div class="interest-stats-regions" data-interest-regions></div>
     </div>
-    <div class="interest-stats-meta" data-interest-meta>Updated from Google Analytics</div>
   </div>
 </section>
 
@@ -25,7 +24,6 @@
     const labelEl = widget.querySelector("[data-interest-label]");
     const mapEl = widget.querySelector("[data-interest-map]");
     const regionsEl = widget.querySelector("[data-interest-regions]");
-    const metaEl = widget.querySelector("[data-interest-meta]");
     const statsUrl = widget.dataset.statsUrl;
     const formatter = new Intl.NumberFormat(undefined, { maximumFractionDigits: 0 });
     const svgNs = "http://www.w3.org/2000/svg";
@@ -51,15 +49,6 @@
 
     function project(lat, lon) {
       return [(lon + 180) / 360 * 100, (90 - lat) / 180 * 50];
-    }
-
-    function setMeta(updatedAt) {
-      if (!updatedAt) return;
-
-      const date = new Date(updatedAt);
-      if (Number.isNaN(date.getTime())) return;
-
-      metaEl.textContent = "Updated " + date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
     }
 
     function animateValue(targetValue) {
@@ -175,14 +164,12 @@
         animateValue(users);
         labelEl.setAttribute("aria-label", "Hello, traveler, you are the " + formatter.format(users) + " traveler to pass through this corner of the web");
         renderMap(stats.topCountries, users);
-        setMeta(stats.updatedAt);
         widget.dataset.loaded = "true";
       })
       .catch(function () {
         valueEl.textContent = "GA";
         labelEl.textContent = "this trail is still being counted";
         regionsEl.textContent = "Source data pending";
-        metaEl.textContent = "Collecting public summary";
       });
   })();
 </script>
