@@ -173,7 +173,7 @@
         if (!Number.isFinite(users)) throw new Error("Stats value unavailable");
 
         animateValue(users);
-        labelEl.textContent = "travelers have passed through this corner of the web";
+        labelEl.textContent = "you are the traveler to pass through this corner of the web";
         renderMap(stats.topCountries, users);
         setMeta(stats.updatedAt);
         widget.dataset.loaded = "true";
