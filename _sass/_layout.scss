@@ -74,12 +74,14 @@ body.sticky-bottom-footer {
 }
 
 .interest-stats-value {
-  margin: 0.05rem 0;
+  display: inline-block;
+  margin: 0 0.18rem;
   color: var(--global-theme-color);
   font-size: 1.85rem;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1;
   font-variant-numeric: tabular-nums;
+  vertical-align: -0.08em;
   transition:
     opacity 180ms ease,
     transform 180ms ease;
@@ -94,6 +96,10 @@ body.sticky-bottom-footer {
   color: var(--global-text-color);
   font-size: 0.95rem;
   line-height: 1.35;
+}
+
+.interest-stats-sentence {
+  margin-top: 0.1rem;
 }
 
 .interest-stats-map {
