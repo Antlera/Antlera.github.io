@@ -18,6 +18,6 @@ interest_stats: true # shows Google Analytics homepage interest stats
 
 I am a PhD student in computer science at [$$Ds^2 Lab$$](https://ds2-lab.github.io/) of the University of Virginia under Prof. [Yue Cheng](https://tddg.github.io/). I also fortunately worked closely with [Juncheng Yang](https://junchengyang.com/) from Harvard.
 
-**Generally, I aim to build high-performance, scalable systems for emerging AI applications.** My recent work develops brand-new system abstractions and representations to support more efficient training and storage systems, with a particular focus on addressing I/O bottlenecks.
+**Generally, I aim to build high-performance, scalable systems for the full stack of LLM applications.** My recent work develops new system abstractions and representations to support efficient LLM training, inference, and storage, with a particular focus on addressing I/O bottlenecks.
 
 I am open to other opportunities and new research, so please feel free to reach me at [erc8gx@virginia.edu](mailto:erc8gx@virginia.edu).
