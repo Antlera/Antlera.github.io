@@ -20,4 +20,4 @@ I am a PhD student in computer science at [$$Ds^2 Lab$$](https://ds2-lab.github.
 
 **Generally, I aim to build high-performance, scalable systems for emerging AI applications.** My recent work develops brand-new system abstractions and representations to support more efficient training and storage systems, with a particular focus on addressing I/O bottlenecks.
 
-I am open to other opportunities and new research, so please feel free to reach me at my email *erc8gx _AT_ virginia.edu*
+I am open to other opportunities and new research, so please feel free to reach me at [erc8gx@virginia.edu](mailto:erc8gx@virginia.edu).
