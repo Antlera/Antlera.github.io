@@ -26,11 +26,10 @@ jobs:
   update-cv:
     runs-on: ubuntu-latest
     env:
-      TEX_ROOT_FILE: main.tex            # CHANGE if your root .tex has a different name
       OUT_PDF_PATH: assets/pdf/CV.pdf    # served by al-folio via _pages/cv.md cv_pdf: CV.pdf
     steps:
       - name: Checkout site
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Clone Overleaf CV project
         env:
@@ -47,21 +46,47 @@ jobs:
           git clone --depth=1 "$authed" overleaf-cv
           ls overleaf-cv
 
+      - name: Detect root .tex file
+        id: detect
+        run: |
+          set -euo pipefail
+          cd overleaf-cv
+          # Prefer common names if they exist and contain \documentclass.
+          ROOT=""
+          for f in main.tex cv.tex CV.tex resume.tex Resume.tex; do
+            if [ -f "$f" ] && grep -q '\\documentclass' "$f"; then
+              ROOT="$f"; break
+            fi
+          done
+          # Fallback: any .tex (recursive) that contains \documentclass.
+          if [ -z "$ROOT" ]; then
+            ROOT=$(grep -rl '\\documentclass' --include='*.tex' . 2>/dev/null | head -n1 | sed 's|^\./||')
+          fi
+          if [ -z "$ROOT" ]; then
+            echo "::error::no .tex file containing \\documentclass found in Overleaf project"
+            echo "Files in overleaf-cv:"; ls -la
+            exit 1
+          fi
+          echo "Detected root tex file: $ROOT"
+          echo "root_file=$ROOT"     >> "$GITHUB_OUTPUT"
+          echo "root_stem=${ROOT%.tex}" >> "$GITHUB_OUTPUT"
+
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
           working_directory: overleaf-cv
-          root_file: ${{ env.TEX_ROOT_FILE }}
+          root_file: ${{ steps.detect.outputs.root_file }}
           # If your CV uses xelatex / lualatex / specific fonts, set one of these:
           # latexmk_use_xelatex: true
           # latexmk_use_lualatex: true
           # Default uses pdflatex via latexmk, with bibtex/biber auto-detected.
 
       - name: Copy compiled PDF into the site
+        env:
+          ROOT_STEM: ${{ steps.detect.outputs.root_stem }}
         run: |
           set -euo pipefail
-          base="${TEX_ROOT_FILE%.tex}"
-          src="overleaf-cv/${base}.pdf"
+          src="overleaf-cv/${ROOT_STEM}.pdf"
           if [ ! -f "$src" ]; then
             echo "::error::expected ${src} after compile, not found"
             ls overleaf-cv
