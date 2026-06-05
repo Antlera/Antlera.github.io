@@ -76,10 +76,8 @@ jobs:
         with:
           working_directory: overleaf-cv
           root_file: ${{ steps.detect.outputs.root_file }}
-          # If your CV uses xelatex / lualatex / specific fonts, set one of these:
-          # latexmk_use_xelatex: true
-          # latexmk_use_lualatex: true
-          # Default uses pdflatex via latexmk, with bibtex/biber auto-detected.
+          # CV uses xltxtra which mandates XeTeX. Switch from pdflatex.
+          latexmk_use_xelatex: true
 
       - name: Copy compiled PDF into the site
         env:
