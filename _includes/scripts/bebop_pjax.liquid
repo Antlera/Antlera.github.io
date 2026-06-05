@@ -4,7 +4,7 @@
     if (!window.fetch || !window.history.pushState || !window.DOMParser) return;
 
     // Elements that get swapped on navigation. The floating player lives
-    // outside .container.mt-5 and outside <footer>, so it survives.
+    // outside .container.mt-5 and outside the page footer, so it survives.
     var SWAP = ['.container.mt-5', 'footer.fixed-bottom', 'footer.sticky-bottom'];
 
     function pickInternalLink(target) {
