@@ -16,7 +16,7 @@ hero_links:
   - { label: "email",   url: "mailto:erc8gx@virginia.edu" }
   - { label: "scholar", url: "https://scholar.google.com/citations?user=5uP5yDEAAAAJ&hl=en", external: true }
   - { label: "github",  url: "https://github.com/Antlera", external: true }
-  - { label: "cv",      url: "/cv/" }
+  - { label: "cv",      url: "/assets/pdf/CV.pdf" }
 
 # ─── Homepage sections (turn off to hide) ────────────────────────────────────
 selected_papers: true
