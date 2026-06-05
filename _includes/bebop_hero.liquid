@@ -1,0 +1,29 @@
+{%- comment -%}
+  Bebop hero block — the "Isn't it so fun?" headline.
+  Pulls copy from page frontmatter (hero_eyebrow, hero_subtitle, hero_links).
+{%- endcomment -%}
+<section class="bebop-hero">
+  {%- if page.hero_eyebrow -%}
+    <div class="hero-eyebrow">{{ page.hero_eyebrow }}</div>
+  {%- endif -%}
+
+  <h1 class="hero-title">
+    Isn't it
+    <span class="underline">so</span>
+    <span class="accent">fun?</span>
+  </h1>
+
+  {%- if page.hero_subtitle -%}
+    <p class="hero-subtitle">{{ page.hero_subtitle }}</p>
+  {%- endif -%}
+
+  {%- if page.hero_links -%}
+    <div class="hero-links">
+      {%- for link in page.hero_links -%}
+        <a href="{{ link.url }}"{% if link.external %} target="_blank" rel="noopener"{% endif %}>{{ link.label }}</a>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  {% include bebop_jazz_deco.liquid %}
+</section>

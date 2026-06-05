@@ -1,0 +1,13 @@
+# Manually maintained "Now Playing" block for the homepage.
+# Update whenever you feel like it — that's the whole point of a personal site.
+
+track: "So What"
+artist: "Miles Davis"
+album: "Kind of Blue · 1959"
+youtube_id: "zqNTltOGh5c"        # used by the hidden YouTube player on the homepage
+youtube: "https://www.youtube.com/watch?v=zqNTltOGh5c"  # fallback link
+
+# Optional side notes — what else is on rotation right now
+side:
+  - "Reading《Gödel, Escher, Bach》again"
+  - "Hacking on TStore"

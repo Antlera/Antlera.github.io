@@ -48,3 +48,40 @@ $back-to-top-right: 30px;
 $back-to-top-diameter: 40px;
 $back-to-top-height: $back-to-top-diameter;
 $back-to-top-width: $back-to-top-diameter;
+
+/*******************************************************************************
+ * Bebop / "Isn't it so fun?" theme palette.
+ ******************************************************************************/
+
+// Light — sage smoke (mid-century lounge / ECM record vibe)
+// To swap palettes, change only these three values:
+//   ivory:       #f2eee5 / #e8e2d3 / #d0c9b6
+//   sage smoke:  #d8dbc4 / #ccd0b5 / #b7bc9f  ← current
+//   blush:       #e8d0be / #dcc0aa / #c8a88e
+//   warm cream:  #f4ebd9 / #eadfc7 / #d8c9a8  ← original
+$bebop-cream: #f2eee5;
+$bebop-cream-deep: #e8e2d3;
+$bebop-cream-edge: #d0c9b6;
+$bebop-ink: #1b2a4e;
+$bebop-ink-soft: #3a4a6e;
+$bebop-mustard: #d4a537;
+$bebop-mustard-deep: #b6862a;
+$bebop-brick: #b23a48;
+$bebop-brick-deep: #8a2a34;
+$bebop-sage: #6b8e5a;
+$bebop-charcoal: #2b2b2b;
+
+// Dark — smoky club at 2am
+$bebop-night: #14162a;
+$bebop-night-deep: #0c0e1c;
+$bebop-night-soft: #1f2236;
+$bebop-cream-on-night: #ece0c4;
+$bebop-cream-on-night-soft: #b9ad94;
+$bebop-mustard-bright: #e8b84a;
+$bebop-brick-bright: #d4525f;
+
+// Fonts
+$bebop-font-display: "Caveat Brush", "Permanent Marker", cursive;
+$bebop-font-script: "Caveat", "Reenie Beanie", cursive;
+$bebop-font-body: "Fraunces", "Crimson Pro", "EB Garamond", Georgia, serif;
+$bebop-font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;

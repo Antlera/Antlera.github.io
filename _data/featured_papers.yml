@@ -1,0 +1,88 @@
+# Hand-curated selected papers for the homepage card grid.
+# Categorized by area — these mirror the bebop_papers_tabs sections.
+# For the full publication list, see _bibliography/papers.bib (rendered at /publications/).
+
+vis:
+  - title: "IGenBench: Benchmarking the Reliability of Text-to-Infographic Generation"
+    venue: "preprint · 2026"
+    tag: "co-author"
+    desc: "First benchmark for text-to-infographic generation — 600 tests across 30 infographic types, automated reliability checks via atomic yes/no questions."
+    img:
+    links:
+      - { label: "pdf", url: "https://arxiv.org/abs/2601.04498" }
+
+  - title: "Demonstrating ViviDoc: Generating Interactive Documents through Human-Agent Collaboration"
+    venue: "preprint · 2026"
+    tag: "co-author"
+    desc: "Human-agent system for interactive educational documents — multi-agent pipeline (Planner / Executor / Evaluator) plus a human-readable DocSpec IR."
+    img:
+    links:
+      - { label: "pdf", url: "https://arxiv.org/abs/2603.01912" }
+
+storage:
+  - title: "TStore: Rethinking AI Model Hub with Tensor-Centric Compression"
+    venue: "preprint · 2026"
+    tag: "first author"
+    desc: "A tensor-centric storage layer for AI model hubs — compressing checkpoints by exploiting their internal structure."
+    img: # add a path under assets/img/ when ready
+    links:
+      - { label: "pdf",  url: "https://arxiv.org/abs/2604.17104" }
+      - { label: "code", url: "#" }
+
+  - title: "ZipLLM: Efficient LLM Storage via Model-Aware Deduplication and Compression"
+    venue: "NSDI '26"
+    tag: "co-author"
+    desc: "Synergistic dedup + compression tuned to how LLM weights actually look on disk."
+    img:
+    links:
+      - { label: "pdf", url: "https://arxiv.org/abs/2505.06252" }
+
+inference:
+  - title: "MorphServe: Workload-Aware LLM Serving via Runtime Layer Swapping and KV Cache Resizing"
+    venue: "MLSys '26"
+    tag: "co-author"
+    desc: "Adapt the serving stack at runtime — swap layers, resize KV cache, ride the workload."
+    img:
+    links:
+      - { label: "pdf", url: "https://arxiv.org/abs/2506.02006" }
+
+  - title: "λScale: Fast Scaling for Serverless LLM Inference"
+    venue: "MLSys '26"
+    tag: "co-author"
+    desc: "Cold start is no longer a death sentence for serverless LLMs."
+    img:
+    links:
+      - { label: "pdf", url: "https://arxiv.org/abs/2502.09922" }
+
+  - title: "Scorpio: Serving the Right Requests at the Right Time for Heterogeneous SLOs in LLM Inference"
+    venue: "preprint · 2025"
+    tag: "co-author"
+    desc: "SLO-aware LLM serving — TTFT/TPOT guards with credit-based batching for workloads with heterogeneous deadlines."
+    img:
+    links:
+      - { label: "pdf", url: "https://arxiv.org/abs/2505.23022" }
+
+training:
+  - title: "ZenFlow: Stall-Free Offloading Training via Asynchronous Updates"
+    venue: "preprint · 2025"
+    tag: "first author"
+    desc: "Async updates kill the offloading stall — train bigger models on the same GPUs."
+    img:
+    links:
+      - { label: "pdf", url: "https://arxiv.org/abs/2505.12242" }
+
+  - title: "mLoRA: Fine-Tuning LoRA Adapters via Pipeline Parallelism"
+    venue: "VLDB '25"
+    tag: "co-author"
+    desc: "Pipeline-parallel LoRA training across multiple GPUs."
+    img:
+    links:
+      - { label: "pdf", url: "https://arxiv.org/abs/2312.02515" }
+
+  - title: "DLRover-RM: Resource Optimization for Deep Recommendation Models in the Cloud"
+    venue: "VLDB '24"
+    tag: "co-first"
+    desc: "Resource autoscaling that understands recommendation training workloads."
+    img:
+    links:
+      - { label: "pdf", url: "https://doi.org/10.14778/3685800.3685832" }

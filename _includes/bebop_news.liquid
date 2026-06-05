@@ -1,0 +1,26 @@
+{%- comment -%}
+  Bebop-styled news timeline. Pulls from site.news collection.
+  Default: show all. Pass limit=N to cap.
+{%- endcomment -%}
+{%- assign news = site.news | reverse -%}
+{%- if include.limit -%}
+  {%- assign news = news | slice: 0, include.limit -%}
+{%- endif -%}
+{%- if news and news.size > 0 -%}
+<div class="bebop-news">
+  {%- for item in news -%}
+    <div class="news-item">
+      <div class="news-date">{{ item.date | date: '%Y.%m' }}</div>
+      <div class="news-body">
+        {%- if item.inline -%}
+          {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+        {%- else -%}
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
+{%- else -%}
+  <p style="opacity:0.6;font-style:italic;">No news yet — but the band's tuning up. ♪</p>
+{%- endif -%}

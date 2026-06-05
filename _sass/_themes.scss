@@ -3,20 +3,33 @@
  ******************************************************************************/
 
 :root {
-  --global-bg-color: #{$white-color};
-  --global-code-bg-color: #{$code-bg-color-light};
-  --global-text-color: #{$black-color};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$purple-color};
-  --global-hover-color: #{$purple-color};
-  --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-dark};
-  --global-footer-text-color: #{$grey-color-light};
-  --global-footer-link-color: #{$white-color};
-  --global-distill-app-color: #{$grey-color};
-  --global-divider-color: rgba(0, 0, 0, 0.1);
-  --global-card-bg-color: #{$white-color};
-  --global-highlight-color: #{$red-color-dark};
+  --global-bg-color: #{$bebop-cream};
+  --global-code-bg-color: rgba(#{red($bebop-ink)}, #{green($bebop-ink)}, #{blue($bebop-ink)}, 0.06);
+  --global-text-color: #{$bebop-ink};
+  --global-text-color-light: #{$bebop-ink-soft};
+  --global-theme-color: #{$bebop-brick};
+  --global-hover-color: #{$bebop-mustard};
+  --global-hover-text-color: #{$bebop-ink};
+  --global-footer-bg-color: #{$bebop-ink};
+  --global-footer-text-color: #{$bebop-cream};
+  --global-footer-link-color: #{$bebop-mustard};
+  --global-distill-app-color: #{$bebop-ink-soft};
+  --global-divider-color: rgba(#{red($bebop-ink)}, #{green($bebop-ink)}, #{blue($bebop-ink)}, 0.15);
+  --global-card-bg-color: #{$bebop-cream-deep};
+  --global-highlight-color: #{$bebop-brick-deep};
+
+  // Bebop-specific tokens
+  --bebop-bg: #{$bebop-cream};
+  --bebop-bg-deep: #{$bebop-cream-deep};
+  --bebop-edge: #{$bebop-cream-edge};
+  --bebop-ink: #{$bebop-ink};
+  --bebop-ink-soft: #{$bebop-ink-soft};
+  --bebop-mustard: #{$bebop-mustard};
+  --bebop-mustard-deep: #{$bebop-mustard-deep};
+  --bebop-brick: #{$bebop-brick};
+  --bebop-brick-deep: #{$bebop-brick-deep};
+  --bebop-sage: #{$bebop-sage};
+  --bebop-paper-noise: 0.05;
   --global-back-to-top-bg-color: rgba(#{red($black-color)}, #{green($black-color)}, #{blue($black-color)}, 0.4);
   --global-back-to-top-text-color: #{$white-color};
   --global-newsletter-bg-color: #{$white-color};
@@ -68,19 +81,32 @@
 }
 
 html[data-theme="dark"] {
-  --global-bg-color: #{$grey-color-dark};
-  --global-code-bg-color: #{$code-bg-color-dark};
-  --global-text-color: #{$grey-color-light};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$cyan-color};
-  --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-light};
-  --global-footer-text-color: #{$grey-color-dark};
-  --global-footer-link-color: #{$black-color};
-  --global-distill-app-color: #{$grey-color-light};
-  --global-divider-color: #424246;
-  --global-card-bg-color: #{$grey-900};
+  --global-bg-color: #{$bebop-night};
+  --global-code-bg-color: rgba(#{red($bebop-cream-on-night)}, #{green($bebop-cream-on-night)}, #{blue($bebop-cream-on-night)}, 0.08);
+  --global-text-color: #{$bebop-cream-on-night};
+  --global-text-color-light: #{$bebop-cream-on-night-soft};
+  --global-theme-color: #{$bebop-mustard-bright};
+  --global-hover-color: #{$bebop-brick-bright};
+  --global-hover-text-color: #{$bebop-cream-on-night};
+  --global-footer-bg-color: #{$bebop-night-deep};
+  --global-footer-text-color: #{$bebop-cream-on-night-soft};
+  --global-footer-link-color: #{$bebop-mustard-bright};
+  --global-distill-app-color: #{$bebop-cream-on-night-soft};
+  --global-divider-color: rgba(#{red($bebop-cream-on-night)}, #{green($bebop-cream-on-night)}, #{blue($bebop-cream-on-night)}, 0.15);
+  --global-card-bg-color: #{$bebop-night-soft};
+
+  // Bebop dark tokens
+  --bebop-bg: #{$bebop-night};
+  --bebop-bg-deep: #{$bebop-night-soft};
+  --bebop-edge: #{$bebop-night-deep};
+  --bebop-ink: #{$bebop-cream-on-night};
+  --bebop-ink-soft: #{$bebop-cream-on-night-soft};
+  --bebop-mustard: #{$bebop-mustard-bright};
+  --bebop-mustard-deep: #{$bebop-mustard};
+  --bebop-brick: #{$bebop-brick-bright};
+  --bebop-brick-deep: #{$bebop-brick};
+  --bebop-sage: #{$bebop-sage};
+  --bebop-paper-noise: 0.08;
   --global-back-to-top-bg-color: rgba(#{red($white-color)}, #{green($white-color)}, #{blue($white-color)}, 0.5);
   --global-back-to-top-text-color: #{$black-color};
   --global-newsletter-bg-color: #{$grey-color-light};

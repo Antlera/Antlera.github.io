@@ -1,0 +1,105 @@
+{%- comment -%}
+  Now Playing block with embedded YouTube IFrame API audio.
+  Data: _data/now_playing.yml — needs `youtube_id` for in-page playback.
+{%- endcomment -%}
+{%- assign np = site.data.now_playing -%}
+{%- if np and np.track -%}
+<section class="bebop-now-playing" data-bebop-np>
+  {%- if np.youtube_id -%}
+    <button class="vinyl" type="button" aria-label="Play / pause {{ np.track }}" data-bebop-vinyl>
+      <span class="vinyl-icon" aria-hidden="true">▶</span>
+    </button>
+  {%- elsif np.youtube -%}
+    <a class="vinyl" href="{{ np.youtube }}" target="_blank" rel="noopener" aria-label="Listen on YouTube"></a>
+  {%- else -%}
+    <div class="vinyl"></div>
+  {%- endif -%}
+
+  <div class="np-meta">
+    <div class="np-track">"{{ np.track }}"</div>
+    <div class="np-artist">{{ np.artist }}</div>
+    {%- if np.album -%}<div class="np-album">{{ np.album }}</div>{%- endif -%}
+    {%- if np.side and np.side.size > 0 -%}
+      <div class="np-side">
+        {%- for line in np.side -%}
+          {{ line }}{%- unless forloop.last -%} · {%- endunless -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if np.youtube_id -%}
+    <div class="np-player-host" aria-hidden="true">
+      <div id="bebop-yt-player"></div>
+    </div>
+  {%- endif -%}
+</section>
+
+{%- if np.youtube_id -%}
+<script>
+  (function () {
+    var YT_VIDEO_ID = {{ np.youtube_id | jsonify }};
+    var player = null;
+    var isPlaying = false;
+    var pendingAction = null; // 'play' | 'pause' if user clicked before API ready
+
+    function loadYTApi() {
+      if (window.YT && window.YT.Player) return;
+      if (document.getElementById('bebop-yt-api')) return;
+      var s = document.createElement('script');
+      s.id = 'bebop-yt-api';
+      s.src = 'https://www.youtube.com/iframe_api';
+      document.head.appendChild(s);
+    }
+
+    function bindVinyl() {
+      var vinyl = document.querySelector('[data-bebop-vinyl]');
+      if (!vinyl) return;
+      vinyl.addEventListener('click', function () {
+        if (!player || !player.playVideo) {
+          pendingAction = 'play';
+          loadYTApi();
+          return;
+        }
+        if (isPlaying) player.pauseVideo();
+        else player.playVideo();
+      });
+    }
+
+    window.onYouTubeIframeAPIReady = function () {
+      player = new YT.Player('bebop-yt-player', {
+        videoId: YT_VIDEO_ID,
+        playerVars: { controls: 0, disablekb: 1, playsinline: 1, modestbranding: 1, rel: 0 },
+        events: {
+          onReady: function () {
+            if (pendingAction === 'play') {
+              pendingAction = null;
+              player.playVideo();
+            }
+          },
+          onStateChange: function (e) {
+            var vinyl = document.querySelector('[data-bebop-vinyl]');
+            var icon = vinyl ? vinyl.querySelector('.vinyl-icon') : null;
+            if (e.data === YT.PlayerState.PLAYING) {
+              isPlaying = true;
+              if (vinyl) vinyl.classList.add('is-playing');
+              if (icon) icon.textContent = '❚❚';
+            } else {
+              isPlaying = false;
+              if (vinyl) vinyl.classList.remove('is-playing');
+              if (icon) icon.textContent = '▶';
+            }
+          }
+        }
+      });
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+      bindVinyl();
+      // Defer API load until first interaction to avoid YouTube cookies on page load
+    });
+    if (document.readyState !== 'loading') bindVinyl();
+  })();
+</script>
+{%- endif -%}
+{%- endif -%}

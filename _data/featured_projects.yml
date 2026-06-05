@@ -1,0 +1,38 @@
+# Hand-curated featured projects shown in the homepage card grid.
+# These mirror entries in _projects/ so the standalone /projects/ page stays in sync.
+
+- title: "ZenFlow"
+  tag: "training · first author"
+  desc: "Stall-free async offloading for LLM training. Integrated into DeepSpeed via official PR."
+  url: "https://arxiv.org/abs/2505.12242"
+  img:
+
+- title: "TStore"
+  tag: "storage · first author"
+  desc: "Tensor-centric storage layer for AI model hubs."
+  url: "https://arxiv.org/abs/2604.17104"
+  img:
+
+- title: "ZipLLM"
+  tag: "storage · NSDI '26"
+  desc: "Model-aware dedup + compression tuned to how LLM weights actually look on disk."
+  url: "https://arxiv.org/abs/2505.06252"
+  img:
+
+- title: "MorphServe"
+  tag: "inference · MLSys '26"
+  desc: "Adapt the serving stack at runtime — swap layers, resize KV cache, ride the workload."
+  url: "https://arxiv.org/abs/2506.02006"
+  img:
+
+- title: "λScale"
+  tag: "inference · MLSys '26"
+  desc: "Fast scaling for serverless LLM inference."
+  url: "https://arxiv.org/abs/2502.09922"
+  img:
+
+- title: "IGenBench"
+  tag: "vis · preprint"
+  desc: "First benchmark for text-to-infographic generation reliability."
+  url: "https://arxiv.org/abs/2601.04498"
+  img:

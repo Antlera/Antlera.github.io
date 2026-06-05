@@ -1,0 +1,105 @@
+<!-- Bebop pjax: keep the floating Now Playing iframe alive across page changes. -->
+<script>
+  (function () {
+    if (!window.fetch || !window.history.pushState || !window.DOMParser) return;
+
+    // Elements that get swapped on navigation. The floating player lives
+    // outside .container.mt-5 and outside <footer>, so it survives.
+    var SWAP = ['.container.mt-5', 'footer.fixed-bottom', 'footer.sticky-bottom'];
+
+    function pickInternalLink(target) {
+      var a = target && target.closest ? target.closest('a[href]') : null;
+      if (!a) return null;
+      var href = a.getAttribute('href');
+      if (!href || href.charAt(0) === '#') return null;
+      if (a.target === '_blank') return null;
+      if (a.hasAttribute('download')) return null;
+      if (a.hasAttribute('data-no-pjax') || (a.closest && a.closest('[data-no-pjax]'))) return null;
+      var url;
+      try { url = new URL(a.href, location.href); } catch (e) { return null; }
+      if (url.origin !== location.origin) return null;
+      if (/\.(pdf|zip|tar\.gz|tgz|jpg|jpeg|png|gif|svg|mp4|webm|ico|xml|json|webp)$/i.test(url.pathname)) return null;
+      return url;
+    }
+
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      var url = pickInternalLink(e.target);
+      if (!url) return;
+      // Same-page hash link: don't pjax, let the browser scroll.
+      if (url.pathname === location.pathname && url.hash) return;
+      e.preventDefault();
+      navigate(url.href, true);
+    });
+
+    window.addEventListener('popstate', function () { navigate(location.href, false); });
+
+    var inFlight = null;
+    function navigate(href, push) {
+      if (inFlight) inFlight.abort();
+      var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+      inFlight = ctrl;
+      document.body.classList.add('bebop-pjax-loading');
+
+      fetch(href, { credentials: 'same-origin', signal: ctrl ? ctrl.signal : undefined })
+        .then(function (r) { if (!r.ok) throw new Error('http ' + r.status); return r.text(); })
+        .then(function (html) {
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+
+          SWAP.forEach(function (sel) {
+            var oldEl = document.querySelector(sel);
+            var newEl = doc.querySelector(sel);
+            if (oldEl && newEl) {
+              oldEl.replaceWith(newEl);
+              reactivateScripts(newEl);
+            }
+          });
+
+          if (doc.title) document.title = doc.title;
+          updateNavActive(href);
+
+          if (push) history.pushState({}, '', href);
+          window.scrollTo(0, 0);
+
+          document.dispatchEvent(new CustomEvent('bebop:pjax-load', { detail: { href: href } }));
+        })
+        .catch(function (err) {
+          if (err && err.name === 'AbortError') return;
+          // Fallback: full reload so the user always gets somewhere.
+          location.href = href;
+        })
+        .finally(function () {
+          inFlight = null;
+          document.body.classList.remove('bebop-pjax-loading');
+        });
+    }
+
+    // Inline <script> tags inserted via DOM replacement don't execute. Clone
+    // each one into a fresh element so it runs in the new context.
+    function reactivateScripts(root) {
+      root.querySelectorAll('script').forEach(function (old) {
+        var s = document.createElement('script');
+        for (var i = 0; i < old.attributes.length; i++) {
+          var attr = old.attributes[i];
+          s.setAttribute(attr.name, attr.value);
+        }
+        s.textContent = old.textContent;
+        old.parentNode.replaceChild(s, old);
+      });
+    }
+
+    function updateNavActive(href) {
+      var path = new URL(href, location.href).pathname;
+      document.querySelectorAll('nav.navbar .nav-item').forEach(function (li) {
+        var a = li.querySelector('a.nav-link');
+        if (!a) return; var ahref = a.getAttribute('href');
+        if (!ahref) return;
+        var aPath;
+        try { aPath = new URL(a.href, location.href).pathname; } catch (e) { return; }
+        var match = (aPath === path) || (aPath !== '/' && path.indexOf(aPath) === 0);
+        li.classList.toggle('active', !!match);
+      });
+    }
+  })();
+</script>

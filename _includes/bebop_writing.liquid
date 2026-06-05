@@ -1,0 +1,19 @@
+{%- comment -%}
+  Bebop-styled blog post list. Pass limit=N to cap.
+{%- endcomment -%}
+{%- assign posts = site.posts -%}
+{%- if include.limit -%}
+  {%- assign posts = posts | slice: 0, include.limit -%}
+{%- endif -%}
+{%- if posts and posts.size > 0 -%}
+<ul class="bebop-writing">
+  {%- for post in posts -%}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span class="post-date">{{ post.date | date: '%Y.%m' }}</span>
+    </li>
+  {%- endfor -%}
+</ul>
+{%- else -%}
+  <p style="opacity:0.6;font-style:italic;">Nothing written yet — the page is still blank. ♪</p>
+{%- endif -%}

@@ -1,0 +1,9 @@
+{%- comment -%}
+  Bebop section divider — looks like:  ──── ✦ Section Title ────────────
+  Usage: {% include bebop_section_rule.liquid title="selected papers" id="papers" %}
+{%- endcomment -%}
+<div class="bebop-section-rule"{% if include.id %} id="{{ include.id }}"{% endif %}>
+  <span class="rule-mark">✦</span>
+  <span class="rule-title">{{ include.title }}</span>
+  <span class="rule-line"></span>
+</div>

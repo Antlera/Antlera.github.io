@@ -1,0 +1,20 @@
+{%- comment -%}
+  Featured projects card grid. Data from _data/featured_projects.yml.
+{%- endcomment -%}
+{%- assign list = site.data.featured_projects -%}
+{%- if list and list.size > 0 -%}
+<div class="bebop-grid">
+  {%- for p in list -%}
+    <a class="bebop-card" href="{{ p.url | default: '#' }}"{% if p.url and p.url contains '://' %} target="_blank" rel="noopener"{% endif %}>
+      {%- if p.img -%}
+        <div class="card-media">
+          <img src="{{ p.img | relative_url }}" alt="{{ p.title }}">
+        </div>
+      {%- endif -%}
+      {%- if p.tag -%}<div class="card-tag">{{ p.tag }}</div>{%- endif -%}
+      <h3 class="card-title">{{ p.title }}</h3>
+      {%- if p.desc -%}<p class="card-desc">{{ p.desc }}</p>{%- endif -%}
+    </a>
+  {%- endfor -%}
+</div>
+{%- endif -%}

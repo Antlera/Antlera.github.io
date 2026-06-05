@@ -1,83 +1,54 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
+<div class="bebop-page">
 
-  <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle about-profile-image' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded about-profile-image' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
+  {% include bebop_hero.liquid %}
 
-    <div class="clearfix">{{ content }}</div>
+  {% if page.about_blurb %}
+    <section class="bebop-section bebop-blurb">
+      <div class="clearfix">{{ content }}</div>
+    </section>
+  {% endif %}
 
-    <!-- News -->
-    {% if page.news and site.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
+  {% if page.selected_papers %}
+    <section class="bebop-section">
+      {% include bebop_section_rule.liquid title="selected papers" id="papers" %}
+      {% include bebop_papers_tabs.liquid %}
+      <p class="bebop-more">
+        <a href="{{ '/publications/' | relative_url }}">→ see all publications</a>
+      </p>
+    </section>
+  {% endif %}
 
-    <!-- Latest posts -->
-    {% if site.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
+  {% if page.featured_projects %}
+    <section class="bebop-section">
+      {% include bebop_section_rule.liquid title="projects / systems" id="projects" %}
+      {% include bebop_projects_grid.liquid %}
+      <p class="bebop-more">
+        <a href="{{ '/projects/' | relative_url }}">→ all projects</a>
+      </p>
+    </section>
+  {% endif %}
 
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
+  {% if page.news %}
+    <section class="bebop-section">
+      {% include bebop_section_rule.liquid title="news" id="news" %}
+      {% include bebop_news.liquid limit=5 %}
+      <p class="bebop-more">
+        <a href="{{ '/news/' | relative_url }}">→ all news</a>
+      </p>
+    </section>
+  {% endif %}
 
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
+  {% if site.latest_posts.enabled %}
+    <section class="bebop-section">
+      {% include bebop_section_rule.liquid title="thoughts" id="thoughts" %}
+      {% include bebop_writing.liquid limit=5 %}
+      <p class="bebop-more">
+        <a href="{{ '/blog/' | relative_url }}">→ all thoughts</a>
+      </p>
+    </section>
+  {% endif %}
 
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
-
-    {% if site.newsletter.enabled and site.footer_fixed %}
-      {% include scripts/newsletter.liquid center=true %}
-    {% endif %}
-
-    {% if page.interest_stats %}
-      {% include interest_stats.liquid %}
-    {% endif %}
-  </article>
 </div>

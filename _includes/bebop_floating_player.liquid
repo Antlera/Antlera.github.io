@@ -1,0 +1,95 @@
+{%- comment -%}
+  Site-wide floating Now Playing widget. Fixed to bottom-right on every page.
+  Data: _data/now_playing.yml. Audio: hidden YouTube IFrame.
+{%- endcomment -%}
+{%- assign np = site.data.now_playing -%}
+{%- if np and np.track and np.youtube_id -%}
+<aside class="bebop-floating-player" data-bebop-fp aria-label="Now playing widget">
+  <button class="fp-vinyl vinyl" type="button" data-bebop-vinyl aria-label="Play or pause {{ np.track }}">
+    <span class="vinyl-icon" aria-hidden="true">▶</span>
+  </button>
+
+  <div class="fp-meta">
+    <div class="fp-eyebrow">♪ now playing</div>
+    <div class="fp-track">"{{ np.track }}"</div>
+    <div class="fp-artist">{{ np.artist }}{% if np.album %} · <span class="fp-album">{{ np.album }}</span>{% endif %}</div>
+  </div>
+
+  <div class="np-player-host" aria-hidden="true">
+    <div id="bebop-yt-player"></div>
+  </div>
+</aside>
+
+<script>
+  (function () {
+    var YT_VIDEO_ID = {{ np.youtube_id | jsonify }};
+    var player = null;
+    var isPlaying = false;
+    var pendingAction = null;
+
+    function loadYTApi() {
+      if (window.YT && window.YT.Player) {
+        if (typeof window.onYouTubeIframeAPIReady === 'function') window.onYouTubeIframeAPIReady();
+        return;
+      }
+      if (document.getElementById('bebop-yt-api')) return;
+      var s = document.createElement('script');
+      s.id = 'bebop-yt-api';
+      s.src = 'https://www.youtube.com/iframe_api';
+      document.head.appendChild(s);
+    }
+
+    function getVinyl() { return document.querySelector('[data-bebop-vinyl]'); }
+
+    function bindUi() {
+      var vinyl = getVinyl();
+      if (!vinyl) return;
+      vinyl.addEventListener('click', function () {
+        if (!player || !player.playVideo) {
+          pendingAction = 'play';
+          loadYTApi();
+          return;
+        }
+        if (isPlaying) player.pauseVideo();
+        else player.playVideo();
+      });
+    }
+
+    window.onYouTubeIframeAPIReady = function () {
+      var host = document.getElementById('bebop-yt-player');
+      if (!host) return;
+      player = new YT.Player('bebop-yt-player', {
+        videoId: YT_VIDEO_ID,
+        playerVars: { controls: 0, disablekb: 1, playsinline: 1, modestbranding: 1, rel: 0 },
+        events: {
+          onReady: function () {
+            if (pendingAction === 'play') {
+              pendingAction = null;
+              player.playVideo();
+            }
+          },
+          onStateChange: function (e) {
+            var vinyl = getVinyl();
+            var icon = vinyl ? vinyl.querySelector('.vinyl-icon') : null;
+            if (e.data === YT.PlayerState.PLAYING) {
+              isPlaying = true;
+              if (vinyl) vinyl.classList.add('is-playing');
+              if (icon) icon.textContent = '❚❚';
+            } else {
+              isPlaying = false;
+              if (vinyl) vinyl.classList.remove('is-playing');
+              if (icon) icon.textContent = '▶';
+            }
+          }
+        }
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bindUi);
+    } else {
+      bindUi();
+    }
+  })();
+</script>
+{%- endif -%}

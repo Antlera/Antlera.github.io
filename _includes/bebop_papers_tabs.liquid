@@ -1,0 +1,82 @@
+{%- comment -%}
+  Selected Papers tabs — Vis · Storage · Inference · Training.
+  Data from _data/featured_papers.yml. Default tab: storage.
+{%- endcomment -%}
+{%- assign fp = site.data.featured_papers -%}
+{%- assign tabs = "training,storage,inference,vis" | split: "," -%}
+{%- assign default_tab = "training" -%}
+
+<div class="bebop-papers" data-bebop-tabs>
+  <div class="bebop-tabs" role="tablist">
+    {%- for t in tabs -%}
+      {%- assign list = fp[t] -%}
+      {%- assign size = list | size -%}
+      <button
+        class="bebop-tab{% if t == default_tab %} is-active{% endif %}{% if size == 0 %} is-empty{% endif %}"
+        role="tab"
+        aria-selected="{% if t == default_tab %}true{% else %}false{% endif %}"
+        data-tab-target="papers-{{ t }}"
+        type="button"
+      >
+        {{ t }}{% if size > 0 %} <span style="opacity:0.5">· {{ size }}</span>{% endif %}
+      </button>
+    {%- endfor -%}
+  </div>
+
+  {%- for t in tabs -%}
+    {%- assign list = fp[t] -%}
+    <div
+      id="papers-{{ t }}"
+      class="bebop-tabpanel{% if t == default_tab %} is-active{% endif %}"
+      role="tabpanel"
+    >
+      {%- if list and list.size > 0 -%}
+        <div class="bebop-grid">
+          {%- for p in list -%}
+            <article class="bebop-card">
+              {%- if p.img -%}
+                <div class="card-media">
+                  <img src="{{ p.img | relative_url }}" alt="{{ p.title }}">
+                </div>
+              {%- endif -%}
+              {%- if p.tag -%}<div class="card-tag">{{ p.tag }}</div>{%- endif -%}
+              <h3 class="card-title">{{ p.title }}</h3>
+              {%- if p.venue -%}<div class="card-venue">{{ p.venue }}</div>{%- endif -%}
+              {%- if p.desc -%}<p class="card-desc">{{ p.desc }}</p>{%- endif -%}
+              {%- if p.links and p.links.size > 0 -%}
+                <div class="card-actions">
+                  {%- for l in p.links -%}
+                    <a href="{{ l.url }}" target="_blank" rel="noopener">[{{ l.label }}]</a>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+            </article>
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="empty-state">coming soon ♪</div>
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+</div>
+
+<script>
+  (function () {
+    var roots = document.querySelectorAll('[data-bebop-tabs]');
+    roots.forEach(function (root) {
+      var tabs = root.querySelectorAll('.bebop-tab');
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var target = tab.getAttribute('data-tab-target');
+          tabs.forEach(function (t) {
+            t.classList.toggle('is-active', t === tab);
+            t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+          });
+          root.querySelectorAll('.bebop-tabpanel').forEach(function (panel) {
+            panel.classList.toggle('is-active', panel.id === target);
+          });
+        });
+      });
+    });
+  })();
+</script>
