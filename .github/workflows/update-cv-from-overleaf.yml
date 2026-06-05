@@ -71,11 +71,11 @@ jobs:
           echo "root_file=$ROOT"     >> "$GITHUB_OUTPUT"
           echo "root_stem=${ROOT%.tex}" >> "$GITHUB_OUTPUT"
 
-      - name: Compile LaTeX with TeX Live 2024 (closer to Overleaf's default)
-        # We invoke docker directly instead of xu-cheng/latex-action because the
-        # action hard-codes the :latest image (currently TL 2026), and TL 2026 is
-        # stricter than what Overleaf compiles against. Pinning to TL2024 lets
-        # documents that build cleanly on Overleaf build cleanly here too.
+      - name: Compile LaTeX with frozen TeX Live 2024 (matches Overleaf's default)
+        # The official TeX Live "historic" image freezes each yearly TL release.
+        # TL 2026 (the default in xu-cheng/latex-action) is stricter than what
+        # Overleaf compiles against; TL2024-historic matches Overleaf much more
+        # closely so documents that build there build here too.
         env:
           ROOT_FILE: ${{ steps.detect.outputs.root_file }}
         run: |
@@ -83,7 +83,7 @@ jobs:
           docker run --rm \
             -v "$PWD/overleaf-cv:/work" \
             -w /work \
-            ghcr.io/xu-cheng/texlive-full:TL2024 \
+            texlive/texlive:TL2024-historic \
             latexmk -xelatex -file-line-error -interaction=nonstopmode -halt-on-error "$ROOT_FILE"
 
       - name: Copy compiled PDF into the site
