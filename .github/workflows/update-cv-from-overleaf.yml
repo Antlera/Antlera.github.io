@@ -1,0 +1,84 @@
+name: Update CV from Overleaf
+
+# Pulls the latest CV source from your Overleaf project (UVA institutional Git),
+# compiles it with TeX Live, and commits the resulting CV.pdf to assets/pdf/
+# only if its bytes actually changed.
+#
+# One-time setup:
+#   1. In Overleaf: Menu → Sync → Git → copy the clone URL
+#      (looks like https://git.overleaf.com/<project-id>)
+#   2. In Overleaf: Account Settings → Tokens → create a Git Authentication Token
+#   3. On GitHub repo: Settings → Secrets and variables → Actions → New secret
+#         OVERLEAF_REPO_URL  = the clone URL
+#         OVERLEAF_GIT_TOKEN = the Git auth token
+#   4. Adjust TEX_ROOT_FILE below if your CV's root .tex isn't main.tex.
+#   5. From the Actions tab, run this workflow manually once to verify.
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # daily, 06:00 UTC (≈ 02:00 EDT)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-cv:
+    runs-on: ubuntu-latest
+    env:
+      TEX_ROOT_FILE: main.tex            # CHANGE if your root .tex has a different name
+      OUT_PDF_PATH: assets/pdf/CV.pdf    # served by al-folio via _pages/cv.md cv_pdf: CV.pdf
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+
+      - name: Clone Overleaf CV project
+        env:
+          REPO_URL: ${{ secrets.OVERLEAF_REPO_URL }}
+          TOKEN: ${{ secrets.OVERLEAF_GIT_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${REPO_URL:-}" ] || [ -z "${TOKEN:-}" ]; then
+            echo "::error::OVERLEAF_REPO_URL or OVERLEAF_GIT_TOKEN is not set"; exit 1
+          fi
+          # Inject the token into the URL (Overleaf uses HTTP basic auth: user 'git', pass = token).
+          # Accepts both `https://git.overleaf.com/<id>` and `https://git@git.overleaf.com/<id>`.
+          authed=$(printf '%s' "$REPO_URL" | sed -E "s|^https://([^/@]+@)?|https://git:${TOKEN}@|")
+          git clone --depth=1 "$authed" overleaf-cv
+          ls overleaf-cv
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: overleaf-cv
+          root_file: ${{ env.TEX_ROOT_FILE }}
+          # If your CV uses xelatex / lualatex / specific fonts, set one of these:
+          # latexmk_use_xelatex: true
+          # latexmk_use_lualatex: true
+          # Default uses pdflatex via latexmk, with bibtex/biber auto-detected.
+
+      - name: Copy compiled PDF into the site
+        run: |
+          set -euo pipefail
+          base="${TEX_ROOT_FILE%.tex}"
+          src="overleaf-cv/${base}.pdf"
+          if [ ! -f "$src" ]; then
+            echo "::error::expected ${src} after compile, not found"
+            ls overleaf-cv
+            exit 1
+          fi
+          mkdir -p "$(dirname "$OUT_PDF_PATH")"
+          cp "$src" "$OUT_PDF_PATH"
+
+      - name: Commit and push if the PDF changed
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$OUT_PDF_PATH"
+          if git diff --staged --quiet; then
+            echo "CV unchanged — nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore(cv): refresh CV.pdf from Overleaf"
+          git push
