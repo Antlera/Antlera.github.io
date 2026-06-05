@@ -14,6 +14,7 @@ hero_subtitle: >
   When I'm not chasing throughput, I'm chasing bebop.
 hero_links:
   - { label: "email",   url: "mailto:erc8gx@virginia.edu" }
+  - { label: "scholar", url: "https://scholar.google.com/citations?user=5uP5yDEAAAAJ&hl=en", external: true }
   - { label: "github",  url: "https://github.com/Antlera", external: true }
   - { label: "cv",      url: "/cv/" }
 
