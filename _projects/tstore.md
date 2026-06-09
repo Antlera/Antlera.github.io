@@ -5,5 +5,8 @@ description: Tensor-centric storage layer for AI model hubs — compress checkpo
 img: /assets/img/projects/tstore-soft.png
 importance: 1
 category: storage
-redirect: https://arxiv.org/abs/2604.17104
+tags: [Preprint]
+paper: https://arxiv.org/abs/2604.17104
+# code: # add repo URL when available
+# vis:  # add /projects/tstore/ visual page when ready
 ---

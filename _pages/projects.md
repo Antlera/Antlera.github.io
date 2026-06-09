@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Amazing projects you want to know across the LLM stack and visualization.
 nav: true
 nav_order: 3
 display_categories: [training, storage, inference, vis]

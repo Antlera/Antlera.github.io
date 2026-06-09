@@ -1,6 +1,7 @@
 <div class="col">
-  <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}">
-    <div class="card h-100 hoverable">
+  <div class="card h-100 hoverable">
+    {% assign primary = project.redirect | default: project.paper | default: project.url %}
+    <a href="{% if primary %}{{ primary }}{% else %}{{ project.url | relative_url }}{% endif %}"{% if primary contains '://' %} target="_blank" rel="noopener"{% endif %}>
       {% if project.img %}
         {%
           include figure.liquid
@@ -12,24 +13,39 @@
         %}
       {% endif %}
       <div class="card-body">
+        {% if project.tags %}
+          <div class="project-tags">
+            {% for t in project.tags %}<span class="project-tag">{{ t }}</span>{% endfor %}
+          </div>
+        {% endif %}
         <h2 class="card-title">{{ project.title }}</h2>
         <p class="card-text">{{ project.description }}</p>
-        <div class="row ml-1 mr-1 p-0">
-          {% if project.github %}
-            <div class="github-icon">
-              <div class="icon" data-toggle="tooltip" title="Code Repository">
-                <a href="{{ project.github }}"><i class="fa-brands fa-github gh-icon"></i></a>
-              </div>
-              {% if project.github_stars %}
-                <span class="stars" data-toggle="tooltip" title="GitHub Stars">
-                  <i class="fa-solid fa-star"></i>
-                  <span id="{{ project.github_stars }}-stars"></span>
-                </span>
-              {% endif %}
-            </div>
-          {% endif %}
-        </div>
       </div>
-    </div>
-  </a>
+    </a>
+    {% assign repo = project.code | default: project.github %}
+    {% if project.paper or repo or project.blog or project.vis %}
+      <div class="project-links">
+        {% if project.paper %}
+          <a href="{{ project.paper }}" class="project-link" target="_blank" rel="noopener" data-toggle="tooltip" title="Paper">
+            <i class="fa-solid fa-file-lines"></i><span>paper</span>
+          </a>
+        {% endif %}
+        {% if repo %}
+          <a href="{{ repo }}" class="project-link" target="_blank" rel="noopener" data-toggle="tooltip" title="Code">
+            <i class="fa-brands fa-github"></i><span>code</span>
+          </a>
+        {% endif %}
+        {% if project.blog %}
+          <a href="{{ project.blog }}" class="project-link" target="_blank" rel="noopener" data-toggle="tooltip" title="Blog">
+            <i class="fa-solid fa-blog"></i><span>blog</span>
+          </a>
+        {% endif %}
+        {% if project.vis %}
+          <a href="{{ project.vis | relative_url }}" class="project-link" data-toggle="tooltip" title="Visual illustration">
+            <i class="fa-solid fa-images"></i><span>vis</span>
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
 </div>

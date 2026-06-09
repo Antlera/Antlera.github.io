@@ -1,9 +1,12 @@
 ---
 layout: page
 title: mLoRA
-description: Fine-tuning LoRA adapters via highly-efficient pipeline parallelism across multiple GPUs. VLDB '25.
+description: Fine-tuning LoRA adapters via highly-efficient pipeline parallelism across multiple GPUs.
 img: /assets/img/projects/mlora-soft.png
 importance: 2
 category: training
-redirect: https://arxiv.org/abs/2312.02515
+tags: [VLDB '25]
+paper: https://arxiv.org/abs/2312.02515
+code: https://github.com/TUDB-Labs/mLoRA
+# vis:  # add /projects/mlora/ visual page when ready
 ---

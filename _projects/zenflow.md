@@ -5,5 +5,9 @@ description: Stall-free async offloading for LLM training. Integrated into DeepS
 img: /assets/img/projects/zenflow-soft.png
 importance: 1
 category: training
-redirect: https://arxiv.org/abs/2505.12242
+tags: [DeepSpeed, PyTorch]
+paper: https://arxiv.org/abs/2505.12242
+code: https://github.com/deepspeedai/DeepSpeedExamples/tree/master/training/DeepSpeed-ZenFlow
+blog: https://pytorch.org/blog/zenflow-stall-free-offloading-engine-for-llm-training/
+# vis: # add /projects/zenflow/ visual page when ready
 ---

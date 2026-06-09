@@ -5,5 +5,8 @@ description: SLO-aware LLM serving — TTFT / TPOT guards with credit-based batc
 img: /assets/img/projects/scorpio-soft.png
 importance: 3
 category: inference
-redirect: https://arxiv.org/abs/2505.23022
+tags: [Preprint]
+paper: https://arxiv.org/abs/2505.23022
+code: https://github.com/MisterBrookT/Scorpio
+# vis:  # add /projects/scorpio/ visual page when ready
 ---
