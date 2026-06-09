@@ -9,6 +9,11 @@ netease_playlist_id: "" # your 网易云 playlist id — the number in the playl
 ---
 
 <style>
+  /* This page's hero has no portrait, so opt out of the two-column hero grid. */
+  .bebop-hero.bebop-hero--plain {
+    display: block;
+  }
+
   .pg-tagline {
     font-family: "Caveat", "Reenie Beanie", cursive;
     color: var(--bebop-brick);
@@ -22,7 +27,7 @@ netease_playlist_id: "" # your 网易云 playlist id — the number in the playl
 
 <div class="bebop-page">
 
-  <section class="bebop-hero" style="padding: 3.5rem 0 1.5rem;">
+  <section class="bebop-hero bebop-hero--plain" style="padding: 3.5rem 0 1.5rem;">
     <div class="hero-eyebrow">♪ playground</div>
     <h1 class="hero-title" style="font-size: clamp(2.4rem, 6vw, 4.4rem);">
       a <span class="accent">playground</span>.
