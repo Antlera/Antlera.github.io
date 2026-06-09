@@ -1,27 +1,32 @@
 {%- comment -%}
-  NetEase Cloud Music (网易云) playlist embed via the official outchain player.
-  Set `netease_playlist_id` in the page front matter (the number from the
-  playlist URL: music.163.com/playlist?id=XXXX). Leave blank to show a hint.
+  Songs list for the playground — renders the first N tracks of a public
+  NetEase playlist from _data/playlist_tracks.json (no playlist name shown).
+  Refresh the data with: python3 scripts/fetch_liked_songs.py
 {%- endcomment -%}
-{%- assign pid = page.netease_playlist_id -%}
+{%- assign data = site.data.playlist_tracks -%}
+{%- if data and data.tracks and data.tracks.size > 0 -%}
 <div class="pg-songs">
-  {%- if pid and pid != "" -%}
-    <iframe
-      class="pg-netease"
-      frameborder="no"
-      border="0"
-      marginwidth="0"
-      marginheight="0"
-      width="100%"
-      height="450"
-      loading="lazy"
-      title="My NetEase Cloud Music playlist"
-      src="https://music.163.com/outchain/player?type=0&id={{ pid }}&auto=0&height=430">
-    </iframe>
-  {%- else -%}
-    <p class="pg-empty">
-      Add your 网易云 playlist id to <code>netease_playlist_id</code> in
-      <code>_pages/blog.md</code> to show your playlist here.
-    </p>
+  <ol class="pg-tracklist">
+    {%- for t in data.tracks limit:10 -%}
+      <li class="pg-track">
+        <span class="pg-track-n">{{ forloop.index }}</span>
+        <a class="pg-track-cover" href="{{ t.url }}" target="_blank" rel="noopener" aria-label="{{ t.title }} on NetEase Cloud Music">
+          <img src="{{ t.cover }}" alt="" loading="lazy" width="48" height="48">
+        </a>
+        <a class="pg-track-meta" href="{{ t.url }}" target="_blank" rel="noopener">
+          <span class="pg-track-title">{{ t.title }}</span>
+          <span class="pg-track-artist">{{ t.artist }}</span>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ol>
+  {%- if data.playlist_url -%}
+    <a class="pg-songs-more" href="{{ data.playlist_url }}" target="_blank" rel="noopener">more on 网易云 →</a>
   {%- endif -%}
 </div>
+{%- else -%}
+  <p class="pg-empty">
+    No tracks yet — run <code>python3 scripts/fetch_liked_songs.py</code> to
+    populate <code>_data/playlist_tracks.json</code>.
+  </p>
+{%- endif -%}

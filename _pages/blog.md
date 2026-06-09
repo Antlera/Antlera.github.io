@@ -5,7 +5,6 @@ title: playground
 description: thoughts, songs on rotation, and a wall of photos — my corner of the web.
 nav: true
 nav_order: 4
-netease_playlist_id: "436513472" # 网易云 playlist id — "Antlera喜欢的音乐" (music.163.com/playlist?id=XXXX)
 ---
 
 <style>
@@ -26,6 +25,74 @@ netease_playlist_id: "436513472" # 网易云 playlist id — "Antlera喜欢的�
     margin-bottom: 0.35rem;
     transform: rotate(-2deg);
     display: inline-block;
+  }
+
+  .pg-tracklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .pg-track {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px dotted var(--bebop-edge);
+  }
+  .pg-track-n {
+    width: 1.4rem;
+    flex: none;
+    text-align: right;
+    font-family: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    color: var(--bebop-ink-soft);
+  }
+  .pg-track-cover {
+    flex: none;
+    line-height: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  }
+  .pg-track-cover img {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    display: block;
+  }
+  .pg-track-meta {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    text-decoration: none;
+    line-height: 1.3;
+  }
+  .pg-track-title {
+    color: var(--bebop-ink);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pg-track-artist {
+    color: var(--bebop-ink-soft);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pg-track:hover .pg-track-title {
+    color: var(--bebop-brick);
+  }
+  .pg-songs-more {
+    display: inline-block;
+    margin-top: 0.9rem;
+    font-size: 0.85rem;
+    color: var(--bebop-ink-soft);
+    text-decoration: none;
+  }
+  .pg-songs-more:hover {
+    color: var(--bebop-brick);
   }
 </style>
 

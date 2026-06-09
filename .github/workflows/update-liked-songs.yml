@@ -1,0 +1,40 @@
+name: Update liked songs
+
+# Refreshes _data/playlist_tracks.json (the playground "songs" list) from the
+# public NetEase playlist. No login/cookie needed. Best-effort: if the fetch
+# fails, the previous data is kept and nothing is committed.
+
+on:
+  schedule:
+    - cron: "17 6 * * *" # daily ~06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Fetch first 10 tracks
+        # Best-effort: NetEase may rate-limit overseas CI IPs. On failure we keep
+        # the committed data and the job still passes (no noisy red runs).
+        run: python3 scripts/fetch_liked_songs.py 436513472 10 || echo "fetch failed; keeping existing data"
+
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain _data/playlist_tracks.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add _data/playlist_tracks.json
+            git commit -m "chore: refresh liked songs"
+            git push
+          else
+            echo "No change."
+          fi
