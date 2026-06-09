@@ -1,17 +1,20 @@
 {%- comment -%}
-  Songs list for the playground — renders the first N tracks of a public
-  NetEase playlist from _data/playlist_tracks.json (no playlist name shown).
-  Refresh the data with: python3 scripts/fetch_liked_songs.py
+  Songs list for the playground — first N tracks of a public NetEase playlist
+  from _data/playlist_tracks.json (no playlist name shown). Clicking a track
+  plays it in the floating widget (via its resolved YouTube video); tracks with
+  no resolved video fall back to opening NetEase. Refresh with:
+  python3 scripts/fetch_liked_songs.py
 {%- endcomment -%}
 {%- assign data = site.data.playlist_tracks -%}
 {%- if data and data.tracks and data.tracks.size > 0 -%}
 <div class="pg-songs">
-  <ol class="pg-tracklist">
+  <ol class="pg-tracklist" data-pg-tracklist>
     {%- for t in data.tracks limit:10 -%}
-      <li class="pg-track">
+      <li class="pg-track"{% if t.yt and t.yt != "" %} data-yt="{{ t.yt }}" data-title="{{ t.title | escape }}" data-artist="{{ t.artist | escape }}"{% endif %}>
         <span class="pg-track-n">{{ forloop.index }}</span>
-        <a class="pg-track-cover" href="{{ t.url }}" target="_blank" rel="noopener" aria-label="{{ t.title }} on NetEase Cloud Music">
+        <a class="pg-track-cover" href="{{ t.url }}" target="_blank" rel="noopener" aria-label="{{ t.title }}">
           <img src="{{ t.cover }}" alt="" loading="lazy" width="48" height="48">
+          <span class="pg-track-play" aria-hidden="true">▶</span>
         </a>
         <a class="pg-track-meta" href="{{ t.url }}" target="_blank" rel="noopener">
           <span class="pg-track-title">{{ t.title }}</span>
@@ -24,6 +27,25 @@
     <a class="pg-songs-more" href="{{ data.playlist_url }}" target="_blank" rel="noopener">more on 网易云 →</a>
   {%- endif -%}
 </div>
+
+<script>
+  (function () {
+    var list = document.querySelector('[data-pg-tracklist]');
+    if (!list) return;
+    list.addEventListener('click', function (e) {
+      var link = e.target.closest('.pg-track-cover, .pg-track-meta');
+      if (!link) return;
+      var li = link.closest('.pg-track');
+      var yt = li && li.getAttribute('data-yt');
+      // No resolved video, or player unavailable → let the NetEase link open.
+      if (!yt || !window.bebopPlayer || !window.bebopPlayer.play) return;
+      e.preventDefault();
+      window.bebopPlayer.play(yt, li.getAttribute('data-title'), li.getAttribute('data-artist'));
+      list.querySelectorAll('.pg-track.is-playing').forEach(function (n) { n.classList.remove('is-playing'); });
+      li.classList.add('is-playing');
+    });
+  })();
+</script>
 {%- else -%}
   <p class="pg-empty">
     No tracks yet — run <code>python3 scripts/fetch_liked_songs.py</code> to

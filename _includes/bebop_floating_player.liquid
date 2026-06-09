@@ -1,18 +1,19 @@
 {%- comment -%}
-  Site-wide floating Now Playing widget. Fixed to bottom-right on every page.
-  Data: _data/now_playing.yml. Audio: hidden YouTube IFrame.
+  Site-wide floating Now Playing widget. Audio: hidden YouTube IFrame.
+  Default track comes from _data/now_playing.yml; other pages (e.g. the
+  playground song list) can switch the track via window.bebopPlayer.play().
 {%- endcomment -%}
 {%- assign np = site.data.now_playing -%}
 {%- if np and np.track and np.youtube_id -%}
 <aside class="bebop-floating-player" data-bebop-fp aria-label="Now playing widget">
-  <button class="fp-vinyl vinyl" type="button" data-bebop-vinyl aria-label="Play or pause {{ np.track }}">
+  <button class="fp-vinyl vinyl" type="button" data-bebop-vinyl aria-label="Play or pause">
     <span class="vinyl-icon" aria-hidden="true">▶</span>
   </button>
 
   <div class="fp-meta">
     <div class="fp-eyebrow">♪ now playing</div>
-    <div class="fp-track">"{{ np.track }}"</div>
-    <div class="fp-artist">{{ np.artist }}{% if np.album %} · <span class="fp-album">{{ np.album }}</span>{% endif %}</div>
+    <div class="fp-track" data-fp-track>"{{ np.track }}"</div>
+    <div class="fp-artist" data-fp-artist>{{ np.artist }}{% if np.album %} · <span class="fp-album">{{ np.album }}</span>{% endif %}</div>
   </div>
 
   <div class="np-player-host" aria-hidden="true">
@@ -22,10 +23,11 @@
 
 <script>
   (function () {
-    var YT_VIDEO_ID = {{ np.youtube_id | jsonify }};
+    var DEFAULT_VIDEO_ID = {{ np.youtube_id | jsonify }};
     var player = null;
     var isPlaying = false;
-    var pendingAction = null;
+    var pendingAction = null;     // 'play' if vinyl clicked before API ready
+    var pendingVideo = null;      // {id,title,artist} requested before API ready
 
     function loadYTApi() {
       if (window.YT && window.YT.Player) {
@@ -41,6 +43,13 @@
 
     function getVinyl() { return document.querySelector('[data-bebop-vinyl]'); }
 
+    function setMeta(title, artist) {
+      var t = document.querySelector('[data-fp-track]');
+      var a = document.querySelector('[data-fp-artist]');
+      if (t && title) t.textContent = '"' + title + '"';
+      if (a && artist != null) a.textContent = artist;
+    }
+
     function bindUi() {
       var vinyl = getVinyl();
       if (!vinyl) return;
@@ -55,15 +64,34 @@
       });
     }
 
+    // Public API: play a specific video (used by the playground song list).
+    window.bebopPlayer = {
+      play: function (videoId, title, artist) {
+        if (!videoId) return;
+        if (title || artist) setMeta(title, artist);
+        if (player && player.loadVideoById) {
+          player.loadVideoById(videoId);
+        } else {
+          pendingVideo = { id: videoId, title: title, artist: artist };
+          loadYTApi();
+        }
+      }
+    };
+
     window.onYouTubeIframeAPIReady = function () {
       var host = document.getElementById('bebop-yt-player');
-      if (!host) return;
+      if (!host || player) return;
+      var startId = pendingVideo ? pendingVideo.id : DEFAULT_VIDEO_ID;
       player = new YT.Player('bebop-yt-player', {
-        videoId: YT_VIDEO_ID,
+        videoId: startId,
         playerVars: { controls: 0, disablekb: 1, playsinline: 1, modestbranding: 1, rel: 0 },
         events: {
           onReady: function () {
-            if (pendingAction === 'play') {
+            if (pendingVideo) {
+              setMeta(pendingVideo.title, pendingVideo.artist);
+              player.playVideo();
+              pendingVideo = null;
+            } else if (pendingAction === 'play') {
               pendingAction = null;
               player.playVideo();
             }

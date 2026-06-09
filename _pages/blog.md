@@ -49,6 +49,7 @@ nav_order: 4
   }
   .pg-track-cover {
     flex: none;
+    position: relative;
     line-height: 0;
     border-radius: 6px;
     overflow: hidden;
@@ -59,6 +60,30 @@ nav_order: 4
     height: 44px;
     object-fit: cover;
     display: block;
+  }
+  .pg-track-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.42);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+  /* show the play affordance only for playable tracks */
+  .pg-track[data-yt] { cursor: pointer; }
+  .pg-track[data-yt]:hover .pg-track-play,
+  .pg-track.is-playing .pg-track-play {
+    opacity: 1;
+  }
+  .pg-track.is-playing .pg-track-title {
+    color: var(--bebop-brick);
+  }
+  .pg-track.is-playing .pg-track-play {
+    background: rgba(178, 58, 72, 0.55);
   }
   .pg-track-meta {
     display: flex;
