@@ -33,7 +33,7 @@ netease_playlist_id: "" # your 网易云 playlist id — the number in the playl
       a <span class="accent">playground</span>.
     </h1>
     <p class="hero-subtitle">
-      Off the clock — where the work stops and the person shows up. ♪
+      Off the clock. ♪
     </p>
   </section>
 
