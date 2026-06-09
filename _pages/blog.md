@@ -1,31 +1,40 @@
 ---
 layout: default
 permalink: /blog/
-title: thoughts
-description: little moments, half-formed ideas, things that struck me.
+title: playground
+description: thoughts, songs on rotation, and a wall of photos — my corner of the web.
 nav: true
 nav_order: 4
+netease_playlist_id: "" # your 网易云 playlist id — the number in the playlist URL (music.163.com/playlist?id=XXXX)
 ---
 
 <div class="bebop-page">
 
   <section class="bebop-hero" style="padding: 3.5rem 0 1.5rem;">
-    <div class="hero-eyebrow">♪ thoughts</div>
+    <div class="hero-eyebrow">♪ playground</div>
     <h1 class="hero-title" style="font-size: clamp(2.4rem, 6vw, 4.4rem);">
-      a <span class="accent">working</span> mind.
+      a <span class="accent">playground</span>.
     </h1>
     <p class="hero-subtitle">
-      Lately I've been deep in the LLM stack — training, inference, storage —
-      and there's something fun about how every layer breaks in its own way.
-      What you'll find here are small notes from along the way: things that
-      struck me, half-formed ideas, the occasional rant. Nothing polished.
-      Just a working mind.
+      The off-hours corner of the site. Half-formed thoughts up top, whatever
+      I've had on repeat in the middle, and a wall of photos at the bottom.
+      Nothing polished — just the stuff that makes a person.
     </p>
   </section>
 
   <section class="bebop-section">
-    {% include bebop_section_rule.liquid title="recent" id="recent" %}
+    {% include bebop_section_rule.liquid title="thoughts" id="thoughts" %}
     {% include bebop_writing.liquid %}
+  </section>
+
+  <section class="bebop-section">
+    {% include bebop_section_rule.liquid title="songs I'm listening to" id="songs" %}
+    {% include bebop_songs.liquid %}
+  </section>
+
+  <section class="bebop-section">
+    {% include bebop_section_rule.liquid title="photo wall" id="photos" %}
+    {% include bebop_photo_wall.liquid %}
   </section>
 
 </div>

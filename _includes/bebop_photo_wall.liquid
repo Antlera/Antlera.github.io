@@ -1,0 +1,23 @@
+{%- comment -%}
+  Photo wall — auto-renders every image dropped into assets/img/playground/.
+  No manual list to maintain: just add files to that folder and they appear.
+{%- endcomment -%}
+{%- assign wall = site.static_files | where_exp: "f", "f.path contains '/assets/img/playground/'" | sort: "name" -%}
+{%- assign shown = 0 -%}
+<div class="pg-photos">
+  {%- for f in wall -%}
+    {%- assign e = f.extname | downcase -%}
+    {%- if e == ".jpg" or e == ".jpeg" or e == ".png" or e == ".webp" or e == ".gif" or e == ".avif" -%}
+      {%- assign shown = shown | plus: 1 -%}
+      <figure class="pg-photo">
+        <img src="{{ f.path | relative_url }}" loading="lazy" alt="{{ f.basename }}">
+      </figure>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+{%- if shown == 0 -%}
+  <p class="pg-empty">
+    Photos coming soon — drop images into <code>assets/img/playground/</code>
+    and they'll show up here automatically.
+  </p>
+{%- endif -%}

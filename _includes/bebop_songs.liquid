@@ -1,0 +1,27 @@
+{%- comment -%}
+  NetEase Cloud Music (网易云) playlist embed via the official outchain player.
+  Set `netease_playlist_id` in the page front matter (the number from the
+  playlist URL: music.163.com/playlist?id=XXXX). Leave blank to show a hint.
+{%- endcomment -%}
+{%- assign pid = page.netease_playlist_id -%}
+<div class="pg-songs">
+  {%- if pid and pid != "" -%}
+    <iframe
+      class="pg-netease"
+      frameborder="no"
+      border="0"
+      marginwidth="0"
+      marginheight="0"
+      width="100%"
+      height="450"
+      loading="lazy"
+      title="My NetEase Cloud Music playlist"
+      src="https://music.163.com/outchain/player?type=0&id={{ pid }}&auto=0&height=430">
+    </iframe>
+  {%- else -%}
+    <p class="pg-empty">
+      Add your 网易云 playlist id to <code>netease_playlist_id</code> in
+      <code>_pages/blog.md</code> to show your playlist here.
+    </p>
+  {%- endif -%}
+</div>
