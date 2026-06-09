@@ -45,12 +45,13 @@ netease_playlist_id: "" # your 网易云 playlist id — the number in the playl
   </section>
 
   <section class="bebop-section">
-    <div class="pg-tagline">walking rhythm</div>
+    <div class="pg-tagline">a waking rhythm</div>
     {% include bebop_section_rule.liquid title="songs I'm listening to" id="songs" %}
     {% include bebop_songs.liquid %}
   </section>
 
   <section class="bebop-section">
+    <div class="pg-tagline">a walking player</div>
     {% include bebop_section_rule.liquid title="photo wall" id="photos" %}
     {% include bebop_photo_wall.liquid %}
   </section>
