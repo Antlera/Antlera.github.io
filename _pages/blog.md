@@ -5,7 +5,7 @@ title: playground
 description: thoughts, songs on rotation, and a wall of photos — my corner of the web.
 nav: true
 nav_order: 4
-netease_playlist_id: "" # your 网易云 playlist id — the number in the playlist URL (music.163.com/playlist?id=XXXX)
+netease_playlist_id: "3136952023" # 网易云 playlist id — the number in the playlist URL (music.163.com/playlist?id=XXXX)
 ---
 
 <style>
