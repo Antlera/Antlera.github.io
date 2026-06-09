@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TStore — Tensor-Centric Compression</title>
+<style>
+  :root {
+    --bg: #0e1117;
+    --panel: #161b24;
+    --line: #2a313c;
+    --text: #e6edf3;
+    --muted: #8b96a5;
+    --gpu: #2dd4bf;     /* teal */
+    --hot: #f59e0b;     /* amber */
+    --cpu: #818cf8;     /* indigo — TStore accent */
+    --stall: #ef4444;   /* red */
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 2.2rem 1.4rem 3rem; }
+  .back {
+    display: inline-block; color: var(--muted); text-decoration: none;
+    font-size: 0.85rem; margin-bottom: 1.4rem;
+  }
+  .back:hover { color: var(--text); }
+  h1 { margin: 0 0 0.2rem; font-size: 1.7rem; letter-spacing: -0.01em; }
+  h1 span { color: var(--cpu); }
+  .sub { margin: 0 0 1.8rem; color: var(--muted); font-size: 0.95rem; }
+
+  .card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 1.6rem 1.4rem; margin-bottom: 1.4rem;
+  }
+  .card h2 {
+    margin: 0 0 1.4rem; font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--muted); font-weight: 600;
+  }
+  .caption { color: var(--muted); font-size: 0.9rem; line-height: 1.55; margin: 1.2rem 0 0; }
+  .caption b { color: var(--text); font-weight: 600; }
+  .legend { display: flex; gap: 1rem 1.4rem; flex-wrap: wrap; margin-top: 1.3rem; font-size: 0.78rem; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .sw { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+  .sw.round { border-radius: 50%; }
+
+  /* ===== CARD 1: cluster + delta animation ===== */
+
+  .stage {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+  }
+
+  /* ---- incoming model label ---- */
+  .model-label {
+    position: absolute;
+    top: 8px; left: 0;
+    font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ---- incoming model box that explodes into tensors ---- */
+  .model-box {
+    position: absolute;
+    top: 26px; left: 0;
+    width: 60px; height: 44px;
+    border: 1.5px solid rgba(129,140,248,0.5);
+    border-radius: 7px;
+    background: rgba(129,140,248,0.08);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.68rem; color: var(--cpu); font-weight: 600; letter-spacing: 0.04em;
+  }
+
+  /* Tensor blocks that fly out of the model and then cluster */
+  /* We use 6 tensors: t1–t6 (3 old, already in clusters) + t4–t6 new arriving */
+
+  .tensor {
+    position: absolute;
+    width: 24px; height: 24px;
+    border-radius: 5px;
+    border: 1.5px solid rgba(129,140,248,0.7);
+    background: rgba(129,140,248,0.18);
+    font-size: 0; /* hide text, use fingerprint dot instead */
+  }
+  /* fingerprint dot in corner */
+  .tensor::after {
+    content: "";
+    position: absolute;
+    top: 3px; right: 3px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--hot);
+    opacity: 0.9;
+  }
+
+  /* cluster center: slightly larger, glowing border */
+  .tensor.center {
+    border-color: var(--cpu);
+    background: rgba(129,140,248,0.32);
+    box-shadow: 0 0 10px rgba(129,140,248,0.35);
+  }
+  .tensor.center::after { background: var(--cpu); }
+
+  /* delta tensor: squished height, amber tint */
+  .tensor.delta {
+    height: 10px;
+    border-color: rgba(45,212,191,0.7);
+    background: rgba(45,212,191,0.18);
+    border-radius: 3px;
+  }
+  .tensor.delta::after { display: none; }
+
+  /* ---- Cluster A (left cluster, center x≈210 y≈80) ---- */
+  /* center of cluster A */
+  #ca-center {
+    animation: ca-center-in 8s ease-in-out infinite;
+  }
+  @keyframes ca-center-in {
+    0%,10% { left: 200px; top: 68px; opacity:1; }
+    100%    { left: 200px; top: 68px; opacity:1; }
+  }
+
+  /* member a1 — already in cluster, delta-compressed */
+  #ca-m1 {
+    animation: ca-m1-anim 8s ease-in-out infinite;
+  }
+  @keyframes ca-m1-anim {
+    0%,10%  { left: 200px; top: 96px; height:10px; opacity:1; }
+    100%    { left: 200px; top: 96px; height:10px; opacity:1; }
+  }
+
+  /* member a2 — already in cluster, delta-compressed */
+  #ca-m2 {
+    animation: ca-m2-anim 8s ease-in-out infinite;
+  }
+  @keyframes ca-m2-anim {
+    0%,10%  { left: 200px; top: 110px; height:10px; opacity:1; }
+    100%    { left: 200px; top: 110px; height:10px; opacity:1; }
+  }
+
+  /* ---- Cluster B (right cluster, center x≈360 y≈80) ---- */
+  #cb-center {
+    animation: cb-center-in 8s ease-in-out infinite;
+  }
+  @keyframes cb-center-in {
+    0%,10% { left: 360px; top: 68px; opacity:1; }
+    100%   { left: 360px; top: 68px; opacity:1; }
+  }
+
+  /* member b1 — already in cluster, delta-compressed */
+  #cb-m1 {
+    animation: cb-m1-anim 8s ease-in-out infinite;
+  }
+  @keyframes cb-m1-anim {
+    0%,10%  { left: 360px; top: 96px; height:10px; opacity:1; }
+    100%    { left: 360px; top: 96px; height:10px; opacity:1; }
+  }
+
+  /* ---- Cluster labels ---- */
+  .cluster-label {
+    position: absolute;
+    font-size: 0.67rem; color: var(--cpu); letter-spacing: 0.07em;
+    text-transform: uppercase; font-weight: 600;
+  }
+  #lbl-ca { left: 186px; top: 46px; animation: lbl-show 8s ease-in-out infinite; }
+  #lbl-cb { left: 347px; top: 46px; animation: lbl-show 8s ease-in-out infinite; }
+  @keyframes lbl-show {
+    0%,10% { opacity:1; } 100% { opacity:1; }
+  }
+
+  /* cluster halos */
+  .cluster-halo {
+    position: absolute;
+    border-radius: 12px;
+    border: 1px dashed rgba(129,140,248,0.28);
+    background: rgba(129,140,248,0.04);
+  }
+  #halo-a { width: 70px; height: 90px; left: 187px; top: 56px; }
+  #halo-b { width: 70px; height: 72px; left: 347px; top: 56px; }
+
+  /* ---- NEW model arriving (second model, right side) ---- */
+  .model-box2 {
+    position: absolute;
+    top: 26px;
+    border: 1.5px solid rgba(45,212,191,0.5);
+    border-radius: 7px;
+    background: rgba(45,212,191,0.07);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.68rem; color: var(--gpu); font-weight: 600; letter-spacing: 0.04em;
+    /* arrives from right */
+    animation: model2-arrive 8s ease-in-out infinite;
+  }
+  @keyframes model2-arrive {
+    0%    { left: 600px; width: 60px; height: 44px; opacity: 0; }
+    12%   { left: 510px; width: 60px; height: 44px; opacity: 1; }
+    28%   { left: 510px; width: 60px; height: 44px; opacity: 1; }
+    40%   { left: 510px; width: 60px; height: 44px; opacity: 0; }
+    100%  { left: 510px; width: 60px; height: 44px; opacity: 0; }
+  }
+
+  /* ---- new tensors flying out of model2 and joining clusters ---- */
+  /* new tensor n1: joins cluster A */
+  #nt1 {
+    border-color: rgba(45,212,191,0.7);
+    background: rgba(45,212,191,0.12);
+    animation: nt1-anim 8s ease-in-out infinite;
+  }
+  #nt1::after { background: var(--hot); }
+  @keyframes nt1-anim {
+    0%,28%  { left: 530px; top: 36px; width:24px; height:24px; opacity:0; }
+    35%     { left: 530px; top: 36px; width:24px; height:24px; opacity:1; }
+    52%     { left: 218px; top: 124px; width:24px; height:24px; opacity:1; }
+    62%     { left: 200px; top: 124px; width:24px; height:10px; opacity:1; }
+    100%    { left: 200px; top: 124px; width:24px; height:10px; opacity:1; }
+  }
+
+  /* new tensor n2: joins cluster B */
+  #nt2 {
+    border-color: rgba(45,212,191,0.7);
+    background: rgba(45,212,191,0.12);
+    animation: nt2-anim 8s ease-in-out infinite;
+  }
+  #nt2::after { background: var(--hot); }
+  @keyframes nt2-anim {
+    0%,30%  { left: 550px; top: 44px; width:24px; height:24px; opacity:0; }
+    38%     { left: 550px; top: 44px; width:24px; height:24px; opacity:1; }
+    55%     { left: 378px; top: 110px; width:24px; height:24px; opacity:1; }
+    65%     { left: 360px; top: 110px; width:24px; height:10px; opacity:1; }
+    100%    { left: 360px; top: 110px; width:24px; height:10px; opacity:1; }
+  }
+
+  /* ---- arrows (SVG) showing cluster membership ---- */
+  .arrows-svg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  /* delta labels */
+  .delta-tag {
+    position: absolute;
+    font-size: 0.62rem; color: var(--gpu); letter-spacing: 0.04em;
+    font-weight: 600;
+  }
+  #dtag-a  { left: 228px; top: 98px;  animation: dtag-show 8s ease-in-out infinite; }
+  #dtag-a2 { left: 228px; top: 112px; animation: dtag-show 8s ease-in-out infinite; }
+  #dtag-b  { left: 388px; top: 98px;  animation: dtag-show 8s ease-in-out infinite; }
+  @keyframes dtag-show { 0%,10% { opacity:1; } 100% { opacity:1; } }
+
+  #dtag-n1 { left: 228px; top: 126px; animation: dtag-n1-show 8s ease-in-out infinite; }
+  @keyframes dtag-n1-show {
+    0%,61% { opacity:0; }
+    65%    { opacity:1; }
+    100%   { opacity:1; }
+  }
+  #dtag-n2 { left: 388px; top: 112px; animation: dtag-n2-show 8s ease-in-out infinite; }
+  @keyframes dtag-n2-show {
+    0%,64% { opacity:0; }
+    68%    { opacity:1; }
+    100%   { opacity:1; }
+  }
+
+  /* "fingerprint" label */
+  .fp-label {
+    position: absolute;
+    font-size: 0.62rem; color: var(--hot);
+    animation: fp-label-show 8s ease-in-out infinite;
+  }
+  #fp1 { left: 228px; top: 70px; }
+  #fp2 { left: 388px; top: 70px; }
+  @keyframes fp-label-show { 0%,10% { opacity:1; } 100% { opacity:1; } }
+
+  /* row labels on left side */
+  .row-label {
+    position: absolute;
+    font-size: 0.67rem; color: var(--muted); letter-spacing: 0.06em;
+    left: 0;
+  }
+  #rl-clusters { top: 51px; }
+  #rl-stored   { top: 165px; }
+
+  /* storage row: show stored layout */
+  .stored-row {
+    position: absolute;
+    top: 155px; left: 0; right: 0;
+  }
+  .stored-title {
+    font-size: 0.67rem; color: var(--muted); text-transform: uppercase;
+    letter-spacing: 0.08em; margin-bottom: 6px;
+  }
+  .stored-blocks {
+    display: flex; gap: 4px; align-items: flex-end;
+  }
+  .sb {
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.58rem; font-weight: 600; letter-spacing: 0.03em;
+  }
+  /* center tensors: full height */
+  .sb.ctr {
+    width: 32px; height: 28px;
+    background: rgba(129,140,248,0.32);
+    border: 1.5px solid var(--cpu);
+    color: var(--cpu);
+  }
+  /* delta slices: thin */
+  .sb.dlt {
+    width: 32px; height: 11px;
+    background: rgba(45,212,191,0.18);
+    border: 1.5px solid rgba(45,212,191,0.6);
+    color: var(--gpu);
+    animation: delta-pulse 3s ease-in-out infinite;
+  }
+  @keyframes delta-pulse {
+    0%,100% { opacity:1; }
+    50%     { opacity:0.65; }
+  }
+  .sb-gap { width: 12px; }
+  .stored-caption {
+    font-size: 0.65rem; color: var(--muted); margin-top: 6px;
+  }
+
+  /* ===== CARD 2: storage bar ===== */
+
+  .bar-stage {
+    position: relative;
+    height: 140px;
+  }
+
+  .bar-track {
+    position: absolute;
+    top: 30px; left: 80px; right: 0;
+    height: 40px;
+    border-radius: 7px;
+    background: #0b0f15;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  /* saved region (right part — grayed out, hatched) */
+  .bar-saved {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(129,140,248,0.06) 0 5px,
+      transparent 5px 10px
+    );
+    border-left: 1.5px dashed rgba(129,140,248,0.4);
+    animation: saved-grow 5s ease-out infinite;
+  }
+  @keyframes saved-grow {
+    0%   { width: 0%; }
+    60%  { width: 70%; }
+    80%  { width: 70%; }
+    100% { width: 0%; }
+  }
+
+  /* used region (left part — filled) */
+  .bar-used {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    background: linear-gradient(90deg, rgba(129,140,248,0.5) 0%, rgba(129,140,248,0.35) 100%);
+    border-radius: 6px 0 0 6px;
+    animation: used-shrink 5s ease-out infinite;
+  }
+  @keyframes used-shrink {
+    0%   { width: 100%; }
+    60%  { width: 30%; }
+    80%  { width: 30%; }
+    100% { width: 100%; }
+  }
+
+  /* percentage label inside bar */
+  .bar-pct {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 80px;
+    display: flex; align-items: center;
+    font-size: 0.78rem; font-weight: 600; color: var(--text);
+    padding-left: 8px;
+    pointer-events: none;
+    animation: pct-shrink 5s ease-out infinite;
+    white-space: nowrap;
+  }
+  @keyframes pct-shrink {
+    0%   { left: 80px; /* ~100% of track, label stays inside bar */ }
+    60%  { left: 80px; }
+    100% { left: 80px; }
+  }
+  /* We'll overlay separate labels */
+  .bar-pct-used {
+    position: absolute;
+    top: 30px; left: 80px;
+    height: 40px; display: flex; align-items: center;
+    font-size: 0.75rem; font-weight: 700; color: var(--text);
+    padding-left: 8px;
+    pointer-events: none;
+    animation: pct-used-anim 5s ease-out infinite;
+    white-space: nowrap; overflow: hidden;
+  }
+  @keyframes pct-used-anim {
+    0%   { width: calc(100% - 80px); opacity:1; }
+    20%  { opacity:1; }
+    55%  { width: calc(30% - 24px); opacity:1; }
+    60%  { width: calc(30% - 24px); opacity:1; }
+    80%  { width: calc(30% - 24px); opacity:1; }
+    100% { width: calc(100% - 80px); opacity:1; }
+  }
+
+  .bar-label-used {
+    position: absolute;
+    top: 30px; left: 84px;
+    height: 40px; display: flex; align-items: center;
+    font-size: 0.73rem; font-weight: 700; color: var(--text);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .bar-label-saved {
+    position: absolute;
+    top: 30px; right: 4px;
+    height: 40px; display: flex; align-items: center;
+    font-size: 0.73rem; font-weight: 600;
+    color: var(--cpu);
+    pointer-events: none;
+    white-space: nowrap;
+    animation: saved-label-anim 5s ease-out infinite;
+  }
+  @keyframes saved-label-anim {
+    0%,5%   { opacity: 0; }
+    25%     { opacity: 1; }
+    80%     { opacity: 1; }
+    100%    { opacity: 0; }
+  }
+
+  /* x-axis ticks */
+  .bar-axis {
+    position: absolute;
+    top: 74px; left: 80px; right: 0;
+    display: flex; justify-content: space-between;
+    font-size: 0.62rem; color: var(--muted);
+  }
+
+  /* left label */
+  .bar-ylabel {
+    position: absolute;
+    top: 30px; left: 0; width: 76px;
+    height: 40px; display: flex; align-items: center;
+    font-size: 0.72rem; color: var(--muted); line-height: 1.3;
+  }
+
+  /* annotation arrow and "~70% saved" */
+  .bar-annot {
+    position: absolute;
+    top: 86px; left: 80px; right: 0;
+    display: flex; align-items: flex-start;
+    pointer-events: none;
+    animation: annot-anim 5s ease-out infinite;
+    white-space: nowrap;
+  }
+  @keyframes annot-anim {
+    0%,15%  { opacity:0; }
+    30%     { opacity:1; }
+    80%     { opacity:1; }
+    100%    { opacity:0; }
+  }
+  .bar-annot-line {
+    height: 16px;
+    border-left: 1.5px dashed rgba(129,140,248,0.5);
+    border-right: 1.5px dashed rgba(129,140,248,0.5);
+    border-top: 1.5px dashed rgba(129,140,248,0.5);
+    flex: 1;
+    margin: 0 0 0 calc(30% - 0px);
+    /* span from 30% to 100% of track */
+    /* we do this with a wrapper approach instead */
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../../projects/">← back to projects</a>
+    <h1><span>TStore</span> — tensor-centric compression</h1>
+    <p class="sub">Treating tensors, not models, as the unit of storage — clustering similar tensors then delta-compressing against each cluster center.</p>
+
+    <!-- Card 1 -->
+    <div class="card">
+      <h2>The idea — cluster similar tensors, then delta-compress</h2>
+      <div class="stage">
+
+        <!-- existing model (left) -->
+        <div class="model-box">Model A</div>
+        <span class="model-label" style="left:0;top:8px">existing</span>
+
+        <!-- cluster labels & halos -->
+        <div class="cluster-halo" id="halo-a"></div>
+        <div class="cluster-halo" id="halo-b"></div>
+        <span class="cluster-label" id="lbl-ca">Cluster A</span>
+        <span class="cluster-label" id="lbl-cb">Cluster B</span>
+
+        <!-- fingerprint labels -->
+        <span class="fp-label" id="fp1">&#9670; fingerprint</span>
+        <span class="fp-label" id="fp2">&#9670; fingerprint</span>
+
+        <!-- Cluster A: center + 2 delta members -->
+        <div class="tensor center" id="ca-center"></div>
+        <div class="tensor delta" id="ca-m1"></div>
+        <div class="tensor delta" id="ca-m2"></div>
+
+        <!-- Cluster B: center + 1 delta member -->
+        <div class="tensor center" id="cb-center"></div>
+        <div class="tensor delta" id="cb-m1"></div>
+
+        <!-- delta tags -->
+        <span class="delta-tag" id="dtag-a">&#9651; delta</span>
+        <span class="delta-tag" id="dtag-a2">&#9651; delta</span>
+        <span class="delta-tag" id="dtag-b">&#9651; delta</span>
+        <span class="delta-tag" id="dtag-n1">&#9651; delta</span>
+        <span class="delta-tag" id="dtag-n2">&#9651; delta</span>
+
+        <!-- new model arriving -->
+        <div class="model-box2">Model B</div>
+        <span class="model-label" style="animation: model2-arrive 8s ease-in-out infinite; left:510px; top:8px; color:var(--gpu)">new</span>
+
+        <!-- new tensors -->
+        <div class="tensor" id="nt1"></div>
+        <div class="tensor" id="nt2"></div>
+
+        <!-- stored layout at bottom -->
+        <div class="stored-row">
+          <div class="stored-title">stored on disk</div>
+          <div class="stored-blocks">
+            <!-- Cluster A -->
+            <div class="sb ctr">ctr</div>
+            <div class="sb dlt">&#9651;</div>
+            <div class="sb dlt">&#9651;</div>
+            <div class="sb-gap"></div>
+            <!-- Cluster B -->
+            <div class="sb ctr">ctr</div>
+            <div class="sb dlt">&#9651;</div>
+          </div>
+          <div class="stored-caption">Full center tensors stored once per cluster; members stored as tiny deltas.</div>
+        </div>
+
+      </div>
+      <p class="caption">
+        Each incoming model is <b>decomposed into tensors</b>. A cheap bit-level
+        <b>TensorSketch fingerprint</b> predicts which existing cluster each tensor is most
+        similar to. The tensor is then <b>delta-compressed against its cluster center</b>
+        and stored as a small residual — only the difference is kept on disk.
+      </p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <h2>The result — storage footprint shrinks ~70%</h2>
+
+      <div class="bar-stage">
+        <div class="bar-ylabel">Storage<br>used</div>
+
+        <div class="bar-track">
+          <div class="bar-used"></div>
+          <div class="bar-saved"></div>
+        </div>
+
+        <!-- label inside used region -->
+        <div class="bar-label-used">~30% used</div>
+
+        <!-- label inside saved region -->
+        <div class="bar-label-saved">70% saved&nbsp;&#x2193;</div>
+
+        <div class="bar-axis">
+          <span>0%</span>
+          <span>50%</span>
+          <span>100%</span>
+        </div>
+      </div>
+
+      <p class="caption">
+        TStore achieves a <b>~70% storage reduction</b> — roughly <b>37% better than the prior state-of-the-art</b> — by storing one full center tensor per cluster and only tiny delta residuals for all other tensors.
+      </p>
+
+      <div class="legend">
+        <span><i class="sw" style="background:rgba(129,140,248,0.32);border:1.5px solid var(--cpu);"></i> cluster-center tensor (full)</span>
+        <span><i class="sw" style="background:rgba(45,212,191,0.18);border:1.5px solid rgba(45,212,191,0.6); height:8px; border-radius:2px;"></i> delta (compressed residual)</span>
+        <span><i class="sw round" style="background:var(--hot);"></i> TensorSketch fingerprint</span>
+        <span><i class="sw" style="background:repeating-linear-gradient(45deg,rgba(129,140,248,0.15) 0 4px,transparent 4px 8px);border:1px dashed rgba(129,140,248,0.4);"></i> saved space</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

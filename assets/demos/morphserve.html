@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MorphServe — Runtime Quantized Layer Swapping</title>
+<style>
+  :root {
+    --bg: #0e1117;
+    --panel: #161b24;
+    --line: #2a313c;
+    --text: #e6edf3;
+    --muted: #8b96a5;
+    --gpu: #2dd4bf;     /* teal */
+    --hot: #f59e0b;     /* amber */
+    --cpu: #818cf8;     /* indigo */
+    --stall: #ef4444;   /* red */
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 2.2rem 1.4rem 3rem; }
+  .back {
+    display: inline-block; color: var(--muted); text-decoration: none;
+    font-size: 0.85rem; margin-bottom: 1.4rem;
+  }
+  .back:hover { color: var(--text); }
+  h1 { margin: 0 0 0.2rem; font-size: 1.7rem; letter-spacing: -0.01em; }
+  h1 span { color: var(--gpu); }
+  .sub { margin: 0 0 1.8rem; color: var(--muted); font-size: 0.95rem; }
+
+  .card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 1.6rem 1.4rem; margin-bottom: 1.4rem;
+  }
+  .card h2 {
+    margin: 0 0 1.4rem; font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--muted); font-weight: 600;
+  }
+
+  .caption { color: var(--muted); font-size: 0.9rem; line-height: 1.55; margin: 1.2rem 0 0; }
+  .caption b { color: var(--text); font-weight: 600; }
+  .legend { display: flex; gap: 1rem 1.4rem; flex-wrap: wrap; margin-top: 1.3rem; font-size: 0.78rem; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .sw { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+  .sw.round { border-radius: 50%; }
+
+  /* ===================== MORPH ANIMATION AREA ===================== */
+  /*
+   * Layout: three columns inside .morph-scene
+   *   col-layers  : vertical stack of 6 transformer layer blocks
+   *   col-kvcache : KV cache rectangle that grows/shrinks
+   *   col-pressure: memory pressure gauge (vertical bar fills up and drains)
+   * Below everything: an SLO/latency indicator bar
+   *
+   * Animation cycle (12 s total, seamless loop):
+   *   0–25%  : pressure LOW  → all layers full-precision (teal), KV cache full
+   *   25–40% : pressure RISING
+   *   40–75% : pressure HIGH → layers 2 & 5 quantized (amber, slimmer), KV cache shrunk
+   *   75–90% : pressure FALLING
+   *   90–100%: pressure LOW again (loops)
+   */
+
+  .morph-scene {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    height: 280px;
+  }
+
+  /* ---- Column: transformer layer stack ---- */
+  .col-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 140px;
+    padding-top: 8px;
+  }
+  .col-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .layer {
+    width: 100%;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border: 1.5px solid rgba(45,212,191,0.45);
+    background: rgba(45,212,191,0.12);
+    color: var(--gpu);
+    transition: none;
+    /* default height: will animate per-layer */
+    height: 30px;
+  }
+
+  /* Layers 2 and 5 (index 1 and 4) get quantized under high pressure */
+  /* Low pressure: full size, teal */
+  /* High pressure: slimmer, amber, INT8 label */
+
+  /* Layer 1 (stays full always) */
+  .layer-1 { animation: layerFull 12s ease-in-out infinite; }
+  /* Layer 2 (gets quantized) */
+  .layer-2 { animation: layerQuant 12s ease-in-out infinite; }
+  /* Layer 3 (stays full) */
+  .layer-3 { animation: layerFull 12s ease-in-out infinite; }
+  /* Layer 4 (stays full) */
+  .layer-4 { animation: layerFull 12s ease-in-out infinite; }
+  /* Layer 5 (gets quantized) */
+  .layer-5 { animation: layerQuant 12s ease-in-out infinite; }
+  /* Layer 6 (stays full always) */
+  .layer-6 { animation: layerFull 12s ease-in-out infinite; }
+
+  /* Color/size for full-precision layers: teal, 30px */
+  @keyframes layerFull {
+    0%, 30%, 85%, 100% {
+      height: 30px;
+      background: rgba(45,212,191,0.12);
+      border-color: rgba(45,212,191,0.45);
+      color: var(--gpu);
+    }
+    40%, 72% {
+      height: 30px;
+      background: rgba(45,212,191,0.12);
+      border-color: rgba(45,212,191,0.45);
+      color: var(--gpu);
+    }
+  }
+
+  /* Color/size for quantized layers: transition to amber/slimmer at high pressure */
+  @keyframes layerQuant {
+    0%, 30% {
+      height: 30px;
+      background: rgba(45,212,191,0.12);
+      border-color: rgba(45,212,191,0.45);
+      color: var(--gpu);
+    }
+    42%, 72% {
+      height: 18px;
+      background: rgba(245,158,11,0.18);
+      border-color: rgba(245,158,11,0.6);
+      color: var(--hot);
+    }
+    85%, 100% {
+      height: 30px;
+      background: rgba(45,212,191,0.12);
+      border-color: rgba(45,212,191,0.45);
+      color: var(--gpu);
+    }
+  }
+
+  /* Swap label text: "FP16" vs "INT8" — done with a wrapper that holds two spans */
+  .layer-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  /* Full-precision label */
+  .lbl-fp {
+    position: absolute;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--gpu);
+    animation: lblFP 12s ease-in-out infinite;
+  }
+  /* Quantized label */
+  .lbl-int {
+    position: absolute;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--hot);
+    animation: lblINT 12s ease-in-out infinite;
+  }
+  /* For non-quantized layers: always show FP16, hide INT8 */
+  .layer-full .lbl-fp  { opacity: 1; }
+  .layer-full .lbl-int { opacity: 0; }
+
+  @keyframes lblFP {
+    0%, 34%  { opacity: 1; }
+    40%, 74% { opacity: 0; }
+    82%, 100%{ opacity: 1; }
+  }
+  @keyframes lblINT {
+    0%, 34%  { opacity: 0; }
+    40%, 74% { opacity: 1; }
+    82%, 100%{ opacity: 0; }
+  }
+
+  /* ---- Separator ---- */
+  .col-sep {
+    width: 24px;
+    flex-shrink: 0;
+  }
+
+  /* ---- Column: KV Cache ---- */
+  .col-kv {
+    width: 90px;
+    padding-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .kv-outer {
+    width: 64px;
+    height: 200px;
+    background: #0b0f15;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    position: relative;
+  }
+  .kv-fill {
+    width: 100%;
+    background: rgba(129,140,248,0.35);
+    border-top: 2px solid rgba(129,140,248,0.8);
+    animation: kvFill 12s ease-in-out infinite;
+  }
+  @keyframes kvFill {
+    0%, 30%  { height: 80%; background: rgba(129,140,248,0.35); border-color: rgba(129,140,248,0.8); }
+    42%, 72% { height: 38%; background: rgba(245,158,11,0.20); border-color: rgba(245,158,11,0.6); }
+    85%, 100%{ height: 80%; background: rgba(129,140,248,0.35); border-color: rgba(129,140,248,0.8); }
+  }
+  .kv-label-inside {
+    position: absolute;
+    bottom: 6px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--cpu);
+    animation: kvLabelColor 12s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes kvLabelColor {
+    0%, 30%  { color: var(--cpu); }
+    42%, 72% { color: var(--hot); }
+    85%, 100%{ color: var(--cpu); }
+  }
+
+  /* ---- Column: Memory Pressure gauge ---- */
+  .col-pressure {
+    width: 60px;
+    margin-left: 20px;
+    padding-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pressure-outer {
+    width: 28px;
+    height: 200px;
+    background: #0b0f15;
+    border: 1.5px solid var(--line);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .pressure-fill {
+    width: 100%;
+    animation: pressureRise 12s ease-in-out infinite;
+    border-radius: 0 0 4px 4px;
+  }
+  @keyframes pressureRise {
+    0%, 25%  { height: 22%; background: rgba(45,212,191,0.50); }
+    42%, 72% { height: 88%; background: rgba(239,68,68,0.70); }
+    88%, 100%{ height: 22%; background: rgba(45,212,191,0.50); }
+  }
+
+  /* Pressure tick marks */
+  .pressure-ticks {
+    position: absolute;
+    right: -18px;
+    top: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.56rem;
+    color: var(--muted);
+    pointer-events: none;
+  }
+  .pressure-wrap {
+    position: relative;
+    width: 28px;
+    height: 200px;
+  }
+
+  /* ---- SLO Indicator bar ---- */
+  .slo-row {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .slo-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    white-space: nowrap;
+    width: 80px;
+    flex-shrink: 0;
+  }
+  .slo-track {
+    flex: 1;
+    height: 20px;
+    background: #0b0f15;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+  }
+  /* Green zone baseline */
+  .slo-green {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 70%;
+    background: rgba(45,212,191,0.08);
+    border-right: 1px dashed rgba(45,212,191,0.3);
+  }
+  /* SLO threshold label */
+  .slo-thresh {
+    position: absolute;
+    right: 28%;
+    top: 2px;
+    font-size: 0.55rem;
+    color: rgba(45,212,191,0.5);
+    white-space: nowrap;
+  }
+  /* Latency dot that moves left-right along the bar */
+  .slo-dot {
+    position: absolute;
+    top: 3px; bottom: 3px;
+    width: 14px;
+    border-radius: 3px;
+    background: var(--gpu);
+    box-shadow: 0 0 6px rgba(45,212,191,0.6);
+    animation: sloDot 12s ease-in-out infinite;
+  }
+  @keyframes sloDot {
+    /* Without MorphServe: would spike right. With it: stays in green zone */
+    0%, 25%  { left: 28%; background: var(--gpu); box-shadow: 0 0 6px rgba(45,212,191,0.6); }
+    /* pressure rising — latency nudges slightly but stays green */
+    38%      { left: 42%; background: var(--gpu); box-shadow: 0 0 6px rgba(45,212,191,0.6); }
+    /* high pressure — MorphServe kicks in, latency stays inside threshold */
+    42%, 72% { left: 50%; background: var(--gpu); box-shadow: 0 0 6px rgba(45,212,191,0.6); }
+    85%      { left: 30%; background: var(--gpu); box-shadow: 0 0 6px rgba(45,212,191,0.6); }
+    100%     { left: 28%; background: var(--gpu); box-shadow: 0 0 6px rgba(45,212,191,0.6); }
+  }
+
+  /* ---- Column labels row (sits above .morph-scene content) ---- */
+  .col-labels-row {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0;
+    height: 22px;
+  }
+  .clabel {
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    text-align: center;
+  }
+
+  /* ---- "HIGH PRESSURE" overlay badge ---- */
+  .phase-badge {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    animation: phaseBadge 12s ease-in-out infinite;
+  }
+  @keyframes phaseBadge {
+    0%, 33%  { content: ""; background: rgba(45,212,191,0.15); color: var(--gpu); opacity: 1; }
+    /* we fake content with a pseudo trick — use two separate badges instead */
+    40%, 74% { background: rgba(239,68,68,0.18); color: var(--stall); opacity: 1; }
+    85%, 100%{ background: rgba(45,212,191,0.15); color: var(--gpu); opacity: 1; }
+  }
+  .badge-low {
+    position: absolute;
+    top: 4px; right: 0;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+    padding: 2px 8px; border-radius: 4px;
+    background: rgba(45,212,191,0.15); color: var(--gpu);
+    animation: badgeLow 12s ease-in-out infinite;
+  }
+  .badge-high {
+    position: absolute;
+    top: 4px; right: 0;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+    padding: 2px 8px; border-radius: 4px;
+    background: rgba(239,68,68,0.18); color: var(--stall);
+    animation: badgeHigh 12s ease-in-out infinite;
+  }
+  @keyframes badgeLow {
+    0%, 34%  { opacity: 1; }
+    38%, 80% { opacity: 0; }
+    86%, 100%{ opacity: 1; }
+  }
+  @keyframes badgeHigh {
+    0%, 36%  { opacity: 0; }
+    41%, 74% { opacity: 1; }
+    82%, 100%{ opacity: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../../projects/">← back to projects</a>
+    <h1><span>MorphServe</span> — runtime-adaptive LLM serving</h1>
+    <p class="sub">How quantized layer swapping and KV cache resizing keep SLOs intact under load spikes.</p>
+
+    <div class="card">
+      <h2>Mechanism — layer swapping + KV cache resizing</h2>
+
+      <!-- column header labels -->
+      <div style="display:flex; align-items:flex-end; gap:0; margin-bottom:6px;">
+        <div class="clabel" style="width:140px;">Transformer layers</div>
+        <div style="width:24px;"></div>
+        <div class="clabel" style="width:90px;">KV cache</div>
+        <div style="width:20px;"></div>
+        <div class="clabel" style="width:60px;">Mem. pressure</div>
+        <div style="flex:1;"></div>
+      </div>
+
+      <div class="morph-scene">
+        <!-- Phase badges -->
+        <div class="badge-low">LOW PRESSURE</div>
+        <div class="badge-high">HIGH PRESSURE</div>
+
+        <!-- Layer stack -->
+        <div class="col-layers">
+          <!-- Layer 1: always full -->
+          <div class="layer layer-1 layer-full">
+            <div class="layer-inner">
+              <span class="lbl-fp">FP16</span>
+            </div>
+          </div>
+          <!-- Layer 2: quantized under pressure -->
+          <div class="layer layer-2">
+            <div class="layer-inner">
+              <span class="lbl-fp">FP16</span>
+              <span class="lbl-int">INT8</span>
+            </div>
+          </div>
+          <!-- Layer 3: always full -->
+          <div class="layer layer-3 layer-full">
+            <div class="layer-inner">
+              <span class="lbl-fp">FP16</span>
+            </div>
+          </div>
+          <!-- Layer 4: always full -->
+          <div class="layer layer-4 layer-full">
+            <div class="layer-inner">
+              <span class="lbl-fp">FP16</span>
+            </div>
+          </div>
+          <!-- Layer 5: quantized under pressure -->
+          <div class="layer layer-5">
+            <div class="layer-inner">
+              <span class="lbl-fp">FP16</span>
+              <span class="lbl-int">INT8</span>
+            </div>
+          </div>
+          <!-- Layer 6: always full -->
+          <div class="layer layer-6 layer-full">
+            <div class="layer-inner">
+              <span class="lbl-fp">FP16</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Separator -->
+        <div class="col-sep"></div>
+
+        <!-- KV Cache column -->
+        <div class="col-kv">
+          <div class="kv-outer">
+            <div class="kv-fill"></div>
+            <div class="kv-label-inside">KV cache</div>
+          </div>
+        </div>
+
+        <!-- Pressure gauge column -->
+        <div class="col-pressure">
+          <div class="pressure-wrap">
+            <div class="pressure-outer">
+              <div class="pressure-fill"></div>
+            </div>
+            <div class="pressure-ticks">
+              <span>HI</span>
+              <span></span>
+              <span>LO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLO indicator (below the main scene) -->
+      <div class="slo-row">
+        <div class="slo-label">P95 TTFT</div>
+        <div class="slo-track">
+          <div class="slo-green"></div>
+          <div class="slo-thresh">SLO limit</div>
+          <div class="slo-dot"></div>
+        </div>
+      </div>
+
+      <p class="caption">
+        As memory pressure spikes, MorphServe <b>swaps low-impact layers to INT8</b> (amber, slimmer)
+        and <b>shrinks the KV cache</b> to free capacity. Both restore when pressure drops.
+        Throughout the spike, <b>P95 TTFT stays well inside the SLO threshold</b>
+        — ~92% fewer violations vs. full-precision serving.
+      </p>
+
+      <div class="legend">
+        <span><i class="sw" style="background:rgba(45,212,191,0.40); border:1.5px solid rgba(45,212,191,0.6);"></i> FP16 layer (full precision)</span>
+        <span><i class="sw" style="background:rgba(245,158,11,0.30); border:1.5px solid rgba(245,158,11,0.7);"></i> INT8 layer (quantized swap)</span>
+        <span><i class="sw" style="background:rgba(129,140,248,0.40); border:1.5px solid rgba(129,140,248,0.7);"></i> KV cache capacity</span>
+        <span><i class="sw" style="background:rgba(239,68,68,0.55);"></i> Memory pressure</span>
+        <span><i class="sw round" style="background:var(--gpu);"></i> P95 TTFT (stays in SLO)</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

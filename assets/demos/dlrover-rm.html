@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DLRover-RM — Elastic Resource Optimization</title>
+<style>
+  :root {
+    --bg: #0e1117;
+    --panel: #161b24;
+    --line: #2a313c;
+    --text: #e6edf3;
+    --muted: #8b96a5;
+    --gpu: #2dd4bf;     /* teal — active worker / GPU */
+    --hot: #f59e0b;     /* amber — important / warning */
+    --cpu: #818cf8;     /* indigo — migration */
+    --stall: #ef4444;   /* red — failure / OOM */
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 2.2rem 1.4rem 3rem; }
+  .back {
+    display: inline-block; color: var(--muted); text-decoration: none;
+    font-size: 0.85rem; margin-bottom: 1.4rem;
+  }
+  .back:hover { color: var(--text); }
+  h1 { margin: 0 0 0.2rem; font-size: 1.7rem; letter-spacing: -0.01em; }
+  h1 span { color: var(--gpu); }
+  .sub { margin: 0 0 1.8rem; color: var(--muted); font-size: 0.95rem; }
+
+  .card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 1.6rem 1.4rem; margin-bottom: 1.4rem;
+  }
+  .card h2 {
+    margin: 0 0 1.4rem; font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--muted); font-weight: 600;
+  }
+
+  .caption { color: var(--muted); font-size: 0.9rem; line-height: 1.55; margin: 1.2rem 0 0; }
+  .caption b { color: var(--text); font-weight: 600; }
+
+  .legend { display: flex; gap: 1rem 1.4rem; flex-wrap: wrap; margin-top: 1.3rem; font-size: 0.78rem; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .sw { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+  .sw.round { border-radius: 50%; }
+
+  /* =====================================================
+     CARD 1: Elastic scaling + worker cluster
+     ===================================================== */
+  .cluster-area {
+    position: relative;
+    height: 200px;
+  }
+
+  /* Resource Manager label */
+  .rm-label {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    text-align: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  /* Worker slots row */
+  .workers {
+    position: absolute;
+    top: 28px;
+    left: 0; right: 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: flex-start;
+    height: 60px;
+  }
+
+  .worker {
+    width: 52px; height: 52px;
+    border-radius: 10px;
+    border: 1.5px solid var(--line);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.04em;
+    background: rgba(45,212,191,0.10);
+    border-color: rgba(45,212,191,0.45);
+    color: var(--gpu);
+    flex-shrink: 0;
+  }
+  .worker small { font-size: 0.55rem; color: var(--muted); font-weight: 400; margin-top: 2px; }
+
+  /* Worker 1–3 always present; worker 4 elastically appears/disappears */
+  .w1 { animation: w-pulse 7.2s ease-in-out infinite; }
+  .w2 { animation: w-pulse 7.2s ease-in-out infinite 0.4s; }
+  .w3 { animation: w-fail  7.2s ease-in-out infinite; }
+  .w4 { animation: w-elastic 7.2s ease-in-out infinite; }
+  .w5 { animation: w-pulse 7.2s ease-in-out infinite 1.0s; }
+
+  @keyframes w-pulse {
+    0%,100% { opacity:1; transform: scale(1); box-shadow: none; }
+    50%      { box-shadow: 0 0 0 5px rgba(45,212,191,0.08); }
+  }
+
+  /* worker 3 fails mid-cycle then migrates (turns indigo) then recovers */
+  @keyframes w-fail {
+    0%,20%  { opacity:1; background: rgba(45,212,191,0.10);
+               border-color: rgba(45,212,191,0.45); color: var(--gpu); box-shadow: none; }
+    30%     { opacity:1; background: rgba(239,68,68,0.18);
+               border-color: rgba(239,68,68,0.7); color: var(--stall);
+               box-shadow: 0 0 0 6px rgba(239,68,68,0.15); }
+    35%,49% { opacity:0.3; background: rgba(129,140,248,0.10);
+               border-color: rgba(129,140,248,0.4); color: var(--cpu); box-shadow: none; }
+    55%,100%{ opacity:1; background: rgba(45,212,191,0.10);
+               border-color: rgba(45,212,191,0.45); color: var(--gpu); box-shadow: none; }
+  }
+
+  /* worker 4: appears (scale-up) then disappears (scale-down) elastically */
+  @keyframes w-elastic {
+    0%,10%    { opacity:0; transform: scaleX(0); }
+    18%       { opacity:1; transform: scaleX(1); }
+    65%       { opacity:1; transform: scaleX(1); }
+    72%,100%  { opacity:0; transform: scaleX(0); }
+  }
+
+  /* Migration arrow: flies from where w3 was toward a new slot */
+  .migrate-dot {
+    position: absolute;
+    top: 48px;  /* vertically centered with workers */
+    left: 50%;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--cpu);
+    box-shadow: 0 0 8px var(--cpu);
+    transform: translateX(-60px);
+    animation: migrate 7.2s ease-in-out infinite;
+    opacity: 0;
+  }
+  @keyframes migrate {
+    0%,32%  { opacity:0; transform: translateX(-60px); }
+    36%     { opacity:1; transform: translateX(-60px); }
+    50%     { opacity:1; transform: translateX( 80px); }
+    54%,100%{ opacity:0; transform: translateX( 80px); }
+  }
+
+  /* ---- Utilization bar ---- */
+  .util-row {
+    position: absolute;
+    bottom: 52px; left: 0; right: 0;
+  }
+  .util-label {
+    font-size: 0.68rem; color: var(--muted); margin-bottom: 5px; text-align: left;
+    padding-left: 4px;
+  }
+  .util-track {
+    height: 12px; border-radius: 4px;
+    background: #0b0f15; border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .util-fill {
+    height: 100%; border-radius: 4px;
+    background: var(--gpu);
+    animation: util-anim 7.2s ease-in-out infinite;
+  }
+  @keyframes util-anim {
+    /* starts moderate, jumps high as w4 added, dips on fail, recovers */
+    0%        { width: 58%; background: var(--hot); }
+    18%       { width: 88%; background: var(--gpu); }
+    30%,34%   { width: 72%; background: var(--stall); }
+    55%       { width: 86%; background: var(--gpu); }
+    70%       { width: 86%; background: var(--gpu); }
+    75%,100%  { width: 60%; background: var(--hot); }
+  }
+
+  /* ---- Memory gauge ---- */
+  .mem-row {
+    position: absolute;
+    bottom: 10px; left: 0; right: 0;
+  }
+  .mem-label {
+    font-size: 0.68rem; color: var(--muted); margin-bottom: 5px; text-align: left;
+    padding-left: 4px;
+  }
+  .mem-track {
+    height: 12px; border-radius: 4px;
+    background: #0b0f15; border: 1px solid var(--line);
+    position: relative; overflow: visible;
+  }
+  .mem-fill {
+    height: 100%; border-radius: 4px;
+    background: var(--hot);
+    animation: mem-anim 7.2s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  @keyframes mem-anim {
+    /* climbs toward OOM limit at ~80%, RM pre-adjusts, backs off */
+    0%        { width: 42%; }
+    40%       { width: 76%; }
+    50%       { width: 82%; }   /* approaching limit */
+    58%       { width: 62%; }   /* RM intervenes → backs off */
+    100%      { width: 44%; }
+  }
+  /* OOM limit line */
+  .oom-line {
+    position: absolute;
+    top: -3px; bottom: -3px;
+    left: 85%;
+    width: 2px;
+    background: var(--stall);
+    border-radius: 1px;
+  }
+  .oom-line::after {
+    content: "OOM limit";
+    position: absolute;
+    top: -18px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    color: var(--stall);
+    white-space: nowrap;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  /* Phase annotation */
+  .phase-label {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+
+  /* =====================================================
+     CARD 2: JCT comparison bars
+     ===================================================== */
+  .jct-area { }
+  .jct-row { margin-bottom: 1.1rem; }
+  .jct-row:last-child { margin-bottom: 0; }
+  .jct-name { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.45rem; }
+  .jct-name b { color: var(--text); font-weight: 600; }
+
+  .jct-track {
+    position: relative; height: 36px; border-radius: 6px; overflow: hidden;
+    background: #0b0f15; border: 1px solid var(--line);
+  }
+  .jct-fill {
+    position: absolute; top: 0; bottom: 0; left: 0;
+    border-radius: 6px;
+    display: flex; align-items: center;
+    padding-left: 10px;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.03em;
+  }
+
+  /* Static baseline: full width, orange-ish */
+  .jct-baseline {
+    background: rgba(245,158,11,0.25);
+    border-right: 2px solid var(--hot);
+    color: var(--hot);
+    animation: jct-base 7.2s ease-in-out infinite;
+  }
+  @keyframes jct-base {
+    0%,100% { width: 100%; }
+  }
+
+  /* DLRover-RM: ~69% = 31% shorter */
+  .jct-dlrover {
+    background: rgba(45,212,191,0.18);
+    border-right: 2px solid var(--gpu);
+    color: var(--gpu);
+    animation: jct-rm 7.2s ease-in-out infinite;
+  }
+  @keyframes jct-rm {
+    0%     { width: 0%; }
+    12%    { width: 69%; }
+    100%   { width: 69%; }
+  }
+
+  /* playhead sweeps across the baseline row */
+  .playhead {
+    position: absolute; top: 0; bottom: 0; width: 2px; background: var(--text);
+    opacity: 0.5; animation: sweep 7.2s linear infinite;
+  }
+  @keyframes sweep { from { left: 0; } to { left: 100%; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../../projects/">← back to projects</a>
+    <h1><span>DLRover-RM</span> — elastic resource optimization</h1>
+    <p class="sub">How runtime-adaptive scaling, seamless migration, and OOM prevention cut DLRM training cost in the cloud.</p>
+
+    <div class="card">
+      <h2>Elastic workers · seamless migration · OOM prevention</h2>
+      <div class="cluster-area">
+
+        <div class="rm-label">Resource Manager</div>
+
+        <!-- Worker row: w3 fails & migrates; w4 elastically added/removed -->
+        <div class="workers">
+          <div class="worker w1">W1<small>active</small></div>
+          <div class="worker w2">W2<small>active</small></div>
+          <div class="worker w3">W3<small>active</small></div>
+          <div class="worker w4">W4<small>added</small></div>
+          <div class="worker w5">W5<small>active</small></div>
+        </div>
+
+        <!-- Migration particle: travels from W3 position to a new slot -->
+        <div class="migrate-dot"></div>
+
+        <!-- CPU utilization bar -->
+        <div class="util-row">
+          <div class="util-label">CPU utilization</div>
+          <div class="util-track">
+            <div class="util-fill"></div>
+          </div>
+        </div>
+
+        <!-- Memory gauge -->
+        <div class="mem-row">
+          <div class="mem-label">Memory pressure</div>
+          <div class="mem-track">
+            <div class="mem-fill"></div>
+            <div class="oom-line"></div>
+          </div>
+        </div>
+
+      </div>
+      <p class="caption">
+        The <b>resource manager</b> continuously monitors runtime metrics.
+        It <b>elastically adds or removes workers</b> (W4) to keep utilization high.
+        When a worker fails (W3 flashes red), it is <b>seamlessly migrated</b> — no full restart —
+        thanks to flash checkpointing. As memory pressure approaches the OOM limit,
+        the manager <b>pre-adjusts allocation</b> to prevent crashes.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Result — shorter job completion time</h2>
+      <div class="jct-area">
+
+        <div class="jct-row">
+          <div class="jct-name">Static allocation <b>— over-provisioned, stalls on failure</b></div>
+          <div class="jct-track">
+            <div class="jct-fill jct-baseline">100% (baseline JCT)</div>
+            <div class="playhead"></div>
+          </div>
+        </div>
+
+        <div class="jct-row">
+          <div class="jct-name">DLRover-RM <b>— elastic, ~31% faster, higher completion rate</b></div>
+          <div class="jct-track">
+            <div class="jct-fill jct-dlrover">~69% of baseline</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="legend">
+        <span><i class="sw" style="background:rgba(45,212,191,0.5);border:1.5px solid var(--gpu)"></i> Active worker</span>
+        <span><i class="sw round" style="background:var(--cpu)"></i> Migrating worker (seamless)</span>
+        <span><i class="sw" style="background:var(--stall)"></i> Worker failure / OOM zone</span>
+        <span><i class="sw" style="background:var(--gpu)"></i> CPU utilization (high)</span>
+        <span><i class="sw" style="background:var(--hot)"></i> Memory pressure / low utilization</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
