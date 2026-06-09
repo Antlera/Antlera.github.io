@@ -12,6 +12,10 @@ netease_playlist_id: "" # your 网易云 playlist id — the number in the playl
   /* This page's hero has no portrait, so opt out of the two-column hero grid. */
   .bebop-hero.bebop-hero--plain {
     display: block;
+    text-align: center;
+  }
+  .bebop-hero.bebop-hero--plain .hero-title {
+    transform: rotate(-1deg);
   }
 
   .pg-tagline {
@@ -29,12 +33,9 @@ netease_playlist_id: "" # your 网易云 playlist id — the number in the playl
 
   <section class="bebop-hero bebop-hero--plain" style="padding: 3.5rem 0 1.5rem;">
     <div class="hero-eyebrow">♪ playground</div>
-    <h1 class="hero-title" style="font-size: clamp(2.4rem, 6vw, 4.4rem);">
+    <h1 class="hero-title" style="font-size: clamp(3.4rem, 11vw, 7rem); margin-bottom: 0;">
       a <span class="accent">playground</span>.
     </h1>
-    <p class="hero-subtitle">
-      Off the clock. ♪
-    </p>
   </section>
 
   <section class="bebop-section">
