@@ -8,5 +8,5 @@ category: inference
 tags: [Preprint]
 paper: https://arxiv.org/abs/2505.23022
 code: https://github.com/MisterBrookT/Scorpio
-# vis:  # add /projects/scorpio/ visual page when ready
+# demo: # add /assets/demos/scorpio.html when ready
 ---

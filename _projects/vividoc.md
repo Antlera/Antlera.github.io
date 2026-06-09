@@ -8,5 +8,4 @@ category: vis
 tags: [ACL '26 Demo]
 paper: https://arxiv.org/abs/2603.01912
 demo: https://vividoc-homepage.vercel.app/
-# vis:  # add /projects/vividoc/ visual page when ready
 ---

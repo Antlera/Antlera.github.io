@@ -8,5 +8,5 @@ category: training
 tags: [VLDB '24]
 paper: https://doi.org/10.14778/3685800.3685832
 code: https://github.com/intelligent-machine-learning/dlrover
-# vis:  # add /projects/dlrover-rm/ visual page when ready
+# demo: # add /assets/demos/dlrover-rm.html when ready
 ---

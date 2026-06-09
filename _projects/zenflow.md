@@ -9,5 +9,5 @@ tags: [DeepSpeed, PyTorch]
 paper: https://arxiv.org/abs/2505.12242
 code: https://github.com/deepspeedai/DeepSpeedExamples/tree/master/training/DeepSpeed-ZenFlow
 blog: https://pytorch.org/blog/zenflow-stall-free-offloading-engine-for-llm-training/
-# vis: # add /projects/zenflow/ visual page when ready
+demo: /assets/demos/zenflow.html
 ---
