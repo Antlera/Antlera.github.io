@@ -33,9 +33,7 @@ netease_playlist_id: "" # your 网易云 playlist id — the number in the playl
       a <span class="accent">playground</span>.
     </h1>
     <p class="hero-subtitle">
-      The off-hours corner of the site. Half-formed thoughts up top, whatever
-      I've had on repeat in the middle, and a wall of photos at the bottom.
-      Nothing polished — just the stuff that makes a person.
+      Off the clock — where the work stops and the person shows up. ♪
     </p>
   </section>
 
