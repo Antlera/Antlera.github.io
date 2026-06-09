@@ -7,7 +7,15 @@
 <div class="pg-photos">
   {%- for f in wall -%}
     {%- assign e = f.extname | downcase -%}
+    {%- assign is_image = false -%}
+    {%- assign is_resized = false -%}
     {%- if e == ".jpg" or e == ".jpeg" or e == ".png" or e == ".webp" or e == ".gif" or e == ".avif" -%}
+      {%- assign is_image = true -%}
+    {%- endif -%}
+    {%- if f.basename contains "-480" or f.basename contains "-800" or f.basename contains "-1400" -%}
+      {%- assign is_resized = true -%}
+    {%- endif -%}
+    {%- if is_image and is_resized == false -%}
       {%- assign shown = shown | plus: 1 -%}
       <figure class="pg-photo">
         <img src="{{ f.path | relative_url }}" loading="lazy" alt="{{ f.basename }}">

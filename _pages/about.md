@@ -6,7 +6,7 @@ permalink: /
 # ─── Bebop hero ──────────────────────────────────────────────────────────────
 hero_eyebrow: "♪ tingfeng (felix) lan presents —"
 hero_subtitle: >
-  PhD student at <a href="https://ds2-lab.github.io/">DS² Lab</a>, University of Virginia,
+  PhD candidate at <a href="https://ds2-lab.github.io/">DS² Lab</a>, University of Virginia,
   with <a href="https://tddg.github.io/">Yue Cheng</a>;
   also working closely with <a href="https://junchengyang.com/">Juncheng Yang</a> at Harvard.
   Building systems across the LLM stack — training, inference, storage —
@@ -24,4 +24,3 @@ featured_projects: true
 news: true
 about_blurb: false
 ---
-
