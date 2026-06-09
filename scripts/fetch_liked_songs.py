@@ -9,7 +9,9 @@ Usage: python3 scripts/fetch_liked_songs.py [playlist_id] [count]
 """
 import json
 import os
+import re
 import sys
+import urllib.parse
 import urllib.request
 
 PLAYLIST_ID = sys.argv[1] if len(sys.argv) > 1 else "436513472"
@@ -31,6 +33,25 @@ def https(url: str) -> str:
     return f"{url}{sep}param=160y160"
 
 
+def youtube_id(query: str) -> str:
+    """Best-effort: resolve a YouTube videoId by scraping the search results
+    page (videos filter). Returns "" if nothing is found / on any error, so the
+    track simply falls back to a NetEase link instead of in-page playback."""
+    try:
+        url = ("https://www.youtube.com/results?search_query="
+               + urllib.parse.quote(query) + "&sp=EgIQAQ%253D%253D")
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0",
+            "Accept-Language": "en-US,en;q=0.9",
+        })
+        html = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", "ignore")
+        m = re.search(r'"videoId":"([\w-]{11})"', html)
+        return m.group(1) if m else ""
+    except Exception as e:  # noqa: BLE001 — best-effort, never fatal
+        print(f"  yt lookup failed for {query!r}: {e}", file=sys.stderr)
+        return ""
+
+
 def main() -> int:
     req = urllib.request.Request(API, headers=HEADERS)
     with urllib.request.urlopen(req, timeout=20) as resp:
@@ -43,11 +64,14 @@ def main() -> int:
     pl = data["playlist"]
     tracks = []
     for t in pl.get("tracks", [])[:COUNT]:
+        title = t["name"]
+        artist = " / ".join(a["name"] for a in t.get("ar", []))
         tracks.append({
-            "title": t["name"],
-            "artist": " / ".join(a["name"] for a in t.get("ar", [])),
+            "title": title,
+            "artist": artist,
             "cover": https(t["al"]["picUrl"]),
             "url": f"https://music.163.com/song?id={t['id']}",
+            "yt": youtube_id(f"{title} {artist}"),
         })
 
     if not tracks:
