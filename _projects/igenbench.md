@@ -7,6 +7,6 @@ importance: 1
 category: vis
 tags: [ACL '26]
 paper: https://arxiv.org/abs/2601.04498
-# code: # add repo URL when available
+demo: https://igen-bench.vercel.app/
 # vis:  # add /projects/igenbench/ visual page when ready
 ---

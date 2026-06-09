@@ -23,7 +23,7 @@
       </div>
     </a>
     {% assign repo = project.code | default: project.github %}
-    {% if project.paper or repo or project.blog or project.vis %}
+    {% if project.paper or repo or project.demo or project.blog or project.vis %}
       <div class="project-links">
         {% if project.paper %}
           <a href="{{ project.paper }}" class="project-link" target="_blank" rel="noopener" data-toggle="tooltip" title="Paper">
@@ -33,6 +33,11 @@
         {% if repo %}
           <a href="{{ repo }}" class="project-link" target="_blank" rel="noopener" data-toggle="tooltip" title="Code">
             <i class="fa-brands fa-github"></i><span>code</span>
+          </a>
+        {% endif %}
+        {% if project.demo %}
+          <a href="{{ project.demo }}" class="project-link" target="_blank" rel="noopener" data-toggle="tooltip" title="Live demo">
+            <i class="fa-solid fa-window-maximize"></i><span>demo</span>
           </a>
         {% endif %}
         {% if project.blog %}
