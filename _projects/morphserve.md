@@ -8,5 +8,5 @@ category: inference
 tags: [MLSys '26]
 paper: https://arxiv.org/abs/2506.02006
 # code: # add repo URL when available
-# demo: # add /assets/demos/morphserve.html when ready
+demo: /assets/demos/morphserve.html
 ---

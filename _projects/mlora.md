@@ -8,5 +8,5 @@ category: training
 tags: [VLDB '25]
 paper: https://arxiv.org/abs/2312.02515
 code: https://github.com/TUDB-Labs/mLoRA
-# demo: # add /assets/demos/mlora.html when ready
+demo: /assets/demos/mlora.html
 ---

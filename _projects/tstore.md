@@ -8,5 +8,5 @@ category: storage
 tags: [Preprint]
 paper: https://arxiv.org/abs/2604.17104
 # code: # add repo URL when available
-# demo: # add /assets/demos/tstore.html when ready
+demo: /assets/demos/tstore.html
 ---

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mLoRA — Pipeline-Parallel LoRA Fine-Tuning</title>
+<style>
+  :root {
+    --bg: #0e1117;
+    --panel: #161b24;
+    --line: #2a313c;
+    --text: #e6edf3;
+    --muted: #8b96a5;
+    --gpu: #2dd4bf;     /* teal — GPU compute */
+    --hot: #f59e0b;     /* amber — important gradients */
+    --cpu: #818cf8;     /* indigo — CPU async update */
+    --stall: #ef4444;   /* red — stall */
+    /* extra per-adapter colors */
+    --adA: #2dd4bf;
+    --adB: #f59e0b;
+    --adC: #818cf8;
+    --adD: #f472b6;
+    --bubble: #1e2733;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 2.2rem 1.4rem 3rem; }
+  .back {
+    display: inline-block; color: var(--muted); text-decoration: none;
+    font-size: 0.85rem; margin-bottom: 1.4rem;
+  }
+  .back:hover { color: var(--text); }
+  h1 { margin: 0 0 0.2rem; font-size: 1.7rem; letter-spacing: -0.01em; }
+  h1 span { color: var(--gpu); }
+  .sub { margin: 0 0 1.8rem; color: var(--muted); font-size: 0.95rem; }
+
+  .card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 1.6rem 1.4rem; margin-bottom: 1.4rem;
+  }
+  .card h2 {
+    margin: 0 0 1.4rem; font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--muted); font-weight: 600;
+  }
+  .caption { color: var(--muted); font-size: 0.9rem; line-height: 1.55; margin: 1.2rem 0 0; }
+  .caption b { color: var(--text); font-weight: 600; }
+  .legend { display: flex; gap: 1rem 1.4rem; flex-wrap: wrap; margin-top: 1.3rem; font-size: 0.78rem; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .sw { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+
+  /* =============================================
+     CARD 1 — Naive sequential pipeline (bubbles)
+     ============================================= */
+  .pipeline-wrap {
+    position: relative;
+    /* row labels on left, grid on right */
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0 8px;
+  }
+  .gpu-labels { display: flex; flex-direction: column; gap: 4px; padding-top: 0; }
+  .gpu-label {
+    height: 28px; display: flex; align-items: center; justify-content: flex-end;
+    font-size: 0.72rem; color: var(--muted); font-weight: 600; padding-right: 4px;
+  }
+
+  /* The grid: 4 GPU rows × 16 time slots */
+  .pgrid {
+    display: grid;
+    grid-template-rows: repeat(4, 28px);
+    grid-template-columns: repeat(16, 1fr);
+    gap: 3px;
+  }
+  .cell {
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.03em;
+    color: #000;
+    opacity: 0;
+  }
+  /* bubble (idle) cells */
+  .cell.bub {
+    background: var(--bubble);
+    border: 1px dashed #2e3a4a;
+    color: var(--muted);
+    font-size: 0.55rem;
+    opacity: 1;
+  }
+  /* adapter A */
+  .cell.A { background: var(--adA); }
+  /* adapter B */
+  .cell.B { background: var(--adB); }
+  /* adapter C */
+  .cell.C { background: var(--adC); color: #fff; }
+  /* adapter D */
+  .cell.D { background: var(--adD); }
+
+  /* Staggered fade-in for each cell in a 4-stage pipeline.
+     Cycle period = 4.8s. Each adapter takes 4 consecutive slots (1 per GPU stage).
+     Adapters enter one slot apart. */
+  /* ---- NAIVE grid: adapters run one-at-a-time leaving big bubbles ---- */
+  /* Adapter A: cols 1-4 (GPU0..GPU3), row 1..4 diagonally, t=0 */
+  /* Row GPU0 = row 1, col 1 */
+  .naive .cell { animation-duration: 4.8s; animation-timing-function: step-end; animation-iteration-count: infinite; }
+
+  /* We use a single animation that flashes the cell visible during its "active" window */
+  /* Each keyframe name encodes the 1/16 time slot (0..15) when the cell is active.
+     Period = 4.8 s. Each slot = 6.25% of the period. */
+  @keyframes flash-0  { 0%,100%{opacity:0}  0%      { opacity:1 } 6.25%  { opacity:0 } }
+  @keyframes flash-1  { 0%,100%{opacity:0}  6.25%   { opacity:1 } 12.5%  { opacity:0 } }
+  @keyframes flash-2  { 0%,100%{opacity:0}  12.5%   { opacity:1 } 18.75% { opacity:0 } }
+  @keyframes flash-3  { 0%,100%{opacity:0}  18.75%  { opacity:1 } 25%    { opacity:0 } }
+  @keyframes flash-4  { 0%,100%{opacity:0}  25%     { opacity:1 } 31.25% { opacity:0 } }
+  @keyframes flash-5  { 0%,100%{opacity:0}  31.25%  { opacity:1 } 37.5%  { opacity:0 } }
+  @keyframes flash-6  { 0%,100%{opacity:0}  37.5%   { opacity:1 } 43.75% { opacity:0 } }
+  @keyframes flash-7  { 0%,100%{opacity:0}  43.75%  { opacity:1 } 50%    { opacity:0 } }
+  @keyframes flash-8  { 0%,100%{opacity:0}  50%     { opacity:1 } 56.25% { opacity:0 } }
+  @keyframes flash-9  { 0%,100%{opacity:0}  56.25%  { opacity:1 } 62.5%  { opacity:0 } }
+  @keyframes flash-10 { 0%,100%{opacity:0}  62.5%   { opacity:1 } 68.75% { opacity:0 } }
+  @keyframes flash-11 { 0%,100%{opacity:0}  68.75%  { opacity:1 } 75%    { opacity:0 } }
+  @keyframes flash-12 { 0%,100%{opacity:0}  75%     { opacity:1 } 81.25% { opacity:0 } }
+  @keyframes flash-13 { 0%,100%{opacity:0}  81.25%  { opacity:1 } 87.5%  { opacity:0 } }
+  @keyframes flash-14 { 0%,100%{opacity:0}  87.5%   { opacity:1 } 93.75% { opacity:0 } }
+  @keyframes flash-15 { 0%,100%{opacity:0}  93.75%  { opacity:1 } 100%   { opacity:0 } }
+
+  /* bubble cells are always visible — no animation needed */
+
+  /* =============================================
+     CARD 2 — mLoRA interleaved pipeline
+     ============================================= */
+  /* Same grid structure, but cells are packed so no bubbles */
+  /* playhead sweeps across the grid */
+  .pgrid-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+  .playhead2 {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: var(--text);
+    opacity: 0.5;
+    animation: sweep2 4.8s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes sweep2 { from { left: 0%; } to { left: 100%; } }
+
+  /* Shared base label — floats above both grids */
+  .base-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(45,212,191,0.08);
+    border: 1px solid rgba(45,212,191,0.3);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 0.72rem;
+    color: var(--gpu);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .base-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gpu);
+    opacity: 0.7;
+  }
+
+  /* section divider inside card */
+  .divider {
+    border: none; border-top: 1px solid var(--line);
+    margin: 1.4rem 0;
+  }
+  .sub-label {
+    font-size: 0.74rem; color: var(--muted); margin-bottom: 8px; font-style: italic;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../../projects/">← back to projects</a>
+    <h1><span>mLoRA</span> — pipeline-parallel LoRA fine-tuning</h1>
+    <p class="sub">Fine-tuning many LoRA adapters concurrently on multiple GPUs with no idle bubbles.</p>
+
+    <!-- CARD 1: Naive vs mLoRA pipeline comparison -->
+    <div class="card">
+      <h2>Pipeline comparison — naive sequential vs. mLoRA interleaved</h2>
+
+      <div class="base-badge"><i class="base-dot"></i>shared frozen base model — loaded once, reused by all adapters</div>
+
+      <!-- NAIVE -->
+      <p class="sub-label">Naive / sequential — adapters run one at a time, GPU stages sit idle (bubbles)</p>
+      <div class="pipeline-wrap">
+        <div class="gpu-labels">
+          <div class="gpu-label">GPU 0</div>
+          <div class="gpu-label">GPU 1</div>
+          <div class="gpu-label">GPU 2</div>
+          <div class="gpu-label">GPU 3</div>
+        </div>
+        <div class="pgrid-wrap">
+          <!-- 4 GPU rows × 16 time columns
+               Naive: adapter A occupies col1-4 diagonally, B col5-8, C col9-12, D col13-16
+               Everything else is a bubble -->
+          <!--
+            Naive schedule — 4 GPUs, 4 adapters processed sequentially.
+            Each adapter diagonal: A at t=0..3, B at t=4..7, C at t=8..11, D at t=12..15.
+            GPU row r processes adapter starting at time t = adapter_start + r.
+            All other cells are pipeline bubbles (idle).
+          -->
+          <div class="pgrid naive" id="naive-grid">
+            <!-- Row GPU0: A@t0, bubble×3, B@t4, bubble×3, C@t8, bubble×3, D@t12, bubble×3 -->
+            <div class="cell A" style="animation-name:flash-0">A</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell B" style="animation-name:flash-4">B</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell C" style="animation-name:flash-8">C</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell D" style="animation-name:flash-12">D</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+
+            <!-- Row GPU1: bubble, A@t1, bubble×2, bubble, B@t5, bubble×2, bubble, C@t9, bubble×2, bubble, D@t13, bubble×2 -->
+            <div class="cell bub"></div>
+            <div class="cell A" style="animation-name:flash-1">A</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell B" style="animation-name:flash-5">B</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell C" style="animation-name:flash-9">C</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell D" style="animation-name:flash-13">D</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+
+            <!-- Row GPU2: bubble×2, A@t2, bubble, bubble×2, B@t6, bubble, bubble×2, C@t10, bubble, bubble×2, D@t14, bubble -->
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell A" style="animation-name:flash-2">A</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell B" style="animation-name:flash-6">B</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell C" style="animation-name:flash-10">C</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell D" style="animation-name:flash-14">D</div>
+            <div class="cell bub"></div>
+
+            <!-- Row GPU3: bubble×3, A@t3, bubble×3, B@t7, bubble×3, C@t11, bubble×3, D@t15 -->
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell A" style="animation-name:flash-3">A</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell B" style="animation-name:flash-7">B</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell C" style="animation-name:flash-11">C</div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell bub"></div>
+            <div class="cell D" style="animation-name:flash-15">D</div>
+          </div>
+          <div class="playhead2" style="animation-duration:4.8s"></div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- mLoRA -->
+      <p class="sub-label">mLoRA — adapters interleaved; bubbles filled, all GPUs stay busy</p>
+      <div class="pipeline-wrap">
+        <div class="gpu-labels">
+          <div class="gpu-label">GPU 0</div>
+          <div class="gpu-label">GPU 1</div>
+          <div class="gpu-label">GPU 2</div>
+          <div class="gpu-label">GPU 3</div>
+        </div>
+        <div class="pgrid-wrap">
+          <!--
+            mLoRA interleaved schedule (4 GPUs, 4 adapters A B C D, each takes 4 stages):
+            Time  →  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
+            GPU0:    A  B  C  D  A  B  C  D  A  B  C  D  A  B  C  D
+            GPU1:    .  A  B  C  D  A  B  C  D  A  B  C  D  A  B  C
+            GPU2:    .  .  A  B  C  D  A  B  C  D  A  B  C  D  A  B
+            GPU3:    .  .  .  A  B  C  D  A  B  C  D  A  B  C  D  A
+
+            Cols 0-2 of GPU1-3 are fill-bubbles at the start (pipeline fill), then solid.
+            For simplicity we show the steady-state 16 cols (all filled).
+          -->
+          <div class="pgrid mlora">
+            <!-- GPU0: A B C D × 4 -->
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+
+            <!-- GPU1: D A B C D A B C D A B C D A B C -->
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+
+            <!-- GPU2: C D A B C D A B C D A B C D A B -->
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+
+            <!-- GPU3: B C D A B C D A B C D A B C D A -->
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+            <div class="cell B" style="opacity:1">B</div>
+            <div class="cell C" style="opacity:1">C</div>
+            <div class="cell D" style="opacity:1">D</div>
+            <div class="cell A" style="opacity:1">A</div>
+          </div>
+          <div class="playhead2" style="animation-duration:4.8s"></div>
+        </div>
+      </div>
+
+      <p class="caption">In the naive schedule, each adapter's 4 pipeline stages run one-at-a-time, leaving <b>3 out of 4 GPU stages idle</b> (bubble) at every step. mLoRA's LoRA-aware pipeline interleaves adapters A–D so that <b>every GPU is executing a stage at every time step</b> — eliminating bubbles and cutting average fine-tuning time by ~30%.</p>
+
+      <div class="legend">
+        <span><i class="sw" style="background:var(--adA)"></i> Adapter A</span>
+        <span><i class="sw" style="background:var(--adB)"></i> Adapter B</span>
+        <span><i class="sw" style="background:var(--adC)"></i> Adapter C</span>
+        <span><i class="sw" style="background:var(--adD)"></i> Adapter D</span>
+        <span><i class="sw" style="background:var(--bubble); border:1px dashed #2e3a4a"></i> pipeline bubble (idle)</span>
+        <span><i class="sw" style="background:rgba(45,212,191,0.15); border:1px solid rgba(45,212,191,0.4)"></i> shared frozen base model</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
