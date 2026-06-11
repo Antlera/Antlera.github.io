@@ -3,6 +3,27 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "So What",
+      "artist": "Miles Davis",
+      "cover": "https://p4.music.126.net/rPNs0i6hnZYGsYtB3WAuAw==/109951165960443532.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=21335863",
+      "yt": "ylXk1LBvIqU"
+    },
+    {
+      "title": "Lose My Cool",
+      "artist": "Amber Mark",
+      "cover": "https://p3.music.126.net/YOkXZcwzGxwKJOJ7MKtB9Q==/109951166544841622.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=467866510",
+      "yt": "xCA_8zxrXt0"
+    },
+    {
+      "title": "LEFT OF ME",
+      "artist": "Johnny Huynh",
+      "cover": "https://p4.music.126.net/wadaLJ-0zkLcUWD_5FmfNQ==/109951169785491210.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2608304735",
+      "yt": "3WcWt7npY3k"
+    },
+    {
       "title": "It Ain't Over",
       "artist": "藤井風",
       "cover": "https://p4.music.126.net/5ECr1UVUTdL42XgGBS4K1A==/109951171975648773.jpg?param=160y160",
@@ -12,7 +33,7 @@
     {
       "title": "Be More",
       "artist": "Stephen Sanchez",
-      "cover": "https://p3.music.126.net/T9vdVILwxzfgFHCaqTyyVQ==/109951168809605850.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/T9vdVILwxzfgFHCaqTyyVQ==/109951168809605850.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2070151218",
       "yt": "R95ILhksGt8"
     },
@@ -49,28 +70,7 @@
       "artist": "王OK",
       "cover": "https://p3.music.126.net/EuLXPlIXohSBZxq4NDcEOg==/109951170257546892.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2656194629",
-      "yt": "wLzhFHIJLW0"
-    },
-    {
-      "title": "躲进水里的倒影",
-      "artist": "Warsic / 壹勺籽糖",
-      "cover": "https://p3.music.126.net/oUgKzjsSq4HZTSdp1EDnlw==/109951172766872420.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3351212817",
-      "yt": ""
-    },
-    {
-      "title": "迷雾女士（A Misty Lady）",
-      "artist": "杨楚骁",
-      "cover": "https://p3.music.126.net/d0OXADs3KDjNkbgQ_Oa-rA==/109951166120950938.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1856385948",
-      "yt": "NoMs6Xyk_XY"
-    },
-    {
-      "title": "Billie Jean",
-      "artist": "Michael Jackson",
-      "cover": "https://p4.music.126.net/U7pqYhbbgxjPx1NYUGOGQQ==/109951165958551789.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=21178262",
-      "yt": "Zi_XLOBDo_Y"
+      "yt": "2QlvouoJo7E"
     }
   ]
 }
