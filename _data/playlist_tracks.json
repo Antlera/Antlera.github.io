@@ -3,6 +3,13 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "Flipped",
+      "artist": "水仙LONE / 水仙LONE",
+      "cover": "https://p3.music.126.net/Gu1kBzgblOKSHOqounK8qQ==/109951168526156851.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1860665686",
+      "yt": "YMXJPm-ysFc"
+    },
+    {
       "title": "So What",
       "artist": "Miles Davis",
       "cover": "https://p4.music.126.net/rPNs0i6hnZYGsYtB3WAuAw==/109951165960443532.jpg?param=160y160",
@@ -19,7 +26,7 @@
     {
       "title": "LEFT OF ME",
       "artist": "Johnny Huynh",
-      "cover": "https://p4.music.126.net/wadaLJ-0zkLcUWD_5FmfNQ==/109951169785491210.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/wadaLJ-0zkLcUWD_5FmfNQ==/109951169785491210.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2608304735",
       "yt": "3WcWt7npY3k"
     },
@@ -33,14 +40,14 @@
     {
       "title": "Be More",
       "artist": "Stephen Sanchez",
-      "cover": "https://p3.music.126.net/T9vdVILwxzfgFHCaqTyyVQ==/109951168809605850.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/T9vdVILwxzfgFHCaqTyyVQ==/109951168809605850.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2070151218",
       "yt": "R95ILhksGt8"
     },
     {
       "title": "Don’t Make Me a Postcard",
       "artist": "N I X O / Lauv",
-      "cover": "https://p3.music.126.net/FWQplQrGMsLUBkyU9od2GA==/109951173086725511.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/FWQplQrGMsLUBkyU9od2GA==/109951173086725511.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3371881464",
       "yt": "zS93ScjChB0"
     },
@@ -54,7 +61,7 @@
     {
       "title": "靉靆",
       "artist": "Iwamizu",
-      "cover": "https://p3.music.126.net/4zm-kjrKRcWkBDYpnYqoRA==/109951168543974759.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/4zm-kjrKRcWkBDYpnYqoRA==/109951168543974759.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1399824293",
       "yt": "ncX9FZBKPvY"
     },
@@ -64,13 +71,6 @@
       "cover": "https://p3.music.126.net/Yt1eTVPz0qI2EDQf8Axc0g==/7980255396294609.jpg?param=160y160",
       "url": "https://music.163.com/song?id=32785335",
       "yt": "ThcaPON4lLQ"
-    },
-    {
-      "title": "茧Jian",
-      "artist": "王OK",
-      "cover": "https://p4.music.126.net/EuLXPlIXohSBZxq4NDcEOg==/109951170257546892.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2656194629",
-      "yt": "2QlvouoJo7E"
     }
   ]
 }
