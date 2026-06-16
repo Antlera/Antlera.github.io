@@ -3,16 +3,58 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "Goddess",
+      "artist": "milet",
+      "cover": "https://p3.music.126.net/EGV9hi4rgNDitjbNtadCMA==/109951172304304107.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3318991294",
+      "yt": "EPD0QPbt-ak"
+    },
+    {
+      "title": "Drown",
+      "artist": "milet",
+      "cover": "https://p3.music.126.net/BVeZjZer-pYBA26cayBffQ==/109951166203340907.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1401456829",
+      "yt": "VCxXpSPCC3c"
+    },
+    {
+      "title": "this is what losing someone feels like",
+      "artist": "JVKE",
+      "cover": "https://p4.music.126.net/L7itG1hAQue_ZxEoxYm1vw==/109951168486063328.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2032213032",
+      "yt": "4aVZanf6NR0"
+    },
+    {
+      "title": "Boreal Forest",
+      "artist": "Mammal Hands",
+      "cover": "https://p4.music.126.net/8_LiLbRg8ZXMHkBucjyWJw==/109951172103725002.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=518895199",
+      "yt": "bmjFJd6q4Es"
+    },
+    {
+      "title": "Overture - From \"Whiplash\"",
+      "artist": "Justin Hurwitz",
+      "cover": "https://p3.music.126.net/gdYKBnimK7WpFF7HdyyDjQ==/109951170504121034.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=29577001",
+      "yt": "tEfV9m2ereg"
+    },
+    {
+      "title": "Minor Swing",
+      "artist": "Eddie Higgins Trio",
+      "cover": "https://p3.music.126.net/gEGjTLqVM01V5CjamaojGQ==/109951168761537710.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1307769",
+      "yt": "zNTkqnCTNhU"
+    },
+    {
       "title": "我们什么都不是… but we are everything",
       "artist": "马天佑 / 魏如萱",
-      "cover": "https://p4.music.126.net/QOojpF5_PIethGsn1jD78Q==/109951171031829876.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/QOojpF5_PIethGsn1jD78Q==/109951171031829876.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2707389614",
       "yt": "3Wf7wtlUTyQ"
     },
     {
       "title": "あなたの家に帰りたい",
       "artist": "Eddie Higgins / Scott Hamilton",
-      "cover": "https://p3.music.126.net/7g40ZUihFo3tgB6Fm--CiQ==/109951168761361312.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/7g40ZUihFo3tgB6Fm--CiQ==/109951168761361312.jpg?param=160y160",
       "url": "https://music.163.com/song?id=4056608",
       "yt": "htHKGKm23oc"
     },
@@ -26,51 +68,9 @@
     {
       "title": "So What",
       "artist": "Miles Davis",
-      "cover": "https://p4.music.126.net/rPNs0i6hnZYGsYtB3WAuAw==/109951165960443532.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/rPNs0i6hnZYGsYtB3WAuAw==/109951165960443532.jpg?param=160y160",
       "url": "https://music.163.com/song?id=21335863",
       "yt": "ylXk1LBvIqU"
-    },
-    {
-      "title": "Lose My Cool",
-      "artist": "Amber Mark",
-      "cover": "https://p4.music.126.net/YOkXZcwzGxwKJOJ7MKtB9Q==/109951166544841622.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=467866510",
-      "yt": "xCA_8zxrXt0"
-    },
-    {
-      "title": "LEFT OF ME",
-      "artist": "Johnny Huynh",
-      "cover": "https://p4.music.126.net/wadaLJ-0zkLcUWD_5FmfNQ==/109951169785491210.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2608304735",
-      "yt": "3WcWt7npY3k"
-    },
-    {
-      "title": "It Ain't Over",
-      "artist": "藤井風",
-      "cover": "https://p3.music.126.net/5ECr1UVUTdL42XgGBS4K1A==/109951171975648773.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2743437754",
-      "yt": "BKFxq3D_dGU"
-    },
-    {
-      "title": "Be More",
-      "artist": "Stephen Sanchez",
-      "cover": "https://p3.music.126.net/T9vdVILwxzfgFHCaqTyyVQ==/109951168809605850.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2070151218",
-      "yt": "R95ILhksGt8"
-    },
-    {
-      "title": "Don’t Make Me a Postcard",
-      "artist": "N I X O / Lauv",
-      "cover": "https://p3.music.126.net/FWQplQrGMsLUBkyU9od2GA==/109951173086725511.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3371881464",
-      "yt": "zS93ScjChB0"
-    },
-    {
-      "title": "Attention",
-      "artist": "Charlie Puth",
-      "cover": "https://p3.music.126.net/RNl__JslenVhRoOvGmdZAg==/109951165991701088.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=473817398",
-      "yt": "nfs8NYg7yQM"
     }
   ]
 }
