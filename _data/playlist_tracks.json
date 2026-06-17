@@ -3,9 +3,16 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "Gone Fishin'",
+      "artist": "Mighty Mo Rodgers",
+      "cover": "https://p4.music.126.net/FTs8taWPmsHLDLzGS3Pvww==/6636652185879690.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=16942876",
+      "yt": "JZ00MTmrvpc"
+    },
+    {
       "title": "Goddess",
       "artist": "milet",
-      "cover": "https://p3.music.126.net/EGV9hi4rgNDitjbNtadCMA==/109951172304304107.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/EGV9hi4rgNDitjbNtadCMA==/109951172304304107.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3318991294",
       "yt": "EPD0QPbt-ak"
     },
@@ -19,7 +26,7 @@
     {
       "title": "this is what losing someone feels like",
       "artist": "JVKE",
-      "cover": "https://p4.music.126.net/L7itG1hAQue_ZxEoxYm1vw==/109951168486063328.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/L7itG1hAQue_ZxEoxYm1vw==/109951168486063328.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2032213032",
       "yt": "4aVZanf6NR0"
     },
@@ -33,7 +40,7 @@
     {
       "title": "Overture - From \"Whiplash\"",
       "artist": "Justin Hurwitz",
-      "cover": "https://p3.music.126.net/gdYKBnimK7WpFF7HdyyDjQ==/109951170504121034.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/gdYKBnimK7WpFF7HdyyDjQ==/109951170504121034.jpg?param=160y160",
       "url": "https://music.163.com/song?id=29577001",
       "yt": "tEfV9m2ereg"
     },
@@ -47,7 +54,7 @@
     {
       "title": "我们什么都不是… but we are everything",
       "artist": "马天佑 / 魏如萱",
-      "cover": "https://p3.music.126.net/QOojpF5_PIethGsn1jD78Q==/109951171031829876.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/QOojpF5_PIethGsn1jD78Q==/109951171031829876.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2707389614",
       "yt": "3Wf7wtlUTyQ"
     },
@@ -61,16 +68,9 @@
     {
       "title": "Flipped",
       "artist": "水仙LONE / 水仙LONE",
-      "cover": "https://p4.music.126.net/Gu1kBzgblOKSHOqounK8qQ==/109951168526156851.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/Gu1kBzgblOKSHOqounK8qQ==/109951168526156851.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1860665686",
       "yt": "YMXJPm-ysFc"
-    },
-    {
-      "title": "So What",
-      "artist": "Miles Davis",
-      "cover": "https://p3.music.126.net/rPNs0i6hnZYGsYtB3WAuAw==/109951165960443532.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=21335863",
-      "yt": "ylXk1LBvIqU"
     }
   ]
 }
