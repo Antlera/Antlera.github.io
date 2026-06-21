@@ -3,6 +3,27 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "This Is Who I Am (From “The Day of the Jackal”)",
+      "artist": "Celeste",
+      "cover": "https://p4.music.126.net/YJKHDypRm1-Og4UYvQfeJQ==/109951170126119948.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2644029383",
+      "yt": "UwIN9gIFsys"
+    },
+    {
+      "title": "Ladies of the Road",
+      "artist": "King Crimson",
+      "cover": "https://p4.music.126.net/7pLRhBjD2928zN6NZznMmw==/109951169219487453.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=20045599",
+      "yt": "sckkHW487y0"
+    },
+    {
+      "title": "Lonely God",
+      "artist": "惘闻",
+      "cover": "https://p4.music.126.net/sxirRZ5jyMXXApyam3GGMA==/109951170074961839.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=385322",
+      "yt": "3V2OHDVB8aM"
+    },
+    {
       "title": "Samba Cantina",
       "artist": "Paul Desmond",
       "cover": "https://p4.music.126.net/ysSnz70W4QwNhFVbLaq4hA==/109951168849033242.jpg?param=160y160",
@@ -19,7 +40,7 @@
     {
       "title": "Goddess",
       "artist": "milet",
-      "cover": "https://p4.music.126.net/EGV9hi4rgNDitjbNtadCMA==/109951172304304107.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/EGV9hi4rgNDitjbNtadCMA==/109951172304304107.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3318991294",
       "yt": "EPD0QPbt-ak"
     },
@@ -40,7 +61,7 @@
     {
       "title": "Boreal Forest",
       "artist": "Mammal Hands",
-      "cover": "https://p4.music.126.net/8_LiLbRg8ZXMHkBucjyWJw==/109951172103725002.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/8_LiLbRg8ZXMHkBucjyWJw==/109951172103725002.jpg?param=160y160",
       "url": "https://music.163.com/song?id=518895199",
       "yt": "bmjFJd6q4Es"
     },
@@ -50,27 +71,6 @@
       "cover": "https://p3.music.126.net/gdYKBnimK7WpFF7HdyyDjQ==/109951170504121034.jpg?param=160y160",
       "url": "https://music.163.com/song?id=29577001",
       "yt": "tEfV9m2ereg"
-    },
-    {
-      "title": "Minor Swing",
-      "artist": "Eddie Higgins Trio",
-      "cover": "https://p4.music.126.net/gEGjTLqVM01V5CjamaojGQ==/109951168761537710.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1307769",
-      "yt": "zNTkqnCTNhU"
-    },
-    {
-      "title": "我们什么都不是… but we are everything",
-      "artist": "马天佑 / 魏如萱",
-      "cover": "https://p3.music.126.net/QOojpF5_PIethGsn1jD78Q==/109951171031829876.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2707389614",
-      "yt": "3Wf7wtlUTyQ"
-    },
-    {
-      "title": "あなたの家に帰りたい",
-      "artist": "Eddie Higgins / Scott Hamilton",
-      "cover": "https://p3.music.126.net/7g40ZUihFo3tgB6Fm--CiQ==/109951168761361312.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=4056608",
-      "yt": "htHKGKm23oc"
     }
   ]
 }
