@@ -2,13 +2,13 @@
 # These mirror entries in _projects/ so the standalone /projects/ page stays in sync.
 
 - title: "ZenFlow"
-  tag: "training · first author"
+  tag: "training · SIGMOD '27"
   desc: "Stall-free async offloading for LLM training. Integrated into DeepSpeed via official PR."
   url: "/assets/demos/zenflow.html"
   img:
 
 - title: "TStore"
-  tag: "storage · first author"
+  tag: "storage · SOSP '26"
   desc: "Tensor-centric storage layer for AI model hubs."
   url: "/assets/demos/tstore.html"
   img:
@@ -32,7 +32,7 @@
   img:
 
 - title: "IGenBench"
-  tag: "vis · preprint"
+  tag: "vis · ACL '26"
   desc: "First benchmark for text-to-infographic generation reliability."
   url: "https://igen-bench.vercel.app/"
   img:

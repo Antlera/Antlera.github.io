@@ -4,7 +4,7 @@
 
 vis:
   - title: "IGenBench: Benchmarking the Reliability of Text-to-Infographic Generation"
-    venue: "preprint · 2026"
+    venue: "ACL '26"
     tag: "co-author"
     desc: "First benchmark for text-to-infographic generation — 600 tests across 30 infographic types, automated reliability checks via atomic yes/no questions."
     img:
@@ -12,7 +12,7 @@ vis:
       - { label: "pdf", url: "https://arxiv.org/abs/2601.04498" }
 
   - title: "Demonstrating ViviDoc: Generating Interactive Documents through Human-Agent Collaboration"
-    venue: "preprint · 2026"
+    venue: "ACL '26 Demo"
     tag: "co-author"
     desc: "Human-agent system for interactive educational documents — multi-agent pipeline (Planner / Executor / Evaluator) plus a human-readable DocSpec IR."
     img:
@@ -21,7 +21,7 @@ vis:
 
 storage:
   - title: "TStore: Rethinking AI Model Hub with Tensor-Centric Compression"
-    venue: "preprint · 2026"
+    venue: "SOSP '26"
     tag: "first author"
     desc: "A tensor-centric storage layer for AI model hubs — compressing checkpoints by exploiting their internal structure."
     img: # add a path under assets/img/ when ready
@@ -64,7 +64,7 @@ inference:
 
 training:
   - title: "ZenFlow: Stall-Free Offloading Training via Asynchronous Updates"
-    venue: "preprint · 2025"
+    venue: "SIGMOD '27"
     tag: "first author"
     desc: "Async updates kill the offloading stall — train bigger models on the same GPUs."
     img:
