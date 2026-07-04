@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  actions: write # required to workflow_dispatch deploy.yml after the refresh commit
 
 jobs:
   update:
@@ -29,7 +30,24 @@ jobs:
         run: node scripts/update-home-interest-stats.mjs
 
       - name: Commit stats
+        id: commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update homepage interest stats"
           file_pattern: assets/json/home_interest_stats.json
+
+      - name: Trigger Deploy site
+        # A commit pushed with GITHUB_TOKEN doesn't fire `on: push` workflows,
+        # so kick deploy.yml explicitly via workflow_dispatch (which is exempt
+        # from that rule). Otherwise the fresh data never reaches the live site.
+        if: steps.commit.outputs.changes_detected == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -sS --fail-with-body -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/deploy.yml/dispatches" \
+            -d '{"ref":"master"}'
+          echo "Dispatched Deploy site on master."

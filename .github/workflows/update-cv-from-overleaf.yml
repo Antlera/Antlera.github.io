@@ -21,6 +21,7 @@ on:
 
 permissions:
   contents: write
+  actions: write # required to workflow_dispatch deploy.yml after the refresh commit
 
 jobs:
   update-cv:
@@ -126,7 +127,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          curl -sS -X POST \
+          curl -sS --fail-with-body -X POST \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
