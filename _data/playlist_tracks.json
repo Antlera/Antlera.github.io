@@ -3,16 +3,30 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "POLSKA JUMPSTYLE",
+      "artist": "Mr. Polska / Natte Visstick / Vieze Asbak",
+      "cover": "https://p4.music.126.net/pgZQubPXT9znx_o8Bwe-Qg==/109951168810426507.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2070201013",
+      "yt": "sAY4KVtsTUE"
+    },
+    {
+      "title": "GG EZ",
+      "artist": "M.Sasuke",
+      "cover": "https://p4.music.126.net/B8nnNylTey74xSqGJzxctQ==/109951173277856148.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3386000789",
+      "yt": "wUWXi1vopgw"
+    },
+    {
       "title": "愛の実験",
       "artist": "Salyu",
-      "cover": "https://p4.music.126.net/ko6R0bo1ccmedqyGxoFr-A==/109951171618169544.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/ko6R0bo1ccmedqyGxoFr-A==/109951171618169544.jpg?param=160y160",
       "url": "https://music.163.com/song?id=609005",
       "yt": "8y-ygySSMA4"
     },
     {
       "title": "All About That Bass(Postmodern Jukebox European Tour Version)",
       "artist": "Casey Abrams / Haley Reinhart / Morgan James / Ariana Savalas",
-      "cover": "https://p3.music.126.net/LDqRsHt7DcisTyO4KX7TEA==/2942293118585631.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/LDqRsHt7DcisTyO4KX7TEA==/2942293118585631.jpg?param=160y160",
       "url": "https://music.163.com/song?id=33223230",
       "yt": "aLnZ1NQm2uk"
     },
@@ -26,21 +40,21 @@
     {
       "title": "The Kids Are All Dying",
       "artist": "FINNEAS",
-      "cover": "https://p3.music.126.net/RFxgjunlII7caFc5XFCetQ==/109951167923009398.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/RFxgjunlII7caFc5XFCetQ==/109951167923009398.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1887216745",
       "yt": "pQtJQFoCO8U"
     },
     {
       "title": "Freezing",
       "artist": "Bren Joy",
-      "cover": "https://p4.music.126.net/diUYtHuvJEkB8a2wKJ8tZg==/109951165828433827.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/diUYtHuvJEkB8a2wKJ8tZg==/109951165828433827.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1831904340",
       "yt": "6IqoURo3AhY"
     },
     {
       "title": "烏 - Raven",
       "artist": "米津玄師",
-      "cover": "https://p4.music.126.net/5cIBELMMqSiIb1KOTGJbSg==/109951173312676379.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/5cIBELMMqSiIb1KOTGJbSg==/109951173312676379.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3388574657",
       "yt": "YjPMupS1Lg4"
     },
@@ -54,23 +68,9 @@
     {
       "title": "CURTSY",
       "artist": "澤野弘之",
-      "cover": "https://p4.music.126.net/Q_meMfXGyqG3VheSyUWYAQ==/109951172766105820.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/Q_meMfXGyqG3VheSyUWYAQ==/109951172766105820.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3351162813",
       "yt": "DRXsQUDOvs8"
-    },
-    {
-      "title": "Obsessed (feat. MAX)",
-      "artist": "Ayumu Imazu / MAX",
-      "cover": "https://p3.music.126.net/G3v6rIJ0b1esulFH9YMC5g==/109951169462176937.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2141658415",
-      "yt": "FPPp8RTChXc"
-    },
-    {
-      "title": "This Is Who I Am (From “The Day of the Jackal”)",
-      "artist": "Celeste",
-      "cover": "https://p4.music.126.net/YJKHDypRm1-Og4UYvQfeJQ==/109951170126119948.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2644029383",
-      "yt": "UwIN9gIFsys"
     }
   ]
 }
