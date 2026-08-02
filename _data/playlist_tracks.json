@@ -3,23 +3,58 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "空心 (Live版)",
+      "artist": "黄霄雲 / 刘端端",
+      "cover": "https://p3.music.126.net/vVtUT4iA2CXUtxf9Lfd9_g==/109951173577479026.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3407803435",
+      "yt": "zlAjS20q9pE"
+    },
+    {
+      "title": "哀人",
+      "artist": "门尼",
+      "cover": "https://p3.music.126.net/8xy-_WY6taeCAiYX1ErNhg==/109951168916549696.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2082326624",
+      "yt": "_GXKQx9KRGw"
+    },
+    {
+      "title": "Slow-mo",
+      "artist": "Brian Cheng",
+      "cover": "https://p3.music.126.net/UjgvlDo0Jc1F3ZEAWPvMkw==/109951170363236263.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2664457966",
+      "yt": "FuaPbL8tCaA"
+    },
+    {
+      "title": "Night",
+      "artist": "keshi",
+      "cover": "https://p4.music.126.net/-YQGJ0rB1SEPsDBEWSg3pQ==/109951169956528611.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2626680753",
+      "yt": "j5JeqNAnpVE"
+    },
+    {
+      "title": "百年之后请与我在宇宙相见",
+      "artist": "(。ì _ í。)",
+      "cover": "https://p4.music.126.net/GQUGInuG_GFImpQ2lLOiig==/109951171311796460.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2715823888",
+      "yt": "Niuzgyb37Bk"
+    },
+    {
       "title": "成为反派的条件",
       "artist": "顾砚舟i / 音乐合伙人",
-      "cover": "https://p3.music.126.net/2e2nPPXCrxHl69VwlmTnFw==/109951173202922587.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/2e2nPPXCrxHl69VwlmTnFw==/109951173202922587.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3366280099",
       "yt": "mbijhTnNBIk"
     },
     {
       "title": "juliet",
       "artist": "JVKE / Bryant Barnes / Emilio Piano",
-      "cover": "https://p4.music.126.net/ULPUInt9EBLVBN8UFNirTA==/109951173317722266.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/ULPUInt9EBLVBN8UFNirTA==/109951173317722266.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3389033346",
       "yt": "-ZKuuWwmHeM"
     },
     {
       "title": "POLSKA JUMPSTYLE",
       "artist": "Mr. Polska / Natte Visstick / Vieze Asbak",
-      "cover": "https://p3.music.126.net/pgZQubPXT9znx_o8Bwe-Qg==/109951168810426507.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/pgZQubPXT9znx_o8Bwe-Qg==/109951168810426507.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2070201013",
       "yt": "sAY4KVtsTUE"
     },
@@ -33,44 +68,9 @@
     {
       "title": "愛の実験",
       "artist": "Salyu",
-      "cover": "https://p4.music.126.net/ko6R0bo1ccmedqyGxoFr-A==/109951171618169544.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/ko6R0bo1ccmedqyGxoFr-A==/109951171618169544.jpg?param=160y160",
       "url": "https://music.163.com/song?id=609005",
       "yt": "U9eX9nCgNBs"
-    },
-    {
-      "title": "All About That Bass(Postmodern Jukebox European Tour Version)",
-      "artist": "Casey Abrams / Haley Reinhart / Morgan James / Ariana Savalas",
-      "cover": "https://p4.music.126.net/LDqRsHt7DcisTyO4KX7TEA==/2942293118585631.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=33223230",
-      "yt": "aLnZ1NQm2uk"
-    },
-    {
-      "title": "Us - A COLORS SHOW",
-      "artist": "FKJ / COLORS",
-      "cover": "https://p3.music.126.net/ptpom0aMNPN16xKH9pa71g==/109951171849760009.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1984039700",
-      "yt": "TEW3ujNyGFw"
-    },
-    {
-      "title": "The Kids Are All Dying",
-      "artist": "FINNEAS",
-      "cover": "https://p3.music.126.net/RFxgjunlII7caFc5XFCetQ==/109951167923009398.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1887216745",
-      "yt": "pQtJQFoCO8U"
-    },
-    {
-      "title": "Freezing",
-      "artist": "Bren Joy",
-      "cover": "https://p4.music.126.net/diUYtHuvJEkB8a2wKJ8tZg==/109951165828433827.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1831904340",
-      "yt": "6IqoURo3AhY"
-    },
-    {
-      "title": "烏 - Raven",
-      "artist": "米津玄師",
-      "cover": "https://p3.music.126.net/5cIBELMMqSiIb1KOTGJbSg==/109951173312676379.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3388574657",
-      "yt": "YjPMupS1Lg4"
     }
   ]
 }
