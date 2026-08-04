@@ -3,16 +3,23 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "Forever (Single Version)",
+      "artist": "The Little Dippers",
+      "cover": "https://p4.music.126.net/0ycTNDuRrSbwCX7GNHFTwg==/109951164665663597.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1317359172",
+      "yt": "gVS_ZLBPEck"
+    },
+    {
       "title": "完美无瑕",
       "artist": "世界之外",
-      "cover": "https://p3.music.126.net/kWjPWY_7J0TGnoNvKfq7Rg==/109951172232333014.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/kWjPWY_7J0TGnoNvKfq7Rg==/109951172232333014.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3313886420",
       "yt": "2GGsjMKWd3k"
     },
     {
       "title": "你的眼神是一场盛大的废墟",
       "artist": "Bo Peep",
-      "cover": "https://p3.music.126.net/lD4kJcE8qlN7JE1uhqE_VA==/109951169393192315.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/lD4kJcE8qlN7JE1uhqE_VA==/109951169393192315.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2133356993",
       "yt": "g5UXBKKffC8"
     },
@@ -40,21 +47,21 @@
     {
       "title": "Night",
       "artist": "keshi",
-      "cover": "https://p3.music.126.net/-YQGJ0rB1SEPsDBEWSg3pQ==/109951169956528611.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/-YQGJ0rB1SEPsDBEWSg3pQ==/109951169956528611.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2626680753",
       "yt": "j5JeqNAnpVE"
     },
     {
       "title": "百年之后请与我在宇宙相见",
       "artist": "(。ì _ í。)",
-      "cover": "https://p3.music.126.net/GQUGInuG_GFImpQ2lLOiig==/109951171311796460.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/GQUGInuG_GFImpQ2lLOiig==/109951171311796460.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2715823888",
       "yt": "Niuzgyb37Bk"
     },
     {
       "title": "成为反派的条件",
       "artist": "顾砚舟i / 音乐合伙人",
-      "cover": "https://p3.music.126.net/2e2nPPXCrxHl69VwlmTnFw==/109951173202922587.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/2e2nPPXCrxHl69VwlmTnFw==/109951173202922587.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3366280099",
       "yt": "mbijhTnNBIk"
     },
@@ -64,13 +71,6 @@
       "cover": "https://p3.music.126.net/ULPUInt9EBLVBN8UFNirTA==/109951173317722266.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3389033346",
       "yt": "-ZKuuWwmHeM"
-    },
-    {
-      "title": "POLSKA JUMPSTYLE",
-      "artist": "Mr. Polska / Natte Visstick / Vieze Asbak",
-      "cover": "https://p4.music.126.net/pgZQubPXT9znx_o8Bwe-Qg==/109951168810426507.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2070201013",
-      "yt": "sAY4KVtsTUE"
     }
   ]
 }
