@@ -3,6 +3,20 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "妥协",
+      "artist": "LBI利比",
+      "cover": "https://p3.music.126.net/E3yj_Kt03ZP1a_5GBbJb-A==/109951171461209339.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2725843883",
+      "yt": "f3Wf-GX05Iw"
+    },
+    {
+      "title": "老人と海",
+      "artist": "ヨルシカ",
+      "cover": "https://p3.music.126.net/5aHcGADR5i6biE5TSqf_aQ==/109951166295171725.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1870469768",
+      "yt": "WwnZeQiI6hQ"
+    },
+    {
       "title": "Bécane - A COLORS SHOW",
       "artist": "Yamê / COLORS",
       "cover": "https://p3.music.126.net/Ra6yPRHQMOshlzJbeFFEVg==/109951170885009783.jpg?param=160y160",
@@ -19,7 +33,7 @@
     {
       "title": "Photograph / Clair de Lune",
       "artist": "Cody Fry",
-      "cover": "https://p3.music.126.net/yifqRbTykL0NklJUgn38cQ==/109951168298907251.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/yifqRbTykL0NklJUgn38cQ==/109951168298907251.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2021343740",
       "yt": "Dt3Z4PZSVEU"
     },
@@ -40,37 +54,23 @@
     {
       "title": "你的眼神是一场盛大的废墟",
       "artist": "Bo Peep",
-      "cover": "https://p3.music.126.net/lD4kJcE8qlN7JE1uhqE_VA==/109951169393192315.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/lD4kJcE8qlN7JE1uhqE_VA==/109951169393192315.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2133356993",
       "yt": "g5UXBKKffC8"
     },
     {
       "title": "空心 (Live版)",
       "artist": "黄霄雲 / 刘端端",
-      "cover": "https://p3.music.126.net/vVtUT4iA2CXUtxf9Lfd9_g==/109951173577479026.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/vVtUT4iA2CXUtxf9Lfd9_g==/109951173577479026.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3407803435",
-      "yt": "QqR3_Zzlg40"
+      "yt": "zlAjS20q9pE"
     },
     {
       "title": "哀人",
       "artist": "门尼",
-      "cover": "https://p3.music.126.net/8xy-_WY6taeCAiYX1ErNhg==/109951168916549696.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/8xy-_WY6taeCAiYX1ErNhg==/109951168916549696.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2082326624",
-      "yt": "_GXKQx9KRGw"
-    },
-    {
-      "title": "Slow-mo",
-      "artist": "Brian Cheng",
-      "cover": "https://p3.music.126.net/UjgvlDo0Jc1F3ZEAWPvMkw==/109951170363236263.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2664457966",
-      "yt": "FuaPbL8tCaA"
-    },
-    {
-      "title": "Night",
-      "artist": "keshi",
-      "cover": "https://p3.music.126.net/-YQGJ0rB1SEPsDBEWSg3pQ==/109951169956528611.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2626680753",
-      "yt": "j5JeqNAnpVE"
+      "yt": "pacegc6mxJY"
     }
   ]
 }
