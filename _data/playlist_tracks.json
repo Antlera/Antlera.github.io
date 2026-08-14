@@ -3,6 +3,20 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "天份",
+      "artist": "薛之谦",
+      "cover": "https://p3.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1334647784",
+      "yt": "yyu_RFxv5Lg"
+    },
+    {
+      "title": "租购",
+      "artist": "薛之谦",
+      "cover": "https://p3.music.126.net/Lt8gKt_ibLUmXJW1YOIC8g==/109951170187391473.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2648841571",
+      "yt": "rD2IXdpwmkc"
+    },
+    {
       "title": "请柬 (Your Wedding)",
       "artist": "浅水ShallowEnd",
       "cover": "https://p3.music.126.net/9sffEJBv7VNOrvHBk2QwRQ==/109951173239573798.jpg?param=160y160",
@@ -12,14 +26,14 @@
     {
       "title": "Move Bitch (1973)",
       "artist": "King Willonius",
-      "cover": "https://p4.music.126.net/D2nNGIxKcWqgQIqxWCwSkA==/109951172240093802.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/D2nNGIxKcWqgQIqxWCwSkA==/109951172240093802.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3314644618",
       "yt": "klv1m6sxjfI"
     },
     {
       "title": "No One Else x Loveeeeeee Song",
       "artist": "IRXD7 / BROWN RECORD",
-      "cover": "https://p4.music.126.net/BrMNQOPMh6gcvx0HvgoHFw==/109951170011480942.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/BrMNQOPMh6gcvx0HvgoHFw==/109951170011480942.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2632937376",
       "yt": "sHEZ7Km91Rc"
     },
@@ -40,7 +54,7 @@
     {
       "title": "Moth To a Flame x After Hours (Sped up)",
       "artist": "Karry_b",
-      "cover": "https://p4.music.126.net/AlMTvl9qcZi38U-JCdtLfA==/109951170925714884.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/AlMTvl9qcZi38U-JCdtLfA==/109951170925714884.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2028167900",
       "yt": "uc-cL6F84xc"
     },
@@ -54,23 +68,9 @@
     {
       "title": "I Think I Love You Again",
       "artist": "Aaron Taylor",
-      "cover": "https://p4.music.126.net/cbuNRRCtNZYbypQvlpAuiA==/109951164984773064.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/cbuNRRCtNZYbypQvlpAuiA==/109951164984773064.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1348358452",
       "yt": "diAiHP1K-g0"
-    },
-    {
-      "title": "你要的全拿走",
-      "artist": "胡彦斌",
-      "cover": "https://p3.music.126.net/um599QnnJiNQhZgWLtgmXw==/109951168111322942.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=529668356",
-      "yt": "9HDHnU-Vl0g"
-    },
-    {
-      "title": "妥协",
-      "artist": "LBI利比",
-      "cover": "https://p4.music.126.net/E3yj_Kt03ZP1a_5GBbJb-A==/109951171461209339.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2725843883",
-      "yt": "f3Wf-GX05Iw"
     }
   ]
 }
