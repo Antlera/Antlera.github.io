@@ -3,23 +3,44 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "Only One",
+      "artist": "Alex Band",
+      "cover": "https://p4.music.126.net/NwMd-S-JFlja5m250k1caw==/2535473813700408.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=29401930",
+      "yt": "xZMIpPqnrzg"
+    },
+    {
+      "title": "What A Life",
+      "artist": "Scarlet Pleasure",
+      "cover": "https://p4.music.126.net/VKRhPkiO2llQ64QAntHkIA==/109951165914269094.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1839410613",
+      "yt": "FjVVqpZw-wg"
+    },
+    {
+      "title": "长眠",
+      "artist": "Suki刘舒妤",
+      "cover": "https://p4.music.126.net/qpbfLrERj1nJoHR6dIgjBA==/109951173596801423.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3406301834",
+      "yt": "0w7pWC8OtbM"
+    },
+    {
       "title": "天份",
       "artist": "薛之谦",
-      "cover": "https://p3.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1334647784",
       "yt": "yyu_RFxv5Lg"
     },
     {
       "title": "租购",
       "artist": "薛之谦",
-      "cover": "https://p3.music.126.net/Lt8gKt_ibLUmXJW1YOIC8g==/109951170187391473.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/Lt8gKt_ibLUmXJW1YOIC8g==/109951170187391473.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2648841571",
       "yt": "rD2IXdpwmkc"
     },
     {
       "title": "请柬 (Your Wedding)",
       "artist": "浅水ShallowEnd",
-      "cover": "https://p3.music.126.net/9sffEJBv7VNOrvHBk2QwRQ==/109951173239573798.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/9sffEJBv7VNOrvHBk2QwRQ==/109951173239573798.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3383229444",
       "yt": "virS4frb3To"
     },
@@ -40,37 +61,16 @@
     {
       "title": "God's Eyes",
       "artist": "Dax",
-      "cover": "https://p3.music.126.net/GiNqps56B2Zmv7TAHsdUfw==/109951168844286210.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/GiNqps56B2Zmv7TAHsdUfw==/109951168844286210.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2073613941",
       "yt": "MW_5jZ67z9E"
     },
     {
       "title": "Alive",
       "artist": "Blue",
-      "cover": "https://p4.music.126.net/P_CsDGSqG6HFMw3jt0NcHw==/109951169371417360.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/P_CsDGSqG6HFMw3jt0NcHw==/109951169371417360.jpg?param=160y160",
       "url": "https://music.163.com/song?id=22494904",
       "yt": "S6mEJRYw5fg"
-    },
-    {
-      "title": "Moth To a Flame x After Hours (Sped up)",
-      "artist": "Karry_b",
-      "cover": "https://p3.music.126.net/AlMTvl9qcZi38U-JCdtLfA==/109951170925714884.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2028167900",
-      "yt": "uc-cL6F84xc"
-    },
-    {
-      "title": "Everytime We Touch (Acoustic Piano Version)",
-      "artist": "Cascada",
-      "cover": "https://p4.music.126.net/R22YAdk0TD4EvttrWsV-1Q==/8888451999281894.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=28952246",
-      "yt": "ZkgFNC6RpwY"
-    },
-    {
-      "title": "I Think I Love You Again",
-      "artist": "Aaron Taylor",
-      "cover": "https://p3.music.126.net/cbuNRRCtNZYbypQvlpAuiA==/109951164984773064.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1348358452",
-      "yt": "diAiHP1K-g0"
     }
   ]
 }
