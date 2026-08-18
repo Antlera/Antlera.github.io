@@ -3,16 +3,37 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "紧急应变逃生法",
+      "artist": "Pandora樂隊",
+      "cover": "https://p4.music.126.net/rdPJYyE0LOkWg2MuNq1Xyw==/109951169374347638.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2130949397",
+      "yt": "ZLl3uf9n5s0"
+    },
+    {
+      "title": "novocaine",
+      "artist": "GenriX / CORBAL / Shiloh Dynasty",
+      "cover": "https://p3.music.126.net/OjEQkRWt_RJU6ltlHNfh4w==/109951168146345169.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2006693987",
+      "yt": "-3_1ksHkDWk"
+    },
+    {
+      "title": "Quiet Inside",
+      "artist": "Andy Tubman",
+      "cover": "https://p4.music.126.net/ry1a2wYFdsu6l1S0FHJ3Ig==/821335185991869.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1039333",
+      "yt": "I93PkZ8D3Vc"
+    },
+    {
       "title": "Ferrari",
       "artist": "Bebe Rexha",
-      "cover": "https://p3.music.126.net/J5TqXUNo7vCFF9m-I85AIA==/109951163848879403.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/J5TqXUNo7vCFF9m-I85AIA==/109951163848879403.jpg?param=160y160",
       "url": "https://music.163.com/song?id=550936829",
       "yt": "nyRawESIuy4"
     },
     {
       "title": "是你 (Live版)",
       "artist": "王赫野 / 张靓颖",
-      "cover": "https://p4.music.126.net/3z_w3vfEbTAap3AXVVmPHQ==/109951168636982036.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/3z_w3vfEbTAap3AXVVmPHQ==/109951168636982036.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2050391293",
       "yt": "o7odoNUUENE"
     },
@@ -47,30 +68,9 @@
     {
       "title": "Bécane (Remix)",
       "artist": "Trinix / Yamê",
-      "cover": "https://p4.music.126.net/11aucN3JKvJoba9xgHaIiQ==/109951170006226221.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/11aucN3JKvJoba9xgHaIiQ==/109951170006226221.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2632576198",
       "yt": "adbO9x1nEeg"
-    },
-    {
-      "title": "lovely",
-      "artist": "Billie Eilish / Khalid",
-      "cover": "https://p4.music.126.net/fTj5FUMjUYWRRAvUB2lH2A==/109951163255502377.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=552448704",
-      "yt": "V1Pl8CzNzCw"
-    },
-    {
-      "title": "Only One",
-      "artist": "Alex Band",
-      "cover": "https://p4.music.126.net/NwMd-S-JFlja5m250k1caw==/2535473813700408.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=29401930",
-      "yt": "xZMIpPqnrzg"
-    },
-    {
-      "title": "What A Life",
-      "artist": "Scarlet Pleasure",
-      "cover": "https://p3.music.126.net/VKRhPkiO2llQ64QAntHkIA==/109951165914269094.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1839410613",
-      "yt": "FjVVqpZw-wg"
     }
   ]
 }
