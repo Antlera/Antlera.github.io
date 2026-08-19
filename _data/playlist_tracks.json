@@ -3,23 +3,58 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "Everybody Dies In Their Nightmares",
+      "artist": "XXXTENTACION",
+      "cover": "https://p4.music.126.net/9sTLpi_LneFP_FPcaNgnQQ==/109951168609412948.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=501133800",
+      "yt": "7JGDWKJfgxQ"
+    },
+    {
+      "title": "Dear D (亲爱的告诉你)",
+      "artist": "项睿娴",
+      "cover": "https://p4.music.126.net/mymBOsQ9XM3VVgQRwqanAQ==/109951172037264845.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2747925048",
+      "yt": "e2Rdsay3Ld0"
+    },
+    {
+      "title": "mabataki",
+      "artist": "Vaundy",
+      "cover": "https://p3.music.126.net/TR5pM0sj2jJQYc0iSYNh7w==/109951168916969379.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1980109662",
+      "yt": "6h6AQbdTkaE"
+    },
+    {
+      "title": "When It Snows",
+      "artist": "Sarah Kang / Sam Ock",
+      "cover": "https://p3.music.126.net/Qc-WGUtmjHjvfQMSinaBMg==/109951168042078317.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1996608914",
+      "yt": "Ld3LY2uzCEs"
+    },
+    {
+      "title": "雨雾中的跳跃丁达尔",
+      "artist": "镇痛日-Analgesic day",
+      "cover": "https://p4.music.126.net/4ufQUVGDWek29l0DKzeWZA==/109951168310696005.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2033513006",
+      "yt": "iE9iT6g00i4"
+    },
+    {
       "title": "紧急应变逃生法",
       "artist": "Pandora樂隊",
-      "cover": "https://p4.music.126.net/rdPJYyE0LOkWg2MuNq1Xyw==/109951169374347638.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/rdPJYyE0LOkWg2MuNq1Xyw==/109951169374347638.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2130949397",
       "yt": "ZLl3uf9n5s0"
     },
     {
       "title": "novocaine",
       "artist": "GenriX / CORBAL / Shiloh Dynasty",
-      "cover": "https://p3.music.126.net/OjEQkRWt_RJU6ltlHNfh4w==/109951168146345169.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/OjEQkRWt_RJU6ltlHNfh4w==/109951168146345169.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2006693987",
       "yt": "-3_1ksHkDWk"
     },
     {
       "title": "Quiet Inside",
       "artist": "Andy Tubman",
-      "cover": "https://p4.music.126.net/ry1a2wYFdsu6l1S0FHJ3Ig==/821335185991869.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/ry1a2wYFdsu6l1S0FHJ3Ig==/821335185991869.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1039333",
       "yt": "I93PkZ8D3Vc"
     },
@@ -36,41 +71,6 @@
       "cover": "https://p3.music.126.net/3z_w3vfEbTAap3AXVVmPHQ==/109951168636982036.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2050391293",
       "yt": "o7odoNUUENE"
-    },
-    {
-      "title": "大风吹",
-      "artist": "王赫野",
-      "cover": "https://p4.music.126.net/o3-lfVIRsEPZbe2E7L9NVw==/109951172451116202.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1826179038",
-      "yt": "Ud9puR06o4c"
-    },
-    {
-      "title": "归零",
-      "artist": "魔鬼花园（李安健）",
-      "cover": "https://p4.music.126.net/YB9dWS9d4HL3HebJ9bkb0Q==/109951170935961209.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2000845246",
-      "yt": "EGtQ0HOyrAU"
-    },
-    {
-      "title": "热铁皮房顶的夏天",
-      "artist": "王赫野",
-      "cover": "https://p4.music.126.net/vWakbQw7yM9f5gYBHqNIvg==/109951172451111494.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1937051360",
-      "yt": "f2LKYGN_QWQ"
-    },
-    {
-      "title": "褪黑素 (Live版)",
-      "artist": "张信哲 / 江皓南",
-      "cover": "https://p3.music.126.net/9nIJCrQiqS68xwp1ehipOw==/109951170127092947.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2644174830",
-      "yt": "AShhD1tv1x0"
-    },
-    {
-      "title": "Bécane (Remix)",
-      "artist": "Trinix / Yamê",
-      "cover": "https://p3.music.126.net/11aucN3JKvJoba9xgHaIiQ==/109951170006226221.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2632576198",
-      "yt": "adbO9x1nEeg"
     }
   ]
 }
