@@ -3,6 +3,13 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "同花顺",
+      "artist": "林倛玉",
+      "cover": "https://p4.music.126.net/qiHFF-c4a4ULDyUjWjo4MQ==/109951164606137385.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=4872687",
+      "yt": "-t2O2GGCXs8"
+    },
+    {
       "title": "Everybody Dies In Their Nightmares",
       "artist": "XXXTENTACION",
       "cover": "https://p3.music.126.net/9sTLpi_LneFP_FPcaNgnQQ==/109951168609412948.jpg?param=160y160",
@@ -19,21 +26,21 @@
     {
       "title": "mabataki",
       "artist": "Vaundy",
-      "cover": "https://p3.music.126.net/TR5pM0sj2jJQYc0iSYNh7w==/109951168916969379.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/TR5pM0sj2jJQYc0iSYNh7w==/109951168916969379.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1980109662",
       "yt": "6h6AQbdTkaE"
     },
     {
       "title": "When It Snows",
       "artist": "Sarah Kang / Sam Ock",
-      "cover": "https://p3.music.126.net/Qc-WGUtmjHjvfQMSinaBMg==/109951168042078317.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/Qc-WGUtmjHjvfQMSinaBMg==/109951168042078317.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1996608914",
       "yt": "Ld3LY2uzCEs"
     },
     {
       "title": "雨雾中的跳跃丁达尔",
       "artist": "镇痛日-Analgesic day",
-      "cover": "https://p4.music.126.net/4ufQUVGDWek29l0DKzeWZA==/109951168310696005.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/4ufQUVGDWek29l0DKzeWZA==/109951168310696005.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2033513006",
       "yt": "iE9iT6g00i4"
     },
@@ -61,16 +68,9 @@
     {
       "title": "Ferrari",
       "artist": "Bebe Rexha",
-      "cover": "https://p3.music.126.net/J5TqXUNo7vCFF9m-I85AIA==/109951163848879403.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/J5TqXUNo7vCFF9m-I85AIA==/109951163848879403.jpg?param=160y160",
       "url": "https://music.163.com/song?id=550936829",
-      "yt": "nyRawESIuy4"
-    },
-    {
-      "title": "是你 (Live版)",
-      "artist": "王赫野 / 张靓颖",
-      "cover": "https://p3.music.126.net/3z_w3vfEbTAap3AXVVmPHQ==/109951168636982036.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2050391293",
-      "yt": "o7odoNUUENE"
+      "yt": "NYMcACJLqJs"
     }
   ]
 }
