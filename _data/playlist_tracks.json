@@ -3,6 +3,27 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "想你",
+      "artist": "刘大拿 / 褚晨茜",
+      "cover": "https://p4.music.126.net/9Mqh7h8xouZ_IGBonYe6qQ==/109951170105322171.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2642267710",
+      "yt": "PCtcM2B98UA"
+    },
+    {
+      "title": "坠落",
+      "artist": "蔡健雅",
+      "cover": "https://p3.music.126.net/RLrFydREIra5P5rTzIpybQ==/109951166118886951.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=27747329",
+      "yt": "hPShCoap2Cw"
+    },
+    {
+      "title": "孤雏",
+      "artist": "AGA",
+      "cover": "https://p4.music.126.net/1plA3qURt0VPElgnaTRg2w==/18302470556355853.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=421486605",
+      "yt": "ZyORtO7kTaw"
+    },
+    {
       "title": "同花顺",
       "artist": "林倛玉",
       "cover": "https://p4.music.126.net/qiHFF-c4a4ULDyUjWjo4MQ==/109951164606137385.jpg?param=160y160",
@@ -26,7 +47,7 @@
     {
       "title": "mabataki",
       "artist": "Vaundy",
-      "cover": "https://p4.music.126.net/TR5pM0sj2jJQYc0iSYNh7w==/109951168916969379.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/TR5pM0sj2jJQYc0iSYNh7w==/109951168916969379.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1980109662",
       "yt": "6h6AQbdTkaE"
     },
@@ -50,27 +71,6 @@
       "cover": "https://p4.music.126.net/rdPJYyE0LOkWg2MuNq1Xyw==/109951169374347638.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2130949397",
       "yt": "ZLl3uf9n5s0"
-    },
-    {
-      "title": "novocaine",
-      "artist": "GenriX / CORBAL / Shiloh Dynasty",
-      "cover": "https://p4.music.126.net/OjEQkRWt_RJU6ltlHNfh4w==/109951168146345169.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2006693987",
-      "yt": "-3_1ksHkDWk"
-    },
-    {
-      "title": "Quiet Inside",
-      "artist": "Andy Tubman",
-      "cover": "https://p4.music.126.net/ry1a2wYFdsu6l1S0FHJ3Ig==/821335185991869.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1039333",
-      "yt": "I93PkZ8D3Vc"
-    },
-    {
-      "title": "Ferrari",
-      "artist": "Bebe Rexha",
-      "cover": "https://p4.music.126.net/J5TqXUNo7vCFF9m-I85AIA==/109951163848879403.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=550936829",
-      "yt": "NYMcACJLqJs"
     }
   ]
 }
