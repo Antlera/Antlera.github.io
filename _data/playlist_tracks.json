@@ -3,11 +3,32 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "i want",
+      "artist": "氟西汀海",
+      "cover": "https://p3.music.126.net/2jafsHR1MOcSsUdJrRAPBw==/109951171393173311.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2699501152",
+      "yt": "n9SKjM5ADNU"
+    },
+    {
+      "title": "别怕变老",
+      "artist": "王以太 / 艾热 AIR",
+      "cover": "https://p4.music.126.net/yWV3b1I7vwMv53NL-QwBqw==/109951170141514361.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1876179147",
+      "yt": "97--ipTEtJs"
+    },
+    {
+      "title": "第三个吻痕",
+      "artist": "李思甜",
+      "cover": "https://p4.music.126.net/W_zWseqgBJR899Gz3Tr1QA==/109951172545077267.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3336110895",
+      "yt": "Lm8Vx46FwcU"
+    },
+    {
       "title": "想你",
       "artist": "刘大拿 / 褚晨茜",
-      "cover": "https://p4.music.126.net/9Mqh7h8xouZ_IGBonYe6qQ==/109951170105322171.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/9Mqh7h8xouZ_IGBonYe6qQ==/109951170105322171.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2642267710",
-      "yt": "PCtcM2B98UA"
+      "yt": "YYJpWIHb__Q"
     },
     {
       "title": "坠落",
@@ -26,51 +47,30 @@
     {
       "title": "同花顺",
       "artist": "林倛玉",
-      "cover": "https://p4.music.126.net/qiHFF-c4a4ULDyUjWjo4MQ==/109951164606137385.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/qiHFF-c4a4ULDyUjWjo4MQ==/109951164606137385.jpg?param=160y160",
       "url": "https://music.163.com/song?id=4872687",
       "yt": "-t2O2GGCXs8"
     },
     {
       "title": "Everybody Dies In Their Nightmares",
       "artist": "XXXTENTACION",
-      "cover": "https://p3.music.126.net/9sTLpi_LneFP_FPcaNgnQQ==/109951168609412948.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/9sTLpi_LneFP_FPcaNgnQQ==/109951168609412948.jpg?param=160y160",
       "url": "https://music.163.com/song?id=501133800",
       "yt": "7JGDWKJfgxQ"
     },
     {
       "title": "Dear D (亲爱的告诉你)",
       "artist": "项睿娴",
-      "cover": "https://p4.music.126.net/mymBOsQ9XM3VVgQRwqanAQ==/109951172037264845.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/mymBOsQ9XM3VVgQRwqanAQ==/109951172037264845.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2747925048",
       "yt": "e2Rdsay3Ld0"
     },
     {
       "title": "mabataki",
       "artist": "Vaundy",
-      "cover": "https://p3.music.126.net/TR5pM0sj2jJQYc0iSYNh7w==/109951168916969379.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/TR5pM0sj2jJQYc0iSYNh7w==/109951168916969379.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1980109662",
       "yt": "6h6AQbdTkaE"
-    },
-    {
-      "title": "When It Snows",
-      "artist": "Sarah Kang / Sam Ock",
-      "cover": "https://p4.music.126.net/Qc-WGUtmjHjvfQMSinaBMg==/109951168042078317.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1996608914",
-      "yt": "Ld3LY2uzCEs"
-    },
-    {
-      "title": "雨雾中的跳跃丁达尔",
-      "artist": "镇痛日-Analgesic day",
-      "cover": "https://p3.music.126.net/4ufQUVGDWek29l0DKzeWZA==/109951168310696005.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2033513006",
-      "yt": "iE9iT6g00i4"
-    },
-    {
-      "title": "紧急应变逃生法",
-      "artist": "Pandora樂隊",
-      "cover": "https://p4.music.126.net/rdPJYyE0LOkWg2MuNq1Xyw==/109951169374347638.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2130949397",
-      "yt": "ZLl3uf9n5s0"
     }
   ]
 }
