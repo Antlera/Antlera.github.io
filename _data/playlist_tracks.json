@@ -3,6 +3,13 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "给未来的自己",
+      "artist": "余翊",
+      "cover": "https://p3.music.126.net/Ke8Pljuxyshpx55cMIuWNA==/109951172459509491.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3327521028",
+      "yt": "3eUgNuDOsW4"
+    },
+    {
       "title": "Just The Two Of Us",
       "artist": "藤井風",
       "cover": "https://p3.music.126.net/ihJhsUGQbkP1yJcMy2pjvA==/109951168260168583.jpg?param=160y160",
@@ -12,7 +19,7 @@
     {
       "title": "察觉",
       "artist": "TC",
-      "cover": "https://p3.music.126.net/07nzFzMiOhhx_6_qVkc8PQ==/109951169029181629.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/07nzFzMiOhhx_6_qVkc8PQ==/109951169029181629.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2096427703",
       "yt": "pX8-wP7jgjA"
     },
@@ -40,37 +47,30 @@
     {
       "title": "桃花劫",
       "artist": "SSr / Dobi / 饺子 / ljz329",
-      "cover": "https://p4.music.126.net/p1hvZFmbqO2Ud7WWcHEPvA==/109951167355468163.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/p1hvZFmbqO2Ud7WWcHEPvA==/109951167355468163.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1942756623",
       "yt": "_8ySeqhrD1U"
     },
     {
       "title": "被动人格",
       "artist": "ljz329 / 饺子 / YuGo",
-      "cover": "https://p4.music.126.net/UTcRj8bTl4jOV_R6LOq8Uw==/109951169392683498.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/UTcRj8bTl4jOV_R6LOq8Uw==/109951169392683498.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2132747446",
       "yt": "BCG-foRC8Wk"
     },
     {
       "title": "不如不见面2024",
       "artist": "鬼鬼_非凡Gus / 伊赫",
-      "cover": "https://p4.music.126.net/bGF6fRVtB1cA4a7S1AtVrQ==/109951169727228971.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/bGF6fRVtB1cA4a7S1AtVrQ==/109951169727228971.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2602717169",
       "yt": "1ef9_DZ5T84"
     },
     {
       "title": "不如不见面",
       "artist": "王极 / 梁淞Tsong",
-      "cover": "https://p3.music.126.net/HPNMl6kw6crK_dDIzG2iVg==/109951169682298615.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/HPNMl6kw6crK_dDIzG2iVg==/109951169682298615.jpg?param=160y160",
       "url": "https://music.163.com/song?id=572980533",
       "yt": "AMWfp3arfPg"
-    },
-    {
-      "title": "不如不见面",
-      "artist": "梁淞Tsong / 鬼鬼_非凡Gus",
-      "cover": "https://p4.music.126.net/yvxsmaZ4vmJbFuikK9suWQ==/109951163335310308.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=571472967",
-      "yt": ""
     }
   ]
 }
