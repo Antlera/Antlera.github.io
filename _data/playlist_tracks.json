@@ -3,6 +3,48 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "浓缩蓝鲸",
+      "artist": "裘德",
+      "cover": "https://p3.music.126.net/5BODaqPmyNJYQaBIoV82HQ==/109951166783174480.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1864619253",
+      "yt": "kpBzVVD1R0c"
+    },
+    {
+      "title": "喜欢你",
+      "artist": "徐佳莹",
+      "cover": "https://p3.music.126.net/8INL3nPv3FVF3eAiGwrG8Q==/528865152667909.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=403710393",
+      "yt": "vRPrNV6lPGQ"
+    },
+    {
+      "title": "呼吸决定",
+      "artist": "Fine乐团",
+      "cover": "https://p3.music.126.net/qfDmwQk_TfyKXHODEdAaLw==/17771406439828281.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=35678875",
+      "yt": "t3kdXNWWJks"
+    },
+    {
+      "title": "阳光灿烂的日子",
+      "artist": "RIX / Zy",
+      "cover": "https://p3.music.126.net/fpebuD0kjG9ZMQS7BB0ZQg==/109951171287431671.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2713953964",
+      "yt": "oLoT61nXVGI"
+    },
+    {
+      "title": "春涧",
+      "artist": "聲無哀樂SWAL",
+      "cover": "https://p3.music.126.net/yPTrXbdhwuGFFFkxkbQqaQ==/109951173797465420.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3424199805",
+      "yt": "D-efZx4uPRU"
+    },
+    {
+      "title": "代替",
+      "artist": "林倛玉",
+      "cover": "https://p4.music.126.net/ZjKhtRA-coB1FoPLqU131g==/40681930243420.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=4873735",
+      "yt": "l-OJsgd-F8c"
+    },
+    {
       "title": "给未来的自己",
       "artist": "余翊",
       "cover": "https://p3.music.126.net/Ke8Pljuxyshpx55cMIuWNA==/109951172459509491.jpg?param=160y160",
@@ -19,7 +61,7 @@
     {
       "title": "察觉",
       "artist": "TC",
-      "cover": "https://p4.music.126.net/07nzFzMiOhhx_6_qVkc8PQ==/109951169029181629.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/07nzFzMiOhhx_6_qVkc8PQ==/109951169029181629.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2096427703",
       "yt": "pX8-wP7jgjA"
     },
@@ -29,48 +71,6 @@
       "cover": "https://p3.music.126.net/P_kBR4xEV-B-Iq1EWaq9Fg==/109951165845061815.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1333341557",
       "yt": "HpN4bdyqHeI"
-    },
-    {
-      "title": "收敛水",
-      "artist": "蛋堡",
-      "cover": "https://p3.music.126.net/YuS3GrLcE7PIi_3s-62ZQA==/109951168001997012.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=76899",
-      "yt": "xPU-cgPjZKk"
-    },
-    {
-      "title": "体温",
-      "artist": "陈麒名",
-      "cover": "https://p4.music.126.net/aslwYiV6X5aFufIPDAw5nA==/109951165669506233.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1454978610",
-      "yt": "G_hGxC228-s"
-    },
-    {
-      "title": "桃花劫",
-      "artist": "SSr / Dobi / 饺子 / ljz329",
-      "cover": "https://p3.music.126.net/p1hvZFmbqO2Ud7WWcHEPvA==/109951167355468163.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1942756623",
-      "yt": "_8ySeqhrD1U"
-    },
-    {
-      "title": "被动人格",
-      "artist": "ljz329 / 饺子 / YuGo",
-      "cover": "https://p3.music.126.net/UTcRj8bTl4jOV_R6LOq8Uw==/109951169392683498.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2132747446",
-      "yt": "BCG-foRC8Wk"
-    },
-    {
-      "title": "不如不见面2024",
-      "artist": "鬼鬼_非凡Gus / 伊赫",
-      "cover": "https://p3.music.126.net/bGF6fRVtB1cA4a7S1AtVrQ==/109951169727228971.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2602717169",
-      "yt": "1ef9_DZ5T84"
-    },
-    {
-      "title": "不如不见面",
-      "artist": "王极 / 梁淞Tsong",
-      "cover": "https://p4.music.126.net/HPNMl6kw6crK_dDIzG2iVg==/109951169682298615.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=572980533",
-      "yt": "AMWfp3arfPg"
     }
   ]
 }
