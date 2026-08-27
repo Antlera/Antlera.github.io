@@ -3,9 +3,44 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "鱼仔",
+      "artist": "卢广仲",
+      "cover": "https://p4.music.126.net/OWnuOmJ7v-h5PMT5BsPGLQ==/18891808788668489.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=479422898",
+      "yt": "ybfWYpYhTQQ"
+    },
+    {
+      "title": "刻在我心底的名字",
+      "artist": "何昶希 / 何衍朝",
+      "cover": "https://p4.music.126.net/-UNvBzMtdGY7sQyL01NhZw==/109951173303386549.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3386710459",
+      "yt": "bRK38KyEHkA"
+    },
+    {
+      "title": "隐喻",
+      "artist": "廖泽蓝 / 蘑菇鼠牙",
+      "cover": "https://p4.music.126.net/mh5z0aw26PvOuGxNBHvgFA==/109951172631979024.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3342356985",
+      "yt": "KZHl0CyMhXo"
+    },
+    {
+      "title": "遗憾总是贯穿人生始终",
+      "artist": "边缘 / 粘了咕叽",
+      "cover": "https://p3.music.126.net/4Bf7ti6YRPrke_pL6yN6UQ==/109951170383012046.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2666627127",
+      "yt": "HbKq5NA7qt8"
+    },
+    {
+      "title": "亲密爱人2017（feat. 酷癌）",
+      "artist": "法老 / 酷癌KooEye",
+      "cover": "https://p3.music.126.net/kkoKhghAtM3fF9zwFaO3xA==/109951162876963189.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=465721397",
+      "yt": "q4nlqJ7QDw0"
+    },
+    {
       "title": "浓缩蓝鲸",
       "artist": "裘德",
-      "cover": "https://p3.music.126.net/5BODaqPmyNJYQaBIoV82HQ==/109951166783174480.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/5BODaqPmyNJYQaBIoV82HQ==/109951166783174480.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1864619253",
       "yt": "kpBzVVD1R0c"
     },
@@ -26,51 +61,16 @@
     {
       "title": "阳光灿烂的日子",
       "artist": "RIX / Zy",
-      "cover": "https://p3.music.126.net/fpebuD0kjG9ZMQS7BB0ZQg==/109951171287431671.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/fpebuD0kjG9ZMQS7BB0ZQg==/109951171287431671.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2713953964",
       "yt": "oLoT61nXVGI"
     },
     {
       "title": "春涧",
       "artist": "聲無哀樂SWAL",
-      "cover": "https://p3.music.126.net/yPTrXbdhwuGFFFkxkbQqaQ==/109951173797465420.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/yPTrXbdhwuGFFFkxkbQqaQ==/109951173797465420.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3424199805",
       "yt": "D-efZx4uPRU"
-    },
-    {
-      "title": "代替",
-      "artist": "林倛玉",
-      "cover": "https://p4.music.126.net/ZjKhtRA-coB1FoPLqU131g==/40681930243420.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=4873735",
-      "yt": "l-OJsgd-F8c"
-    },
-    {
-      "title": "给未来的自己",
-      "artist": "余翊",
-      "cover": "https://p3.music.126.net/Ke8Pljuxyshpx55cMIuWNA==/109951172459509491.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3327521028",
-      "yt": "3eUgNuDOsW4"
-    },
-    {
-      "title": "Just The Two Of Us",
-      "artist": "藤井風",
-      "cover": "https://p3.music.126.net/ihJhsUGQbkP1yJcMy2pjvA==/109951168260168583.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1500400698",
-      "yt": "Jvu-4igoErk"
-    },
-    {
-      "title": "察觉",
-      "artist": "TC",
-      "cover": "https://p3.music.126.net/07nzFzMiOhhx_6_qVkc8PQ==/109951169029181629.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2096427703",
-      "yt": "pX8-wP7jgjA"
-    },
-    {
-      "title": "Plastic Love",
-      "artist": "Friday Night Plans",
-      "cover": "https://p3.music.126.net/P_kBR4xEV-B-Iq1EWaq9Fg==/109951165845061815.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1333341557",
-      "yt": "HpN4bdyqHeI"
     }
   ]
 }
