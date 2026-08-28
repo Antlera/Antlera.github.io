@@ -3,16 +3,51 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "阿尔茨海默的爱",
+      "artist": "白举纲",
+      "cover": "https://p3.music.126.net/0V9b8O1mUFbIyOqnABpmOg==/109951167624073329.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1961282515",
+      "yt": "mFMLEWbyFRo"
+    },
+    {
+      "title": "Stronger",
+      "artist": "Kanye West / Daft Punk",
+      "cover": "https://p3.music.126.net/1pIJlLQmblxVIJXaKnWykw==/109951167119530519.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=18969069",
+      "yt": "PsO6ZnUZI0g"
+    },
+    {
+      "title": "圈套",
+      "artist": "Dx",
+      "cover": "https://p3.music.126.net/pwdLOatt26EdlKWBqKDhew==/109951170382951273.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2666624098",
+      "yt": "ampWBdKre1c"
+    },
+    {
+      "title": "Hate Me",
+      "artist": "Nico Collins",
+      "cover": "https://p3.music.126.net/ZOwFhohwTOY27Ni1RX1Icg==/109951164206907271.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1377330150",
+      "yt": "mGVHPbspSs0"
+    },
+    {
+      "title": "Coco Elva Tia",
+      "artist": "马思唯 / JZlee",
+      "cover": "https://p3.music.126.net/Z2qKcAdS0eAYrJuJMwa3VA==/109951167611690026.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1960619633",
+      "yt": "svoh5STHZgM"
+    },
+    {
       "title": "鱼仔",
       "artist": "卢广仲",
-      "cover": "https://p4.music.126.net/OWnuOmJ7v-h5PMT5BsPGLQ==/18891808788668489.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/OWnuOmJ7v-h5PMT5BsPGLQ==/18891808788668489.jpg?param=160y160",
       "url": "https://music.163.com/song?id=479422898",
       "yt": "ybfWYpYhTQQ"
     },
     {
       "title": "刻在我心底的名字",
       "artist": "何昶希 / 何衍朝",
-      "cover": "https://p4.music.126.net/-UNvBzMtdGY7sQyL01NhZw==/109951173303386549.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/-UNvBzMtdGY7sQyL01NhZw==/109951173303386549.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3386710459",
       "yt": "bRK38KyEHkA"
     },
@@ -36,41 +71,6 @@
       "cover": "https://p3.music.126.net/kkoKhghAtM3fF9zwFaO3xA==/109951162876963189.jpg?param=160y160",
       "url": "https://music.163.com/song?id=465721397",
       "yt": "q4nlqJ7QDw0"
-    },
-    {
-      "title": "浓缩蓝鲸",
-      "artist": "裘德",
-      "cover": "https://p4.music.126.net/5BODaqPmyNJYQaBIoV82HQ==/109951166783174480.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1864619253",
-      "yt": "kpBzVVD1R0c"
-    },
-    {
-      "title": "喜欢你",
-      "artist": "徐佳莹",
-      "cover": "https://p3.music.126.net/8INL3nPv3FVF3eAiGwrG8Q==/528865152667909.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=403710393",
-      "yt": "vRPrNV6lPGQ"
-    },
-    {
-      "title": "呼吸决定",
-      "artist": "Fine乐团",
-      "cover": "https://p3.music.126.net/qfDmwQk_TfyKXHODEdAaLw==/17771406439828281.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=35678875",
-      "yt": "t3kdXNWWJks"
-    },
-    {
-      "title": "阳光灿烂的日子",
-      "artist": "RIX / Zy",
-      "cover": "https://p4.music.126.net/fpebuD0kjG9ZMQS7BB0ZQg==/109951171287431671.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2713953964",
-      "yt": "oLoT61nXVGI"
-    },
-    {
-      "title": "春涧",
-      "artist": "聲無哀樂SWAL",
-      "cover": "https://p4.music.126.net/yPTrXbdhwuGFFFkxkbQqaQ==/109951173797465420.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3424199805",
-      "yt": "D-efZx4uPRU"
     }
   ]
 }
