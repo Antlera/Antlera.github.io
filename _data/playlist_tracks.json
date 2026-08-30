@@ -3,23 +3,30 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "周旋",
+      "artist": "王以太 / 艾热 AIR",
+      "cover": "https://p4.music.126.net/rDv1qod6MDsYcEHKtxCdAA==/109951173532089932.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3404238777",
+      "yt": "6WPWpadfJfI"
+    },
+    {
       "title": "GIRLS",
       "artist": "The Kid LAROI",
-      "cover": "https://p4.music.126.net/F01wTCgE6fSMYtJhXsfjwQ==/109951169741652989.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/F01wTCgE6fSMYtJhXsfjwQ==/109951169741652989.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2604056985",
       "yt": "p9wsEOVK4cw"
     },
     {
       "title": "此曲献给理想主义者",
       "artist": "梵离纱写给伊利斯的信",
-      "cover": "https://p3.music.126.net/_Pg0z3ElqovBrPVFqMaP3w==/109951168593548306.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/_Pg0z3ElqovBrPVFqMaP3w==/109951168593548306.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2045166934",
       "yt": "IgoaUh5aizI"
     },
     {
       "title": "阿尔茨海默的爱",
       "artist": "白举纲",
-      "cover": "https://p3.music.126.net/0V9b8O1mUFbIyOqnABpmOg==/109951167624073329.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/0V9b8O1mUFbIyOqnABpmOg==/109951167624073329.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1961282515",
       "yt": "mFMLEWbyFRo"
     },
@@ -40,14 +47,14 @@
     {
       "title": "Hate Me",
       "artist": "Nico Collins",
-      "cover": "https://p3.music.126.net/ZOwFhohwTOY27Ni1RX1Icg==/109951164206907271.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/ZOwFhohwTOY27Ni1RX1Icg==/109951164206907271.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1377330150",
       "yt": "mGVHPbspSs0"
     },
     {
       "title": "Coco Elva Tia",
       "artist": "马思唯 / JZlee",
-      "cover": "https://p3.music.126.net/Z2qKcAdS0eAYrJuJMwa3VA==/109951167611690026.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/Z2qKcAdS0eAYrJuJMwa3VA==/109951167611690026.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1960619633",
       "yt": "svoh5STHZgM"
     },
@@ -64,13 +71,6 @@
       "cover": "https://p4.music.126.net/-UNvBzMtdGY7sQyL01NhZw==/109951173303386549.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3386710459",
       "yt": "bRK38KyEHkA"
-    },
-    {
-      "title": "隐喻",
-      "artist": "廖泽蓝 / 蘑菇鼠牙",
-      "cover": "https://p3.music.126.net/mh5z0aw26PvOuGxNBHvgFA==/109951172631979024.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3342356985",
-      "yt": "KZHl0CyMhXo"
     }
   ]
 }
