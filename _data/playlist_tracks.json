@@ -3,23 +3,30 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "我们有一整晚 We Got a Whole Night",
+      "artist": "玫瑰岛RoseIsland乐队",
+      "cover": "https://p3.music.126.net/CU_sLjz7bV43h-rfWoliHQ==/109951172209734138.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3312148329",
+      "yt": "1k3f9TJHYmY"
+    },
+    {
       "title": "Stray.wav",
       "artist": "$uNDOWN",
-      "cover": "https://p4.music.126.net/lYPGYNuN2i73JnEKd0EF6Q==/109951170362289570.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/lYPGYNuN2i73JnEKd0EF6Q==/109951170362289570.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2655211636",
       "yt": "uNi5Go5dth8"
     },
     {
       "title": "让思绪都随风吧",
       "artist": "供销社乐队",
-      "cover": "https://p3.music.126.net/IrVhgkQm-wEFWYNF5yiBfw==/109951173179085934.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/IrVhgkQm-wEFWYNF5yiBfw==/109951173179085934.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3378747421",
       "yt": "NIGRf7vPMw8"
     },
     {
       "title": "这个马德里女人蛮坏的",
       "artist": "澄海伯伯 / Flavia",
-      "cover": "https://p3.music.126.net/2v7P6AJnJ7UsSJT-FJrQ8Q==/109951164804368711.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/2v7P6AJnJ7UsSJT-FJrQ8Q==/109951164804368711.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1431001454",
       "yt": "Ez_CNWFxL64"
     },
@@ -35,7 +42,7 @@
       "artist": "BLU-SWING",
       "cover": "https://p3.music.126.net/w3pD7hPOoFWiojp1qxlSkQ==/109951163967965462.jpg?param=160y160",
       "url": "https://music.163.com/song?id=699614",
-      "yt": "Xiu59eaahl8"
+      "yt": "7MEUqIlyG14"
     },
     {
       "title": "11",
@@ -54,23 +61,16 @@
     {
       "title": "虹",
       "artist": "Brian Cheng",
-      "cover": "https://p3.music.126.net/b2O1fOv1X8PScQDeQEy9-w==/109951168469493161.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/b2O1fOv1X8PScQDeQEy9-w==/109951168469493161.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2030240458",
       "yt": "ogkgjtoVzR0"
     },
     {
       "title": "Fabulous",
       "artist": "BLU-SWING",
-      "cover": "https://p4.music.126.net/Rd8cYn0_8aMhjNLQp6Q33Q==/109951168761290065.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/Rd8cYn0_8aMhjNLQp6Q33Q==/109951168761290065.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2066710146",
       "yt": "Wmc-YfXOBB4"
-    },
-    {
-      "title": "Worldwide",
-      "artist": "法老 / 泠风",
-      "cover": "https://p4.music.126.net/wReyZNNnfdz2A0uHN0e2EQ==/109951170712099397.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2693446565",
-      "yt": "j9KwQbq8hds"
     }
   ]
 }
