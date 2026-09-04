@@ -3,6 +3,41 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "A Different Town",
+      "artist": "SCARECROW",
+      "cover": "https://p4.music.126.net/H69xcnHFQ7kzQ4AWe25duQ==/109951173038504124.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3369404282",
+      "yt": "vxiOdrVreSQ"
+    },
+    {
+      "title": "抑人（开门live版）",
+      "artist": "门尼",
+      "cover": "https://p4.music.126.net/hwFANaJHxgVfkEIUwPt2Vw==/109951172512209344.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3334023235",
+      "yt": "aYGWVgcV2qE"
+    },
+    {
+      "title": "抑人",
+      "artist": "银河快递 / 门尼",
+      "cover": "https://p4.music.126.net/XU7w5xlOGD3GJ5iwNWLXhw==/109951169946998771.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2625426770",
+      "yt": "ubAWtA_Nu5Q"
+    },
+    {
+      "title": "鲁伯特之泪",
+      "artist": "Jvlin",
+      "cover": "https://p3.music.126.net/yCy9s9-kJ9tn33EO9Oeq9w==/109951171291558688.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1846653916",
+      "yt": "ej21VTBWcNc"
+    },
+    {
+      "title": "Everyone’s a Star! (CLUBSOS VOL. 1)",
+      "artist": "5 Seconds of Summer",
+      "cover": "https://p3.music.126.net/zpUfXKKVfJuBB5Cnr5HzlA==/109951173885924767.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3431357694",
+      "yt": "ZUo5ks_1dTc"
+    },
+    {
       "title": "我们有一整晚 We Got a Whole Night",
       "artist": "玫瑰岛RoseIsland乐队",
       "cover": "https://p3.music.126.net/CU_sLjz7bV43h-rfWoliHQ==/109951172209734138.jpg?param=160y160",
@@ -26,51 +61,16 @@
     {
       "title": "这个马德里女人蛮坏的",
       "artist": "澄海伯伯 / Flavia",
-      "cover": "https://p3.music.126.net/2v7P6AJnJ7UsSJT-FJrQ8Q==/109951164804368711.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/2v7P6AJnJ7UsSJT-FJrQ8Q==/109951164804368711.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1431001454",
       "yt": "Ez_CNWFxL64"
     },
     {
       "title": "烂泥",
       "artist": "唐汉霄",
-      "cover": "https://p3.music.126.net/89m2p7Gok3BTF_YkYsvtVg==/109951165816702966.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/89m2p7Gok3BTF_YkYsvtVg==/109951165816702966.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1830708118",
       "yt": "frkN2lodN8I"
-    },
-    {
-      "title": "FABULOUS -Glow our vibes-",
-      "artist": "BLU-SWING",
-      "cover": "https://p3.music.126.net/w3pD7hPOoFWiojp1qxlSkQ==/109951163967965462.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=699614",
-      "yt": "7MEUqIlyG14"
-    },
-    {
-      "title": "11",
-      "artist": "队长 / 黄礼格",
-      "cover": "https://p3.music.126.net/DMJkxcW5QbeWg_DZMASfSw==/109951169494228942.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1907766514",
-      "yt": "7K2vDJP3EhM"
-    },
-    {
-      "title": "Sunburn",
-      "artist": "Brian Cheng",
-      "cover": "https://p3.music.126.net/oaAMPst4z3-eLiOyczOQLg==/109951170032353826.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2635279294",
-      "yt": "lSFX1woZhNg"
-    },
-    {
-      "title": "虹",
-      "artist": "Brian Cheng",
-      "cover": "https://p4.music.126.net/b2O1fOv1X8PScQDeQEy9-w==/109951168469493161.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2030240458",
-      "yt": "ogkgjtoVzR0"
-    },
-    {
-      "title": "Fabulous",
-      "artist": "BLU-SWING",
-      "cover": "https://p4.music.126.net/Rd8cYn0_8aMhjNLQp6Q33Q==/109951168761290065.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2066710146",
-      "yt": "Wmc-YfXOBB4"
     }
   ]
 }
