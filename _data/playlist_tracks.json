@@ -3,6 +3,13 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "看门狗",
+      "artist": "门尼",
+      "cover": "https://p3.music.126.net/L1zuLdClWn7s-XkswOQDIg==/109951168751524013.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2055830793",
+      "yt": "C8ol6HbZPK4"
+    },
+    {
       "title": "A Different Town",
       "artist": "SCARECROW",
       "cover": "https://p4.music.126.net/H69xcnHFQ7kzQ4AWe25duQ==/109951173038504124.jpg?param=160y160",
@@ -12,14 +19,14 @@
     {
       "title": "抑人（开门live版）",
       "artist": "门尼",
-      "cover": "https://p4.music.126.net/hwFANaJHxgVfkEIUwPt2Vw==/109951172512209344.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/hwFANaJHxgVfkEIUwPt2Vw==/109951172512209344.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3334023235",
       "yt": "aYGWVgcV2qE"
     },
     {
       "title": "抑人",
       "artist": "银河快递 / 门尼",
-      "cover": "https://p4.music.126.net/XU7w5xlOGD3GJ5iwNWLXhw==/109951169946998771.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/XU7w5xlOGD3GJ5iwNWLXhw==/109951169946998771.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2625426770",
       "yt": "ubAWtA_Nu5Q"
     },
@@ -33,7 +40,7 @@
     {
       "title": "Everyone’s a Star! (CLUBSOS VOL. 1)",
       "artist": "5 Seconds of Summer",
-      "cover": "https://p3.music.126.net/zpUfXKKVfJuBB5Cnr5HzlA==/109951173885924767.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/zpUfXKKVfJuBB5Cnr5HzlA==/109951173885924767.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3431357694",
       "yt": "ZUo5ks_1dTc"
     },
@@ -47,7 +54,7 @@
     {
       "title": "Stray.wav",
       "artist": "$uNDOWN",
-      "cover": "https://p4.music.126.net/lYPGYNuN2i73JnEKd0EF6Q==/109951170362289570.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/lYPGYNuN2i73JnEKd0EF6Q==/109951170362289570.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2655211636",
       "yt": "uNi5Go5dth8"
     },
@@ -64,13 +71,6 @@
       "cover": "https://p4.music.126.net/2v7P6AJnJ7UsSJT-FJrQ8Q==/109951164804368711.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1431001454",
       "yt": "Ez_CNWFxL64"
-    },
-    {
-      "title": "烂泥",
-      "artist": "唐汉霄",
-      "cover": "https://p4.music.126.net/89m2p7Gok3BTF_YkYsvtVg==/109951165816702966.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1830708118",
-      "yt": "frkN2lodN8I"
     }
   ]
 }
