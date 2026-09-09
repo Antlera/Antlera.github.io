@@ -3,6 +3,27 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "警报",
+      "artist": "SHarK / T.Axxkwywd",
+      "cover": "https://p4.music.126.net/LetoH4rhKWUYhUsrmdbWdg==/109951170735449476.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2696009851",
+      "yt": "FZZM7oUbmwQ"
+    },
+    {
+      "title": "蒸馏 Distillation",
+      "artist": "坠一",
+      "cover": "https://p3.music.126.net/ovtvZAc53RUB3O127z0iZQ==/109951173099755839.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3373044550",
+      "yt": "CHzfMdo_Aso"
+    },
+    {
+      "title": "玻璃",
+      "artist": "Gareth.T",
+      "cover": "https://p4.music.126.net/e9Yh_SIgH8FkmgIVsCXfCA==/109951173428498606.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3395949712",
+      "yt": "FB5-rPa5wBA"
+    },
+    {
       "title": "过家家",
       "artist": "门尼",
       "cover": "https://p4.music.126.net/yTqjXSK1omtIUhTi21ZPyQ==/109951169974035773.jpg?param=160y160",
@@ -14,12 +35,12 @@
       "artist": "门尼",
       "cover": "https://p4.music.126.net/yTqjXSK1omtIUhTi21ZPyQ==/109951169974035773.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2615475594",
-      "yt": "fqk_geMH45M"
+      "yt": "T1loeos3kTg"
     },
     {
       "title": "Messy",
       "artist": "Lola Young",
-      "cover": "https://p4.music.126.net/98XKgbaVF37F8fTInSqtWw==/109951169640321967.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/98XKgbaVF37F8fTInSqtWw==/109951169640321967.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2161756530",
       "yt": "k-k2_Liofy8"
     },
@@ -40,7 +61,7 @@
     {
       "title": "妄想症",
       "artist": "庸医",
-      "cover": "https://p3.music.126.net/eYb_HCcbykYy2nj-ocJVGw==/109951173276583655.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/eYb_HCcbykYy2nj-ocJVGw==/109951173276583655.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3385905816",
       "yt": "saSy25I7MUI"
     },
@@ -50,27 +71,6 @@
       "cover": "https://p3.music.126.net/j6zmxIdLWGieyTLsgsWOMQ==/109951169141456033.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2055830879",
       "yt": "cPtkt95WPWk"
-    },
-    {
-      "title": "乌兰巴托的夜 (Live)",
-      "artist": "谭维维",
-      "cover": "https://p4.music.126.net/DprdNIWpRWYZJak4Q-cS-Q==/2891715582273535.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=31877470",
-      "yt": "gkVSunxpJls"
-    },
-    {
-      "title": "火漆",
-      "artist": "门尼",
-      "cover": "https://p3.music.126.net/AQ6atOcmAbhOzKcJtW3qCw==/109951173022790041.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3358718400",
-      "yt": "X4auYSZZkK8"
-    },
-    {
-      "title": "百年好合",
-      "artist": "门尼",
-      "cover": "https://p4.music.126.net/RyCdMLy-3pNb_PSZwoPHEA==/109951169261763663.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2055825166",
-      "yt": "Ge2DlamKVME"
     }
   ]
 }
