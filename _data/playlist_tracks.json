@@ -3,9 +3,16 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "From The Start",
+      "artist": "Laufey",
+      "cover": "https://p4.music.126.net/V8Qkc44CIt5CoVjw6MdiMg==/109951168609507265.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2047103213",
+      "yt": "lSD_L-xic9o"
+    },
+    {
       "title": "Alright",
       "artist": "SHarK",
-      "cover": "https://p4.music.126.net/LetoH4rhKWUYhUsrmdbWdg==/109951170735449476.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/LetoH4rhKWUYhUsrmdbWdg==/109951170735449476.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2696316066",
       "yt": "TwOXUrIpR_E"
     },
@@ -26,7 +33,7 @@
     {
       "title": "Stayin' Alive (From \"Saturday Night Fever\" Soundtrack)",
       "artist": "Bee Gees",
-      "cover": "https://p3.music.126.net/bXOUIkXzEyEfGuDrmHAWSA==/109951173320010432.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/bXOUIkXzEyEfGuDrmHAWSA==/109951173320010432.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3952752",
       "yt": "fNFzfwLM72c"
     },
@@ -54,7 +61,7 @@
     {
       "title": "蒸馏 Distillation",
       "artist": "坠一",
-      "cover": "https://p4.music.126.net/ovtvZAc53RUB3O127z0iZQ==/109951173099755839.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/ovtvZAc53RUB3O127z0iZQ==/109951173099755839.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3373044550",
       "yt": "CHzfMdo_Aso"
     },
@@ -64,13 +71,6 @@
       "cover": "https://p3.music.126.net/e9Yh_SIgH8FkmgIVsCXfCA==/109951173428498606.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3395949712",
       "yt": "FB5-rPa5wBA"
-    },
-    {
-      "title": "过家家",
-      "artist": "门尼",
-      "cover": "https://p3.music.126.net/yTqjXSK1omtIUhTi21ZPyQ==/109951169974035773.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2601613351",
-      "yt": "U-yPxV3t0Mk"
     }
   ]
 }
