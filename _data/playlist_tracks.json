@@ -3,9 +3,23 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "BIRDS OF A FEATHER",
+      "artist": "Billie Eilish",
+      "cover": "https://p3.music.126.net/NZOnDqpyTA45AWL8kGsqxg==/109951169679537837.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2154850334",
+      "yt": "V9PVRfjEBTI"
+    },
+    {
+      "title": "matrix (bl studio loop)",
+      "artist": "dj goofygoober / dj captainclark",
+      "cover": "https://p4.music.126.net/wqX5qHpToNsqID_zJHWWsw==/109951173741360297.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3386829660",
+      "yt": "SeIuc8GVHOA"
+    },
+    {
       "title": "回忆的沙漏",
       "artist": "G.E.M.邓紫棋",
-      "cover": "https://p4.music.126.net/dXDhqpTwGojlB6GOmmjtNw==/109951172128634262.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/dXDhqpTwGojlB6GOmmjtNw==/109951172128634262.jpg?param=160y160",
       "url": "https://music.163.com/song?id=234023",
       "yt": "U-cIHm7sOQY"
     },
@@ -33,7 +47,7 @@
     {
       "title": "From The Start",
       "artist": "Laufey",
-      "cover": "https://p3.music.126.net/V8Qkc44CIt5CoVjw6MdiMg==/109951168609507265.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/V8Qkc44CIt5CoVjw6MdiMg==/109951168609507265.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2047103213",
       "yt": "lSD_L-xic9o"
     },
@@ -57,20 +71,6 @@
       "cover": "https://p3.music.126.net/UQz273pq1ipo2hzMz7Bvgw==/109951171976285300.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2743495469",
       "yt": "JWcuUHVD4Ng"
-    },
-    {
-      "title": "Stayin' Alive (From \"Saturday Night Fever\" Soundtrack)",
-      "artist": "Bee Gees",
-      "cover": "https://p3.music.126.net/bXOUIkXzEyEfGuDrmHAWSA==/109951173320010432.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3952752",
-      "yt": "fNFzfwLM72c"
-    },
-    {
-      "title": "尕连手 (Live版)",
-      "artist": "赵骏",
-      "cover": "https://p4.music.126.net/mymbP4arBC4qT9U3lflBXw==/109951173183687546.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3379174628",
-      "yt": "BgY8FqEM5mQ"
     }
   ]
 }
