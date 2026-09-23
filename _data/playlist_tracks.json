@@ -3,16 +3,23 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "This Is War",
+      "artist": "GAWNE / Atlus / Tech N9ne",
+      "cover": "https://p3.music.126.net/rAH5C2wvRzAcobOQRAcb7A==/109951172116420865.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1956591292",
+      "yt": "JVMgaMSJUl0"
+    },
+    {
       "title": "分分钟需要你",
       "artist": "林忆莲",
-      "cover": "https://p4.music.126.net/C1zOR35s02FeVE0LvaIQJA==/109951168245599343.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/C1zOR35s02FeVE0LvaIQJA==/109951168245599343.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1893256785",
       "yt": "AOd-xaZnSM0"
     },
     {
       "title": "亲密爱人",
       "artist": "王若琳",
-      "cover": "https://p3.music.126.net/vpkPKxe6Ioe1hBM9GEs-iw==/109951165958788637.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/vpkPKxe6Ioe1hBM9GEs-iw==/109951165958788637.jpg?param=160y160",
       "url": "https://music.163.com/song?id=25698047",
       "yt": "30P45wqEMMc"
     },
@@ -33,7 +40,7 @@
     {
       "title": "让一切随风",
       "artist": "钟镇涛",
-      "cover": "https://p3.music.126.net/AG9mgac-ROsvjS1_kKGGkQ==/109951173244896873.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/AG9mgac-ROsvjS1_kKGGkQ==/109951173244896873.jpg?param=160y160",
       "url": "https://music.163.com/song?id=194769",
       "yt": "-gYtirOCClE"
     },
@@ -47,14 +54,14 @@
     {
       "title": "BIRDS OF A FEATHER",
       "artist": "Billie Eilish",
-      "cover": "https://p3.music.126.net/NZOnDqpyTA45AWL8kGsqxg==/109951169679537837.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/NZOnDqpyTA45AWL8kGsqxg==/109951169679537837.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2154850334",
       "yt": "V9PVRfjEBTI"
     },
     {
       "title": "matrix (bl studio loop)",
       "artist": "dj goofygoober / dj captainclark",
-      "cover": "https://p3.music.126.net/wqX5qHpToNsqID_zJHWWsw==/109951173741360297.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/wqX5qHpToNsqID_zJHWWsw==/109951173741360297.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3386829660",
       "yt": "SeIuc8GVHOA"
     },
@@ -64,13 +71,6 @@
       "cover": "https://p3.music.126.net/dXDhqpTwGojlB6GOmmjtNw==/109951172128634262.jpg?param=160y160",
       "url": "https://music.163.com/song?id=234023",
       "yt": "U-cIHm7sOQY"
-    },
-    {
-      "title": "写给河",
-      "artist": "Leo1Bee",
-      "cover": "https://p3.music.126.net/_z1o_TOJn_bt3kKY2eolyA==/109951170726203506.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2695252079",
-      "yt": "mvLc0O7wRxs"
     }
   ]
 }
