@@ -3,6 +3,55 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "暧昧",
+      "artist": "Fine乐团",
+      "cover": "https://p4.music.126.net/gSKh6zzjM3w18O9TKUuvNA==/109951169599188351.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2157056043",
+      "yt": "N57n2gzgHsg"
+    },
+    {
+      "title": "泪海",
+      "artist": "许茹芸",
+      "cover": "https://p4.music.126.net/TougJlCvAbS1wf6M3kif6w==/109951172702570259.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=307594",
+      "yt": "-UqmwFIYcmg"
+    },
+    {
+      "title": "燕尾蝶",
+      "artist": "梁静茹",
+      "cover": "https://p3.music.126.net/u_9SuUuQ960-2B1D94nWoQ==/109951172232898857.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=254270",
+      "yt": "KAn2ejVJlE0"
+    },
+    {
+      "title": "讨厌红楼梦",
+      "artist": "陶喆",
+      "cover": "https://p4.music.126.net/FLIHPqpkfUBimQZB370agQ==/109951169237251638.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=150560",
+      "yt": "cOy2rdGe8LE"
+    },
+    {
+      "title": "疲惫的爱",
+      "artist": "step.jad依加",
+      "cover": "https://p3.music.126.net/g9JNmPZ6nQIXwVFC3xn-fw==/109951167759245469.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1970514994",
+      "yt": "zhqP-4ESaIc"
+    },
+    {
+      "title": "慢冷 (Live)",
+      "artist": "李荣浩",
+      "cover": "https://p4.music.126.net/jElhQmMdFiVFtFPvWtVbFw==/109951167749864067.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1969822728",
+      "yt": "66e50-LWLmE"
+    },
+    {
+      "title": "安妮",
+      "artist": "王杰",
+      "cover": "https://p3.music.126.net/cHOZJgBznifZfTT9NwlaWA==/109951170602036713.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=158939",
+      "yt": "1kROCIulcwQ"
+    },
+    {
       "title": "致你",
       "artist": "王赫野",
       "cover": "https://p4.music.126.net/AdBEPiLtfBr7EbTISfVxCA==/109951166195424011.jpg?param=160y160",
@@ -22,55 +71,6 @@
       "cover": "https://p4.music.126.net/C1zOR35s02FeVE0LvaIQJA==/109951168245599343.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1893256785",
       "yt": "AOd-xaZnSM0"
-    },
-    {
-      "title": "亲密爱人",
-      "artist": "王若琳",
-      "cover": "https://p3.music.126.net/vpkPKxe6Ioe1hBM9GEs-iw==/109951165958788637.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=25698047",
-      "yt": "30P45wqEMMc"
-    },
-    {
-      "title": "Epilogue",
-      "artist": "Justin Hurwitz",
-      "cover": "https://p4.music.126.net/LtvSf83njdfRPmZpshTegQ==/18558656767044521.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=461864023",
-      "yt": "HSg3tBzAVFk"
-    },
-    {
-      "title": "列车上对着坐的两个人",
-      "artist": "卢冠廷 / 林家谦",
-      "cover": "https://p4.music.126.net/mkgdxuR3kml1jnt075DQ9Q==/109951168958612608.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2087376053",
-      "yt": "m8c3m4Eedis"
-    },
-    {
-      "title": "让一切随风",
-      "artist": "钟镇涛",
-      "cover": "https://p4.music.126.net/AG9mgac-ROsvjS1_kKGGkQ==/109951173244896873.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=194769",
-      "yt": "I761A-jbDHU"
-    },
-    {
-      "title": "喜帖街",
-      "artist": "谢安琪",
-      "cover": "https://p3.music.126.net/lw4uRA7f3wxjwqpjuAd47A==/109951172846518060.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=308299",
-      "yt": "brKby3WU8-Y"
-    },
-    {
-      "title": "BIRDS OF A FEATHER",
-      "artist": "Billie Eilish",
-      "cover": "https://p4.music.126.net/NZOnDqpyTA45AWL8kGsqxg==/109951169679537837.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2154850334",
-      "yt": "V9PVRfjEBTI"
-    },
-    {
-      "title": "matrix (bl studio loop)",
-      "artist": "dj goofygoober / dj captainclark",
-      "cover": "https://p3.music.126.net/wqX5qHpToNsqID_zJHWWsw==/109951173741360297.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3386829660",
-      "yt": "SeIuc8GVHOA"
     }
   ]
 }
