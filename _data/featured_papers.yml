@@ -20,13 +20,13 @@ vis:
       - { label: "pdf", url: "https://arxiv.org/abs/2603.01912" }
 
 storage:
-  - title: "TStore: Rethinking AI Model Hub with Tensor-Centric Compression"
+  - title: "TensorDex: Rethinking AI Model Hub with Tensor-Centric Compression"
     venue: "SOSP '26"
     tag: "first author"
     desc: "A tensor-centric storage layer for AI model hubs — compressing checkpoints by exploiting their internal structure."
     img: # add a path under assets/img/ when ready
     links:
-      - { label: "pdf",  url: "https://arxiv.org/abs/2604.17104" }
+      - { label: "pdf",  url: "https://dl.acm.org/doi/epdf/10.1145/3830418.3843872" }
       - { label: "code", url: "#" }
 
   - title: "ZipLLM: Efficient LLM Storage via Model-Aware Deduplication and Compression"

@@ -7,10 +7,10 @@
   url: "/assets/demos/zenflow.html"
   img:
 
-- title: "TStore"
+- title: "TensorDex"
   tag: "storage · SOSP '26"
   desc: "Tensor-centric storage layer for AI model hubs."
-  url: "/assets/demos/tstore.html"
+  url: "/assets/demos/tensordex.html"
   img:
 
 - title: "ZipLLM"
