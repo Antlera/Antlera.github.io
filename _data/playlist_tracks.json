@@ -3,30 +3,37 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "風暴（剧集《少年四大名捕》主题曲）",
+      "artist": "林峯 / 吴卓羲 / 马国明 / 陈键锋",
+      "cover": "https://p4.music.126.net/8WWZIRWoGy0BbrA-fSBe3Q==/109951172840911137.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3355945522",
+      "yt": "9u4xG_2jQOM"
+    },
+    {
       "title": "Sway",
       "artist": "Michael Bublé",
-      "cover": "https://p3.music.126.net/M7viiRfyoV0WNw-XRF3ZlQ==/109951166035447279.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/M7viiRfyoV0WNw-XRF3ZlQ==/109951166035447279.jpg?param=160y160",
       "url": "https://music.163.com/song?id=22064561",
       "yt": "xeMOO5EudYs"
     },
     {
       "title": "国际孤独等级",
       "artist": "Gareth.T",
-      "cover": "https://p3.music.126.net/WxlvY0Ljo1D4xfHfez_yEw==/109951168432509318.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/WxlvY0Ljo1D4xfHfez_yEw==/109951168432509318.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2026303431",
       "yt": "MbD7TAlBFDc"
     },
     {
       "title": "我凭什么快乐",
       "artist": "新学校合唱团",
-      "cover": "https://p4.music.126.net/CCirwCbRPoWWjc5l_Hgvrg==/109951167938768157.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/CCirwCbRPoWWjc5l_Hgvrg==/109951167938768157.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1986992790",
       "yt": "jDvX0fciEII"
     },
     {
       "title": "アイム・ア・フール・トゥ・ウォント・ユー",
       "artist": "Eddie Higgins / Scott Hamilton",
-      "cover": "https://p4.music.126.net/7g40ZUihFo3tgB6Fm--CiQ==/109951168761361312.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/7g40ZUihFo3tgB6Fm--CiQ==/109951168761361312.jpg?param=160y160",
       "url": "https://music.163.com/song?id=4056610",
       "yt": "5hRb3n8e9uo"
     },
@@ -40,21 +47,21 @@
     {
       "title": "I Will Survive",
       "artist": "Hermes House Band",
-      "cover": "https://p3.music.126.net/G_L9qIFpHJvXrikGh99xEQ==/109951165623275736.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/G_L9qIFpHJvXrikGh99xEQ==/109951165623275736.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1448489147",
       "yt": "ldDYdmwL5zU"
     },
     {
       "title": "不要脸",
       "artist": "银河快递",
-      "cover": "https://p4.music.126.net/iMyZkxgLbnMOvJ44vuKBVg==/109951169149569341.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/iMyZkxgLbnMOvJ44vuKBVg==/109951169149569341.jpg?param=160y160",
       "url": "https://music.163.com/song?id=1999005174",
       "yt": "7qPmn0Ya8Po"
     },
     {
       "title": "通俗题材",
       "artist": "加木",
-      "cover": "https://p3.music.126.net/QN0m7XqdS9oYqqFckWyKcA==/109951172656250623.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/QN0m7XqdS9oYqqFckWyKcA==/109951172656250623.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3344039102",
       "yt": "C47mZserPYI"
     },
@@ -64,13 +71,6 @@
       "cover": "https://p3.music.126.net/DAqvnuVmtZVoZbVDonoPdw==/109951172100232834.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2745490107",
       "yt": "L-2BrupoaqE"
-    },
-    {
-      "title": "her (feat. Annika Wells)",
-      "artist": "JVKE / Annika Wells",
-      "cover": "https://p3.music.126.net/vZ9t4dGwKihf4zQ1Har7lg==/109951173645540206.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3317235944",
-      "yt": "ZxE0QzE2K9o"
     }
   ]
 }
