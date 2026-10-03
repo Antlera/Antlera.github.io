@@ -3,23 +3,51 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "I MISS YOU BABE (YES,I DO)",
+      "artist": "大野雄二",
+      "cover": "https://p4.music.126.net/txIhCjo4UVa9QakyI3ycNQ==/18958878997954522.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=491233831",
+      "yt": "62ePZMqSqoA"
+    },
+    {
+      "title": "What You Won't Do For Love",
+      "artist": "Bobby Caldwell",
+      "cover": "https://p3.music.126.net/s7clvUPOSA2QORs2_5nITg==/2137450604399302.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=26720842",
+      "yt": "n9DmdAwUbxc"
+    },
+    {
+      "title": "道诡异仙",
+      "artist": "Bo Peep",
+      "cover": "https://p4.music.126.net/OB2G4QUa8Wq39ra3hlMNxQ==/109951169164128798.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2108754753",
+      "yt": "pgxi7Ese8IA"
+    },
+    {
+      "title": "用背脊唱情歌",
+      "artist": "Gareth.T",
+      "cover": "https://p3.music.126.net/LT8Gg3QQVPfjuD7tr7BUAQ==/109951171268775376.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2712620397",
+      "yt": "falq0Gr3rc0"
+    },
+    {
       "title": "風暴（剧集《少年四大名捕》主题曲）",
       "artist": "林峯 / 吴卓羲 / 马国明 / 陈键锋",
-      "cover": "https://p4.music.126.net/8WWZIRWoGy0BbrA-fSBe3Q==/109951172840911137.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/8WWZIRWoGy0BbrA-fSBe3Q==/109951172840911137.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3355945522",
       "yt": "9u4xG_2jQOM"
     },
     {
       "title": "Sway",
       "artist": "Michael Bublé",
-      "cover": "https://p4.music.126.net/M7viiRfyoV0WNw-XRF3ZlQ==/109951166035447279.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/M7viiRfyoV0WNw-XRF3ZlQ==/109951166035447279.jpg?param=160y160",
       "url": "https://music.163.com/song?id=22064561",
       "yt": "xeMOO5EudYs"
     },
     {
       "title": "国际孤独等级",
       "artist": "Gareth.T",
-      "cover": "https://p4.music.126.net/WxlvY0Ljo1D4xfHfez_yEw==/109951168432509318.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/WxlvY0Ljo1D4xfHfez_yEw==/109951168432509318.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2026303431",
       "yt": "MbD7TAlBFDc"
     },
@@ -33,7 +61,7 @@
     {
       "title": "アイム・ア・フール・トゥ・ウォント・ユー",
       "artist": "Eddie Higgins / Scott Hamilton",
-      "cover": "https://p3.music.126.net/7g40ZUihFo3tgB6Fm--CiQ==/109951168761361312.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/7g40ZUihFo3tgB6Fm--CiQ==/109951168761361312.jpg?param=160y160",
       "url": "https://music.163.com/song?id=4056610",
       "yt": "5hRb3n8e9uo"
     },
@@ -43,34 +71,6 @@
       "cover": "https://p4.music.126.net/T7FpNGwA1hRFL08BAd0v7Q==/109951173317758710.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3363152844",
       "yt": "oLUgzS2UFGE"
-    },
-    {
-      "title": "I Will Survive",
-      "artist": "Hermes House Band",
-      "cover": "https://p4.music.126.net/G_L9qIFpHJvXrikGh99xEQ==/109951165623275736.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1448489147",
-      "yt": "ldDYdmwL5zU"
-    },
-    {
-      "title": "不要脸",
-      "artist": "银河快递",
-      "cover": "https://p3.music.126.net/iMyZkxgLbnMOvJ44vuKBVg==/109951169149569341.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1999005174",
-      "yt": "7qPmn0Ya8Po"
-    },
-    {
-      "title": "通俗题材",
-      "artist": "加木",
-      "cover": "https://p4.music.126.net/QN0m7XqdS9oYqqFckWyKcA==/109951172656250623.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3344039102",
-      "yt": "C47mZserPYI"
-    },
-    {
-      "title": "茶花开了",
-      "artist": "加木",
-      "cover": "https://p3.music.126.net/DAqvnuVmtZVoZbVDonoPdw==/109951172100232834.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2745490107",
-      "yt": "L-2BrupoaqE"
     }
   ]
 }
