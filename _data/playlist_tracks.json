@@ -3,6 +3,41 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "Space Debris",
+      "artist": "Muse",
+      "cover": "https://p3.music.126.net/dAcJeS8ufYfPzVh1_By6kQ==/109951173449753675.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3397525419",
+      "yt": "DvaRcVK9drY"
+    },
+    {
+      "title": "Ambré（琥珀）",
+      "artist": "可可說",
+      "cover": "https://p3.music.126.net/gT-jPSid0YFBTZ9zfa7lmg==/109951172245686067.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3315307210",
+      "yt": "Plb-dBPlYCI"
+    },
+    {
+      "title": "派对动物",
+      "artist": "五月天",
+      "cover": "https://p4.music.126.net/lt4R_XbCZsT-yzRfWs9VfQ==/3434874331529456.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=417953658",
+      "yt": "Fn7NLWHJw4s"
+    },
+    {
+      "title": "Bye-bye Darling",
+      "artist": "BØRNS",
+      "cover": "https://p4.music.126.net/nLsIKoNxuhNuBYf7u-LL6Q==/109951166380311934.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=529987396",
+      "yt": "sc9E5wWiUiQ"
+    },
+    {
+      "title": "难念的经",
+      "artist": "周华健",
+      "cover": "https://p4.music.126.net/VfORHD219HMaX9RoWPqQ1Q==/109951165592082195.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=187215",
+      "yt": "93OZm8Z2S8o"
+    },
+    {
       "title": "Nocturne in Paris",
       "artist": "Tony Anderson",
       "cover": "https://p3.music.126.net/vL_Cb-20CmV5PtfuIJZ--Q==/109951168233853144.jpg?param=160y160",
@@ -26,51 +61,16 @@
     {
       "title": "道诡异仙",
       "artist": "Bo Peep",
-      "cover": "https://p3.music.126.net/OB2G4QUa8Wq39ra3hlMNxQ==/109951169164128798.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/OB2G4QUa8Wq39ra3hlMNxQ==/109951169164128798.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2108754753",
       "yt": "pgxi7Ese8IA"
     },
     {
       "title": "用背脊唱情歌",
       "artist": "Gareth.T",
-      "cover": "https://p3.music.126.net/LT8Gg3QQVPfjuD7tr7BUAQ==/109951171268775376.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/LT8Gg3QQVPfjuD7tr7BUAQ==/109951171268775376.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2712620397",
       "yt": "falq0Gr3rc0"
-    },
-    {
-      "title": "風暴（剧集《少年四大名捕》主题曲）",
-      "artist": "林峯 / 吴卓羲 / 马国明 / 陈键锋",
-      "cover": "https://p4.music.126.net/8WWZIRWoGy0BbrA-fSBe3Q==/109951172840911137.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3355945522",
-      "yt": "9u4xG_2jQOM"
-    },
-    {
-      "title": "Sway",
-      "artist": "Michael Bublé",
-      "cover": "https://p4.music.126.net/M7viiRfyoV0WNw-XRF3ZlQ==/109951166035447279.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=22064561",
-      "yt": "xeMOO5EudYs"
-    },
-    {
-      "title": "国际孤独等级",
-      "artist": "Gareth.T",
-      "cover": "https://p4.music.126.net/WxlvY0Ljo1D4xfHfez_yEw==/109951168432509318.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2026303431",
-      "yt": "MbD7TAlBFDc"
-    },
-    {
-      "title": "我凭什么快乐",
-      "artist": "新学校合唱团",
-      "cover": "https://p4.music.126.net/CCirwCbRPoWWjc5l_Hgvrg==/109951167938768157.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1986992790",
-      "yt": "jDvX0fciEII"
-    },
-    {
-      "title": "アイム・ア・フール・トゥ・ウォント・ユー",
-      "artist": "Eddie Higgins / Scott Hamilton",
-      "cover": "https://p4.music.126.net/7g40ZUihFo3tgB6Fm--CiQ==/109951168761361312.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=4056610",
-      "yt": "5hRb3n8e9uo"
     }
   ]
 }
