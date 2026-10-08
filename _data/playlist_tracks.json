@@ -3,9 +3,23 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "最寂寞的时候",
+      "artist": "卢广仲",
+      "cover": "https://p3.music.126.net/V96ubFWk7NMLVSrilwFI0w==/109951163618713138.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=109559",
+      "yt": "vjybouULctM"
+    },
+    {
+      "title": "梦中人",
+      "artist": "亚森",
+      "cover": "https://p3.music.126.net/oGRDfE2efqQPGCVFM9J__w==/109951168599981287.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2635899541",
+      "yt": "x1_gAoea3E8"
+    },
+    {
       "title": "Caresse Sur L'océan (From \"Les Choristes\")",
       "artist": "Ultimate Heroes",
-      "cover": "https://p4.music.126.net/V4KGbnuQjIYbX12ZCTkBTw==/109951163213920490.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/V4KGbnuQjIYbX12ZCTkBTw==/109951163213920490.jpg?param=160y160",
       "url": "https://music.163.com/song?id=548809381",
       "yt": "OoLFc_YpjTk"
     },
@@ -47,7 +61,7 @@
     {
       "title": "Bye-bye Darling",
       "artist": "BØRNS",
-      "cover": "https://p4.music.126.net/nLsIKoNxuhNuBYf7u-LL6Q==/109951166380311934.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/nLsIKoNxuhNuBYf7u-LL6Q==/109951166380311934.jpg?param=160y160",
       "url": "https://music.163.com/song?id=529987396",
       "yt": "sc9E5wWiUiQ"
     },
@@ -57,20 +71,6 @@
       "cover": "https://p4.music.126.net/VfORHD219HMaX9RoWPqQ1Q==/109951165592082195.jpg?param=160y160",
       "url": "https://music.163.com/song?id=187215",
       "yt": "93OZm8Z2S8o"
-    },
-    {
-      "title": "Nocturne in Paris",
-      "artist": "Tony Anderson",
-      "cover": "https://p3.music.126.net/vL_Cb-20CmV5PtfuIJZ--Q==/109951168233853144.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=1312596790",
-      "yt": "1SvZrMvBiOE"
-    },
-    {
-      "title": "I MISS YOU BABE (YES,I DO)",
-      "artist": "大野雄二",
-      "cover": "https://p3.music.126.net/txIhCjo4UVa9QakyI3ycNQ==/18958878997954522.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=491233831",
-      "yt": "62ePZMqSqoA"
     }
   ]
 }
