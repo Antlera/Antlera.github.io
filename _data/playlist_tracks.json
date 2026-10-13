@@ -3,9 +3,16 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "圆",
+      "artist": "AGA",
+      "cover": "https://p4.music.126.net/c2VB_r9bD1iX99_FHk_R_w==/109951172903960689.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=406475388",
+      "yt": "h2-dP-W1gtE"
+    },
+    {
       "title": "暗叫",
       "artist": "きくお",
-      "cover": "https://p3.music.126.net/qqo0A0PWLF05vyZfsUBxCA==/109951165759680754.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/qqo0A0PWLF05vyZfsUBxCA==/109951165759680754.jpg?param=160y160",
       "url": "https://music.163.com/song?id=460976",
       "yt": "_wWUDMbraJc"
     },
@@ -47,7 +54,7 @@
     {
       "title": "还魂门",
       "artist": "胡彦斌",
-      "cover": "https://p4.music.126.net/X6G9k6dLYvaN4BJf2Lpg2g==/109951172646801063.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/X6G9k6dLYvaN4BJf2Lpg2g==/109951172646801063.jpg?param=160y160",
       "url": "https://music.163.com/song?id=420513275",
       "yt": "WI_hndMsUik"
     },
@@ -64,13 +71,6 @@
       "cover": "https://p4.music.126.net/gT-jPSid0YFBTZ9zfa7lmg==/109951172245686067.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3315307210",
       "yt": "Plb-dBPlYCI"
-    },
-    {
-      "title": "派对动物",
-      "artist": "五月天",
-      "cover": "https://p4.music.126.net/lt4R_XbCZsT-yzRfWs9VfQ==/3434874331529456.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=417953658",
-      "yt": "Fn7NLWHJw4s"
     }
   ]
 }
