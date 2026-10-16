@@ -3,9 +3,16 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "窘态之年",
+      "artist": "石岩",
+      "cover": "https://p4.music.126.net/icuuMjcIoZSp0WuIX5DYfw==/109951170074725214.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=2628705634",
+      "yt": "fbCqo8IBvtc"
+    },
+    {
       "title": "借过一下 (Live)",
       "artist": "陈小春",
-      "cover": "https://p4.music.126.net/MYt0CiPPd_vN02wm2ryIvQ==/109951173388430543.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/MYt0CiPPd_vN02wm2ryIvQ==/109951173388430543.jpg?param=160y160",
       "url": "https://music.163.com/song?id=3389798285",
       "yt": "6BMZlVwm8ZM"
     },
@@ -54,23 +61,16 @@
     {
       "title": "梦中人",
       "artist": "亚森",
-      "cover": "https://p3.music.126.net/oGRDfE2efqQPGCVFM9J__w==/109951168599981287.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/oGRDfE2efqQPGCVFM9J__w==/109951168599981287.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2635899541",
       "yt": "x1_gAoea3E8"
     },
     {
       "title": "Caresse Sur L'océan (From \"Les Choristes\")",
       "artist": "Ultimate Heroes",
-      "cover": "https://p4.music.126.net/V4KGbnuQjIYbX12ZCTkBTw==/109951163213920490.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/V4KGbnuQjIYbX12ZCTkBTw==/109951163213920490.jpg?param=160y160",
       "url": "https://music.163.com/song?id=548809381",
       "yt": "OoLFc_YpjTk"
-    },
-    {
-      "title": "李香兰",
-      "artist": "张学友",
-      "cover": "https://p3.music.126.net/i4_3YzlW8o6lXnCMwFrMTQ==/109951173478761081.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=188703",
-      "yt": "P4klNtVDBHI"
     }
   ]
 }
