@@ -3,16 +3,23 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "无我",
+      "artist": "勤廣",
+      "cover": "https://p4.music.126.net/G46FgmvhF5vtTw8H6vZJWQ==/109951173247476222.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3383848713",
+      "yt": "BrD0mvXRHMY"
+    },
+    {
       "title": "Lingus",
       "artist": "Snarky Puppy",
-      "cover": "https://p3.music.126.net/53H1xC7TFzQPY6ldBTl9rQ==/6035219324951220.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/53H1xC7TFzQPY6ldBTl9rQ==/6035219324951220.jpg?param=160y160",
       "url": "https://music.163.com/song?id=28299883",
       "yt": "L_XJ_s5IsQc"
     },
     {
       "title": "窘态之年",
       "artist": "石岩",
-      "cover": "https://p4.music.126.net/icuuMjcIoZSp0WuIX5DYfw==/109951170074725214.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/icuuMjcIoZSp0WuIX5DYfw==/109951170074725214.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2628705634",
       "yt": "fbCqo8IBvtc"
     },
@@ -33,14 +40,14 @@
     {
       "title": "想你的旧名字",
       "artist": "李克勤",
-      "cover": "https://p4.music.126.net/dcnNhBHlxaC7qCFhOsr3cw==/101155069767513.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/dcnNhBHlxaC7qCFhOsr3cw==/101155069767513.jpg?param=160y160",
       "url": "https://music.163.com/song?id=112167",
       "yt": "Vn-CG3-1zF4"
     },
     {
       "title": "圆",
       "artist": "AGA",
-      "cover": "https://p3.music.126.net/c2VB_r9bD1iX99_FHk_R_w==/109951172903960689.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/c2VB_r9bD1iX99_FHk_R_w==/109951172903960689.jpg?param=160y160",
       "url": "https://music.163.com/song?id=406475388",
       "yt": "h2-dP-W1gtE"
     },
@@ -54,7 +61,7 @@
     {
       "title": "Love Like This",
       "artist": "藤井風",
-      "cover": "https://p3.music.126.net/QBlFnb-7W-6e4nWQsn8nBA==/109951171575709699.jpg?param=160y160",
+      "cover": "https://p4.music.126.net/QBlFnb-7W-6e4nWQsn8nBA==/109951171575709699.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2731571357",
       "yt": "RoY_ZoWe-eI"
     },
@@ -64,13 +71,6 @@
       "cover": "https://p4.music.126.net/V96ubFWk7NMLVSrilwFI0w==/109951163618713138.jpg?param=160y160",
       "url": "https://music.163.com/song?id=109559",
       "yt": "vjybouULctM"
-    },
-    {
-      "title": "梦中人",
-      "artist": "亚森",
-      "cover": "https://p4.music.126.net/oGRDfE2efqQPGCVFM9J__w==/109951168599981287.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2635899541",
-      "yt": "x1_gAoea3E8"
     }
   ]
 }
