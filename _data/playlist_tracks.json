@@ -3,6 +3,34 @@
   "playlist_url": "https://music.163.com/playlist?id=436513472",
   "tracks": [
     {
+      "title": "By The Sleepy Lagoon",
+      "artist": "Eric Coates",
+      "cover": "https://p3.music.126.net/AdRuYuuns6ZxzNRu7CZgSw==/18343152486633178.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=464728417",
+      "yt": "sNac1AXQFps"
+    },
+    {
+      "title": "萨蒂《第一号裸体舞曲》",
+      "artist": "卢卡费德里科",
+      "cover": "https://p3.music.126.net/l5uNzxPvhsmxFh_r9BRFvg==/109951172358653264.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=3322956158",
+      "yt": ""
+    },
+    {
+      "title": "Simply Satie",
+      "artist": "Michael Dulin",
+      "cover": "https://p3.music.126.net/Wnq4mhZ20Bw1Cu0DqDskcA==/109951164495008478.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1771729",
+      "yt": "WLa2FJVDzzc"
+    },
+    {
+      "title": "Imbre",
+      "artist": "Jordan Critz",
+      "cover": "https://p4.music.126.net/EkWSwNDaRGO63fhAcoXsSA==/109951166298120327.jpg?param=160y160",
+      "url": "https://music.163.com/song?id=1870690301",
+      "yt": "CAQaWfhHDyI"
+    },
+    {
       "title": "Carry on Wayward Son",
       "artist": "Kansas",
       "cover": "https://p4.music.126.net/jqD07nKcopbaAGPawRBMUg==/109951165992968847.jpg?param=160y160",
@@ -12,7 +40,7 @@
     {
       "title": "Over And Over",
       "artist": "Rachael Yamagata",
-      "cover": "https://p4.music.126.net/jRUHQ3Ect0kIkXvmFfCVPA==/18619129906453908.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/jRUHQ3Ect0kIkXvmFfCVPA==/18619129906453908.jpg?param=160y160",
       "url": "https://music.163.com/song?id=18733269",
       "yt": "GOjnLjsdLn0"
     },
@@ -33,7 +61,7 @@
     {
       "title": "你不必非要做任何",
       "artist": "曹于漫",
-      "cover": "https://p4.music.126.net/ojeIPKCTwhOM4wEAc03x9g==/109951171402336633.jpg?param=160y160",
+      "cover": "https://p3.music.126.net/ojeIPKCTwhOM4wEAc03x9g==/109951171402336633.jpg?param=160y160",
       "url": "https://music.163.com/song?id=2722458496",
       "yt": "6Zmozzcs4OE"
     },
@@ -43,34 +71,6 @@
       "cover": "https://p4.music.126.net/KYC32_Zrfr8jy5RTSDaMww==/54975581405156.jpg?param=160y160",
       "url": "https://music.163.com/song?id=5278470",
       "yt": "WNHik8RR6u0"
-    },
-    {
-      "title": "无我",
-      "artist": "勤廣",
-      "cover": "https://p4.music.126.net/G46FgmvhF5vtTw8H6vZJWQ==/109951173247476222.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3383848713",
-      "yt": "BrD0mvXRHMY"
-    },
-    {
-      "title": "Lingus",
-      "artist": "Snarky Puppy",
-      "cover": "https://p3.music.126.net/53H1xC7TFzQPY6ldBTl9rQ==/6035219324951220.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=28299883",
-      "yt": "L_XJ_s5IsQc"
-    },
-    {
-      "title": "窘态之年",
-      "artist": "石岩",
-      "cover": "https://p3.music.126.net/icuuMjcIoZSp0WuIX5DYfw==/109951170074725214.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=2628705634",
-      "yt": "fbCqo8IBvtc"
-    },
-    {
-      "title": "借过一下 (Live)",
-      "artist": "陈小春",
-      "cover": "https://p4.music.126.net/MYt0CiPPd_vN02wm2ryIvQ==/109951173388430543.jpg?param=160y160",
-      "url": "https://music.163.com/song?id=3389798285",
-      "yt": "6BMZlVwm8ZM"
     }
   ]
 }
